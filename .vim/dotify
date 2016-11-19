@@ -47,7 +47,7 @@ def update(args, dst):
     if not os.path.exists(dst):
         os.makedirs(dst)
     for plugin in PLUGINS:
-        plugin_name = os.path.baseplugin_name(plugin).replace(".git", "")
+        plugin_name = os.path.basename(plugin).replace(".git", "")
         plugin_path = "{}{}".format(dst, plugin_name)
         if os.path.exists(plugin_path):
             logging.debug("updating vim plugin {}".format(plugin_name))
