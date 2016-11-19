@@ -42,11 +42,11 @@ def update(args, dst):
         plugin_name = os.path.basename(plugin).replace(".git", "")
         plugin_path = "{}{}".format(dst, plugin_name)
         if os.path.exists(plugin_path):
-            logging.debug("updating vim plugin {}".format(plugin_name))
+            logging.debug("updating i3 plugin {}".format(plugin_name))
             with cd(plugin_path):
                 execute("git pull")
         else:
-            logging.debug("cloning vim plugin {}".format(plugin_name))
+            logging.debug("cloning i3 plugin {}".format(plugin_name))
             with cd(dst):
                 execute("git clone {}".format(plugin))
 
