@@ -9,7 +9,6 @@ set number
 set scrolloff=10
 set wildmode=longest,list
 set noshowmode
-set showcmd
 set nocompatible
 set cursorline
 
