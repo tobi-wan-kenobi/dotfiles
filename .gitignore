@@ -3,3 +3,4 @@ backup/
 .vim/bundle/*
 .vim/undo/
 *.swp
+dotifyc
