@@ -1,0 +1,53 @@
+#!/usr/bin/env python
+
+import os
+import shlex
+import logging
+import subprocess
+
+PLUGINS = [
+    "https://github.com/tobi-wan-kenobi/bumblebee-status.git",
+]
+
+from contextlib import contextmanager
+import os
+
+@contextmanager
+def cd(newdir):
+    prevdir = os.getcwd()
+    os.chdir(os.path.expanduser(newdir))
+    try:
+        yield
+    finally:
+        os.chdir(prevdir)
+
+def execute(cmd):
+    args = shlex.split(cmd)
+    p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    out = p.communicate()
+
+    if p.returncode != 0:
+        logging
+
+    for line in out:
+        if not line: continue
+        logging.info(line.rstrip())
+    if p.returncode != 0:
+        logging.error("{} failed with {}".format(cmd, p.returncode))
+
+def update(args, dst):
+    dst = "{}/".format(dst)
+
+    for plugin in PLUGINS:
+        plugin_name = os.path.basename(plugin).replace(".git", "")
+        plugin_path = "{}{}".format(dst, plugin_name)
+        if os.path.exists(plugin_path):
+            logging.debug("updating vim plugin {}".format(plugin_name))
+            with cd(plugin_path):
+                execute("git pull")
+        else:
+            logging.debug("cloning vim plugin {}".format(plugin_name))
+            with cd(dst):
+                execute("git clone {}".format(plugin))
+
+# vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4

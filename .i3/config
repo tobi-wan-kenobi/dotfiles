@@ -1,0 +1,281 @@
+# i3 reference: http://i3wm.org/docs/userguide.html
+
+# Requires:
+# - feh (background)
+# - acpi
+# - scrot + convert (imagemagick)
+# - i3lock
+
+set $mod Mod4
+floating_modifier $mod
+set $laptop eDP1
+set $left eDP1
+set $middle DP1-1
+set $right DP1-2
+
+font pango:Droid Sans 13
+
+# window layout
+hide_edge_borders vertical
+workspace_auto_back_and_forth yes
+
+for_window [class=".*"] title_format "<span size='smaller'>  %title  </span>"
+
+# solarized colors
+# note: due to https://github.com/i3/i3/issues/2235, it's
+# better to define "short" variables first, and those that
+# contain the short name as prefix second
+set $base0   #839496
+set $base1   #93a1a1
+set $base2   #eee8d5
+set $base3   #fdf6e3
+set $base00  #657b83
+set $base01  #586e75
+set $base02  #073642
+set $base03  #002b36
+set $yellow  #b58900
+set $orange  #cb4b16
+set $red     #dc322f
+set $magenta #d33682
+set $violet  #6c71c4
+set $blue    #268bd2
+set $cyan    #2aa198
+set $green   #859900
+
+# class                 border  backgr. text    indicator	child-border
+# indicator: indicates *where* window is opened + color of split container bar
+client.focused			$base02	$base3	$base02 $yellow	$base02
+client.unfocused		$base03	$base03	$base01	$yellow	$base03
+client.focused_inactive $base02	$base02	$base01	$yellow	$base02
+client.urgent			$base02 $yellow $base3  $yellow $base02
+
+
+# assign workspaces
+workspace 9 output $left
+workspace 1 output $middle
+workspace 2 output $middle
+workspace 3 output $middle
+workspace 4 output $middle
+
+workspace 5 output $right
+workspace 6 output $right
+workspace 7 output $right
+workspace 8 output $right
+
+# focus movement
+# vim-style
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# focus movement
+# cursor keys
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+bindsym $mod+Control+Right move workspace to output right
+bindsym $mod+Control+Left move workspace to output left
+bindsym $mod+Control+h move workspace to output right
+bindsym $mod+Control+l move workspace to output left
+
+# layout stuff
+bindsym $mod+t layout tabbed
+bindsym $mod+z layout default
+bindsym $mod+f fullscreen
+bindsym $mod+w layout toggle split
+bindsym $mod+Shift+f floating toggle
+bindsym $mod+a focus parent
+bindsym $mod+e layout splith
+bindsym $mod+d layout splitv
+bindsym $mod+o move window to output right
+
+# scratchpad
+bindsym $mod+Shift+p move scratchpad
+bindsym $mod+p scratchpad show
+
+# applications
+bindsym $mod+Return exec gnome-terminal
+bindsym $mod+y exec ~/.i3/bin/lock.sh
+bindsym XF86Sleep exec ~/.i3/bin/lock.sh
+bindsym $mod+r exec dmenu_run -fn "Droid Sans Mono-12" -p "$ " -nb "#eee8d5" -nf "#586e75" -sb "#b58900" -sf "#eee8d5" -l 5 -i
+bindsym $mod+x [urgent=latest] focus
+
+# wm commands
+bindsym $mod+Shift+c kill
+bindsym $mod+c reload
+bindsym $mod+Control+r restart
+bindsym $mod+i border 1pixel
+bindsym $mod+u border normal
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+
+bindsym XF86AudioMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%
+
+bindsym XF86AudioNext exec "cmus-remote -n"
+bindsym XF86AudioPrev exec "cmus-remote -r"
+bindsym XF86AudioPlay exec "cmus-remote -u"
+
+bindsym $mod+m mode "mark"
+
+mode "mark" {
+	bindsym $mod+Shift+a mark --toggle a
+	bindsym $mod+a [con_mark="a"] focus
+
+	bindsym $mod+Shift+b mark --toggle b
+	bindsym $mod+b [con_mark="b"] focus
+
+	bindsym $mod+Shift+c mark --toggle c
+	bindsym $mod+c [con_mark="c"] focus
+
+	bindsym $mod+Shift+d mark --toggle d
+	bindsym $mod+d [con_mark="d"] focus
+
+	bindsym $mod+Shift+e mark --toggle e
+	bindsym $mod+e [con_mark="e"] focus
+
+	# focus movement
+	# vim-style
+	bindsym $mod+h focus left
+	bindsym $mod+j focus down
+	bindsym $mod+k focus up
+	bindsym $mod+l focus right
+
+	# focus movement
+	# cursor keys
+	bindsym $mod+Left focus left
+	bindsym $mod+Down focus down
+	bindsym $mod+Up focus up
+	bindsym $mod+Right focus right
+
+	bindsym $mod+m mode "default"
+	bindsym Esc mode "default"
+	bindsym Return mode "default"
+}
+
+bar {
+	output $laptop
+	font pango:Inconsolata 10
+	position top
+	tray_output none
+	status_command python3 ~/src/bumblebee-status/bumblebee-status -m cmus cpu memory battery pasink pasource -t solarized-powerline 
+
+	colors {
+		focused_workspace		$base1  $base02 $base1
+		active_workspace		$base01 $base03 $base01
+		inactive_workspace		$base03 $base03 $base01
+		urgent_workspace		$base03 $yellow $base03
+
+		statusline				$base00
+		background				$base03
+		separator				$yellow
+	}
+}
+
+bar {
+	output VGA1
+	font pango:Inconsolata 10
+	position top
+	tray_output none
+	status_command ~/src/bumblebee-status/bumblebee-status -m nic ping:gw disk:/ cpu memory battery date time pasink pasource brightness dnf -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" gw.address=10.0.0.138 -t solarized-powerline 
+
+	colors {
+		focused_workspace		$base1  $base02 $base1
+		active_workspace		$base01 $base03 $base01
+		inactive_workspace		$base03 $base03 $base01
+		urgent_workspace		$base03 $yellow $base03
+
+		statusline				$base00
+		background				$base03
+		separator				$yellow
+	}
+}
+
+bar {
+	output $middle
+	font pango:Inconsolata 10
+	position top
+	tray_output none
+	#status_command ~/.i3/bumblebee-status/bumblebee-status -m disk nic cpu memory battery date::"%a, %b %d %Y" time::"%H:%M CW %V" pasink pasource dnf -t solarized-powerline
+#	status_command ~/src/bumblebee-status/bumblebee-status -m disk nic cpu memory battery date::"%a, %b %d %Y" time::"%H:%M CW %V" pasink pasource dnf -t solarized-powerline
+
+	colors {
+		focused_workspace		$base1  $base02 $base1
+		active_workspace		$base01 $base03 $base01
+		inactive_workspace		$base03 $base03 $base01
+		urgent_workspace		$base03 $yellow $base03
+
+		statusline				$base00
+		background				$base03
+		separator				$yellow
+	}
+}
+
+bar {
+	output $right
+	font pango:Inconsolata 10
+	position top
+	tray_output none
+
+	status_command ~/.i3/bumblebee-status/bumblebee-status -m cmus -t solarized-powerline
+
+	colors {
+		focused_workspace		$base1  $base02 $base1
+		active_workspace		$base01 $base03 $base01
+		inactive_workspace		$base03 $base03 $base01
+		urgent_workspace		$base03 $yellow $base03
+
+		statusline				$base00
+		background				$base03
+		separator				$yellow
+	}
+}
+
+# autostart
+exec --no-startup-id feh --bg-fill ~/.i3/images/background.png
+exec --no-startup-id nm-applet
+exec --no-startup-id /usr/libexec/deja-dup/deja-dup-monitor
+# bottom left
+exec --no-startup-id stalonetray --icon-size 20 -bg "#002b36" --skip-taskbar --grow-gravity W --icon-gravity E --window-type dock --sticky --geometry 1x1+0-0 --grow-gravity W --kludges force_icons_size
+exec --no-startup-id xcompmgr
+exec --no-startup-id dunst
+# top-right
+# exec --no-startup-id stalonetray --icon-size=22 -bg "#002b36" --skip-taskbar --grow-gravity W --icon-gravity E --window-type toolbar --sticky --geometry 1x1-22+0
