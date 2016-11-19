@@ -1,0 +1,8 @@
+* .bashrc (?) -> redirect to zsh, if present
+* i3 config
+* urxvt
+* tmux config
+* improve vim indentation
+* dunst
+* read exclude patterns from file
+* automatically clean up backup directory
