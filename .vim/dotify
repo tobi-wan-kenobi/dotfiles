@@ -1,0 +1,48 @@
+#!/usr/bin/env python
+
+import os
+import shlex
+import logging
+import subprocess
+
+PLUGINS = [
+    "https://github.com/sjl/gundo.vim.git",
+    "https://github.com/majutsushi/tagbar",
+    "https://github.com/bling/vim-airline",
+    "https://github.com/vim-airline/vim-airline-themes",
+    "https://github.com/altercation/vim-colors-solarized.git",
+    "https://github.com/tpope/vim-pathogen.git",
+    "https://github.com/kshenoy/vim-signature.git",
+    "https://github.com/tpope/vim-fugitive.git",
+]
+
+from contextlib import contextmanager
+import os
+
+@contextmanager
+def cd(newdir):
+    prevdir = os.getcwd()
+    os.chdir(os.path.expanduser(newdir))
+    try:
+        yield
+    finally:
+        os.chdir(prevdir)
+
+def update(args, dst):
+    dst = "{}/bundle/".format(dst)
+    if not os.path.exists(dst):
+        os.makedirs(dst)
+    for plugin in PLUGINS:
+        name = os.path.basename(plugin)
+        name = name.replace(".git", "")
+        plugin_path = "{}{}".format(dst, name)
+        if os.path.exists(plugin_path):
+            logging.debug("updating vim plugin {}".format(name))
+            with cd(plugin_path):
+                subprocess.call(shlex.split("git pull"))
+        else:
+            logging.debug("cloning vim plugin {}".format(name))
+            with cd(dst):
+                subprocess.call(shlex.split("git clone {}".format(plugin)))
+
+# vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
