@@ -55,7 +55,6 @@
 *color7:                S_base2
 *color15:               S_base3
 
-xterm*font: Inconsolata:size=12
 xterm*termName: xterm-256color
 xterm*locale: true
 xterm*saveLines: 4096
