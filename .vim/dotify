@@ -28,21 +28,34 @@ def cd(newdir):
     finally:
         os.chdir(prevdir)
 
+def execute(cmd):
+    args = shlex.split(cmd)
+    p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    out = p.communicate()
+
+    if p.returncode != 0:
+        logging
+
+    for line in out:
+        if not line: continue
+        logging.info(line.rstrip())
+    if p.returncode != 0:
+        logging.error("{} failed with {}".format(cmd, p.returncode))
+
 def update(args, dst):
     dst = "{}/bundle/".format(dst)
     if not os.path.exists(dst):
         os.makedirs(dst)
     for plugin in PLUGINS:
-        name = os.path.basename(plugin)
-        name = name.replace(".git", "")
-        plugin_path = "{}{}".format(dst, name)
+        plugin_name = os.path.baseplugin_name(plugin).replace(".git", "")
+        plugin_path = "{}{}".format(dst, plugin_name)
         if os.path.exists(plugin_path):
-            logging.debug("updating vim plugin {}".format(name))
+            logging.debug("updating vim plugin {}".format(plugin_name))
             with cd(plugin_path):
-                subprocess.call(shlex.split("git pull"))
+                execute("git pull")
         else:
-            logging.debug("cloning vim plugin {}".format(name))
+            logging.debug("cloning vim plugin {}".format(plugin_name))
             with cd(dst):
-                subprocess.call(shlex.split("git clone {}".format(plugin)))
+                execute("git clone {}".format(plugin))
 
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
