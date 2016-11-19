@@ -1,6 +1,5 @@
 backup/
-*.swp
-*.swo
+*.sw*
 dotifyc
 
 .vim/bundle/*
