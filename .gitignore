@@ -1,5 +1,8 @@
 backup/
-.vim/bundle/*
-.vim/undo/
 *.swp
 dotifyc
+
+.vim/bundle/*
+.vim/undo/
+
+.i3/bumblebee-status/
