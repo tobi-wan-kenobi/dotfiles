@@ -3,7 +3,6 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
 syntax on
-"filetype plugin indent on
 
 set number
 set scrolloff=10
@@ -16,7 +15,8 @@ set noerrorbells
 set novisualbell
 
 " indentation
-set smartindent
+"set smartindent
+filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
 set formatoptions+=r
