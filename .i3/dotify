@@ -6,11 +6,14 @@ from libdotify import utils
 
 PLUGINS = [
     "https://github.com/tobi-wan-kenobi/bumblebee-status.git",
+    "https://github.com/powerline/fonts.git",
 ]
 
 def update(args, dst):
     dst = "{}/".format(dst)
 
     utils.git_update("i3", dst, PLUGINS)
+
+    utils.execute("{}/fonts/install.sh".format(dst))
 
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
