@@ -8,7 +8,7 @@ import logging
 import argparse
 
 exclude = [
-    "dotify", "\.git.*", "LICENSE", "README.md", "TODO", ".*swp$", "backup", "doc", ".*swo$"
+    "dotify", "\.git.*", "LICENSE", "README.md", "TODO", ".*swp$", "backup", "doc", ".*swo$", "libdotify"
 ]
 
 def ignore(f):

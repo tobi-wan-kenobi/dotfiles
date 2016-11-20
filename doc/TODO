@@ -6,6 +6,4 @@
 * dunst
 * read exclude patterns from file
 * automatically clean up backup directory
-* zsh, if available (from bash)
-* unify the "sub-dotify" handling, much code duplication right now
 * Add automatic installation of powerline fonts
