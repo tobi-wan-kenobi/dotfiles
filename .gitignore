@@ -1,6 +1,7 @@
 backup/
 *.sw*
 dotifyc
+*.pyc
 
 .vim/bundle/*
 .vim/undo/
