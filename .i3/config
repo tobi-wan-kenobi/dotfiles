@@ -235,8 +235,7 @@ bar {
 	font pango:Inconsolata 10
 	position top
 	tray_output none
-	#status_command ~/.i3/bumblebee-status/bumblebee-status -m disk nic cpu memory battery date::"%a, %b %d %Y" time::"%H:%M CW %V" pasink pasource dnf -t solarized-powerline
-#	status_command ~/src/bumblebee-status/bumblebee-status -m disk nic cpu memory battery date::"%a, %b %d %Y" time::"%H:%M CW %V" pasink pasource dnf -t solarized-powerline
+	status_command ~/.i3/bumblebee-status/bumblebee-status -m disk nic cpu memory battery date::"%a, %b %d %Y" time::"%H:%M CW %V" pasink pasource dnf -t solarized-powerline
 
 	colors {
 		focused_workspace		$base1  $base02 $base1
@@ -278,5 +277,3 @@ exec --no-startup-id /usr/libexec/deja-dup/deja-dup-monitor
 exec --no-startup-id stalonetray --icon-size 20 -bg "#002b36" --skip-taskbar --grow-gravity W --icon-gravity E --window-type dock --sticky --geometry 1x1+0-0 --grow-gravity W --kludges force_icons_size
 exec --no-startup-id xcompmgr
 exec --no-startup-id dunst
-# top-right
-# exec --no-startup-id stalonetray --icon-size=22 -bg "#002b36" --skip-taskbar --grow-gravity W --icon-gravity E --window-type toolbar --sticky --geometry 1x1-22+0
