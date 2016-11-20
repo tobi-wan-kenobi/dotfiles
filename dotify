@@ -42,6 +42,7 @@ def main(args):
         files = json.load(f)
 
     for f in files:
+        if args.files and not f["src"] in args.files: continue
         dst = f["dst"] if "dst" in f else f["src"]
         dst = os.path.expanduser("~/{}".format(dst))
         src = os.path.abspath(f["src"])
@@ -60,6 +61,9 @@ if __name__ == "__main__":
         help="use together with --force to backup any files that would be removed.")
     parser.add_argument("--backup-directory", default="./backup/",
         help="directory into which data will be backed up, if -b is used.")
+
+    parser.add_argument("files", metavar="DOTFILES", nargs="*",
+        help="specify a list of files to update")
 
     args = parser.parse_args()
 
