@@ -1,0 +1,9 @@
+[
+	{ "src": ".bashrc" },
+	{ "src": ".i3" },
+	{ "src": ".vim" },
+	{ "src": ".vimrc" },
+	{ "src": ".Xdefaults" },
+	{ "src": ".zshrc" },
+	{ "src": "dunstrc", "dst": ".config/dunst/dunstrc" }
+]

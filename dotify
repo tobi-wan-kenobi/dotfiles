@@ -3,19 +3,10 @@
 import re
 import os
 import imp
+import json
 import shutil
 import logging
 import argparse
-
-exclude = [
-    "dotify", "\.git.*", "LICENSE", "README.md", "TODO", ".*swp$", "backup", "doc", ".*swo$", "libdotify"
-]
-
-def ignore(f):
-    for pattern in exclude:
-        if re.match(pattern, f):
-            return True
-    return False
 
 def update(args, src, dst):
     if os.path.exists(dst) and not os.path.islink(dst):
@@ -25,7 +16,10 @@ def update(args, src, dst):
             shutil.move(dst, directory)
         elif args.force:
             logging.info("removing {}".format(dst))
-            shutil.rmtree(dst)
+            if os.path.isdir(dst):
+                shutil.rmtree(dst)
+            else:
+                os.remove(dst)
 
     if os.path.islink(dst):
         logging.debug("recreating symlink {}".format(dst))
@@ -43,12 +37,14 @@ def update(args, src, dst):
         update(args, dst)
 
 def main(args):
-    for f in os.listdir("."):
-        if ignore(f):
-            continue
+    files = {}
+    with open("symlinks.json") as f:
+        files = json.load(f)
 
-        dst = os.path.expanduser("~/{}".format(f))
-        src = os.path.abspath(f)
+    for f in files:
+        dst = f["dst"] if "dst" in f else f["src"]
+        dst = os.path.expanduser("~/{}".format(dst))
+        src = os.path.abspath(f["src"])
 
         update(args, src, dst)
 
