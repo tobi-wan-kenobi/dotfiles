@@ -55,6 +55,11 @@
 *color7:                S_base2
 *color15:               S_base3
 
+Xft.hintstyle: hintsfull
+Xft.hinting: true
+Xft.antialias: true
+Xft.rgba: rgb
+
 xterm*termName: xterm-256color
 xterm*locale: true
 xterm*saveLines: 4096
