@@ -8,3 +8,4 @@ dotifyc
 .vim/.*
 
 .i3/bumblebee-status/
+.i3/fonts/
