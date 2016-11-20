@@ -1,5 +1,4 @@
 * tmux config
 * improve vim indentation
-* read exclude patterns from file
 * automatically clean up backup directory
 * Add automatic installation of powerline fonts
