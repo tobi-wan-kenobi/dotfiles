@@ -133,7 +133,7 @@ bindsym $mod+p scratchpad show
 
 # applications
 #bindsym $mod+Return exec xterm -fa "xft:Droid Sans Mono for Powerline:size=11"
-bindsym $mod+Return exec xterm -fa "xft:DejaVu Sans Mono for Powerline:size=11"
+bindsym $mod+Return exec xterm -fa "xft:DejaVu Sans Mono for Powerline:size=12"
 bindsym $mod+y exec ~/.i3/bin/lock.sh
 bindsym XF86Sleep exec ~/.i3/bin/lock.sh
 bindsym $mod+r exec dmenu_run -fn "Droid Sans Mono-12" -p "$ " -nb "#eee8d5" -nf "#586e75" -sb "#b58900" -sf "#eee8d5" -l 5 -i
@@ -197,7 +197,7 @@ bar {
 	font pango:Inconsolata 10
 	position top
 	tray_output none
-	status_command python3 ~/src/bumblebee-status/bumblebee-status -m cmus cpu memory battery pasink pasource -t solarized-powerline 
+	status_command ~/.i3/bumblebee-status/bumblebee-status -m nic cpu memory battery date time pasink pasource brightness -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-powerline 
 
 	colors {
 		focused_workspace		$base1  $base02 $base1
@@ -216,7 +216,7 @@ bar {
 	font pango:Inconsolata 10
 	position top
 	tray_output none
-	status_command ~/src/bumblebee-status/bumblebee-status -m nic ping:gw disk:/ cpu memory battery date time pasink pasource brightness dnf -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" gw.address=10.0.0.138 -t solarized-powerline 
+	status_command ~/.i3/bumblebee-status/bumblebee-status -m nic disk:/ cpu memory battery date time pasink pasource brightness dnf -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-powerline 
 
 	colors {
 		focused_workspace		$base1  $base02 $base1
@@ -235,7 +235,7 @@ bar {
 	font pango:Inconsolata 10
 	position top
 	tray_output none
-	status_command ~/.i3/bumblebee-status/bumblebee-status -m disk nic cpu memory battery date::"%a, %b %d %Y" time::"%H:%M CW %V" pasink pasource dnf -t solarized-powerline
+	status_command ~/.i3/bumblebee-status/bumblebee-status -m disk nic cpu memory battery date time pasink pasource dnf -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-powerline
 
 	colors {
 		focused_workspace		$base1  $base02 $base1
