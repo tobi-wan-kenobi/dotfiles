@@ -9,15 +9,11 @@ export SVN_EDITOR='vim'
 alias ls='ls --color=auto'
 alias ll='ls -la --color=auto'
 
-# switch to zsh, if available
-zsh=$(which zsh 2> /dev/null)
-if [ -x "$zsh" ]; then
-	env zsh
-fi
-
-if [ -f `which powerline-daemon` ]; then
-	powerline-daemon -q
-	POWERLINE_BASH_CONTINUATION=1
-	POWERLINE_BASH_SELECT=1
-	. /usr/share/powerline/bash/powerline.sh
-fi
+YELLOW="\033[0;32m"
+CYAN="\033[0;36m"
+ORANGE="\033[0;33m"
+BLUE="\033[0;34m"
+MAGENTA="\033[0;35m"
+WHITE="\033[0;37m"
+NC="\033[0m"
+export PS1="${YELLOW}\u${NC}@${CYAN}\h${NC}:${BLUE}\W${NC}${WHITE} \$${NC} "
