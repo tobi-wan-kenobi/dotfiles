@@ -4,6 +4,7 @@
 	{ "src": ".vim" },
 	{ "src": ".vimrc" },
 	{ "src": ".Xdefaults" },
+	{ "src": ".Xresources" },
 	{ "src": ".zshrc" },
 	{ "src": ".tmux.conf" },
 	{ "src": "dunstrc", "dst": ".config/dunst/dunstrc" }
