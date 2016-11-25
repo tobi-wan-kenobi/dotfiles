@@ -7,5 +7,7 @@
 	{ "src": ".Xresources" },
 	{ "src": ".zshrc" },
 	{ "src": ".tmux.conf" },
+	{ "src": "dircolors", "dst": ".i3/dircolors" },
+	{ "src": "dircolors/dircolors-solarized/dircolors.ansi-dark", "dst": ".dircolors" },
 	{ "src": "dunstrc", "dst": ".config/dunst/dunstrc" }
 ]
