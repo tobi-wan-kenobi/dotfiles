@@ -133,10 +133,11 @@ bindsym $mod+p scratchpad show
 
 # applications
 #bindsym $mod+Return exec xterm -fa "xft:Droid Sans Mono for Powerline:size=11"
-bindsym $mod+Return exec xterm -fa "xft:DejaVu Sans Mono for Powerline:size=12"
+#bindsym $mod+Return exec xterm -fa "xft:DejaVu Sans Mono for Powerline:size=12"
+bindsym $mod+Return exec xterm -fa "xft:Inconsolata for Powerline:size=15"
 bindsym $mod+y exec ~/.i3/bin/lock.sh
 bindsym XF86Sleep exec ~/.i3/bin/lock.sh
-bindsym $mod+r exec dmenu_run -fn "Droid Sans Mono-12" -p "$ " -nb "#eee8d5" -nf "#586e75" -sb "#b58900" -sf "#eee8d5" -l 5 -i
+bindsym $mod+r exec dmenu_run -fn "Inconsolata-12" -p "$ " -nb "#eee8d5" -nf "#586e75" -sb "#b58900" -sf "#eee8d5" -l 5 -i
 bindsym $mod+x [urgent=latest] focus
 
 # wm commands
@@ -194,10 +195,10 @@ mode "mark" {
 
 bar {
 	output $laptop
-	font pango:Inconsolata 10
+	font pango:Inconsolata 11
 	position top
 	tray_output none
-	status_command ~/.i3/bumblebee-status/bumblebee-status -m nic cpu memory battery date time pasink pasource brightness -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-powerline 
+	status_command ~/.i3/bumblebee-status/bumblebee-status -m nic load cpu memory battery date time pasink pasource brightness -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-powerline 
 
 	colors {
 		focused_workspace		$base1  $base02 $base1
@@ -213,10 +214,10 @@ bar {
 
 bar {
 	output VGA1
-	font pango:Inconsolata 10
+	font pango:Inconsolata 11
 	position top
 	tray_output none
-	status_command ~/.i3/bumblebee-status/bumblebee-status -m nic disk:/ cpu memory battery date time pasink pasource brightness dnf -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-powerline 
+	status_command ~/.i3/bumblebee-status/bumblebee-status -m nic disk:/ load cpu memory battery date time pasink pasource brightness dnf -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-powerline
 
 	colors {
 		focused_workspace		$base1  $base02 $base1
@@ -232,10 +233,10 @@ bar {
 
 bar {
 	output $middle
-	font pango:Inconsolata 10
+	font pango:Inconsolata 11
 	position top
 	tray_output none
-	status_command ~/.i3/bumblebee-status/bumblebee-status -m disk nic cpu memory battery date time pasink pasource dnf -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-powerline
+	status_command ~/.i3/bumblebee-status/bumblebee-status -m disk nic load cpu memory battery date time pasink pasource dnf -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-powerline
 
 	colors {
 		focused_workspace		$base1  $base02 $base1
@@ -250,9 +251,9 @@ bar {
 }
 
 bar {
-	output $right
-	font pango:Inconsolata 10
-	position top
+	output $laptop
+	font pango:Inconsolata 11
+	position bottom
 	tray_output none
 
 	status_command ~/.i3/bumblebee-status/bumblebee-status -m cmus -t solarized-powerline
