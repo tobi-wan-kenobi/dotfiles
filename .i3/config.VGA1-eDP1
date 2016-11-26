@@ -16,23 +16,3 @@ bar {
 		separator				$yellow
 	}
 }
-
-bar {
-	output VGA1
-	font pango:Inconsolata 11
-	position bottom
-	tray_output none
-
-	status_command ~/.i3/bumblebee-status/bumblebee-status -m cmus xrandr -t solarized-powerline
-
-	colors {
-		focused_workspace		$base1  $base02 $base1
-		active_workspace		$base01 $base03 $base01
-		inactive_workspace		$base03 $base03 $base01
-		urgent_workspace		$base03 $yellow $base03
-
-		statusline				$base00
-		background				$base03
-		separator				$yellow
-	}
-}

@@ -201,7 +201,7 @@ exec --no-startup-id /usr/libexec/deja-dup/deja-dup-monitor
 exec --no-startup-id stalonetray --icon-size 20 -bg "#002b36" --skip-taskbar --grow-gravity W --icon-gravity E --window-type dock --sticky --geometry 1x1+0-0 --grow-gravity W --kludges force_icons_size
 exec --no-startup-id xcompmgr
 exec --no-startup-id dunst
-exec --no-startup-id ~/.i3/bin/load-bars.sh
+exec --no-startup-id ~/.i3/bumblebee/bin/load-i3-bars.sh
 bar {
 	output eDP1
 	font pango:Inconsolata 11
@@ -227,7 +227,7 @@ bar {
 	position bottom
 	tray_output none
 
-	status_command ~/.i3/bumblebee-status/bumblebee-status -m cmus -t solarized-powerline
+	status_command ~/.i3/bumblebee-status/bumblebee-status -m cmus xrandr -t solarized-powerline
 
 	colors {
 		focused_workspace		$base1  $base02 $base1

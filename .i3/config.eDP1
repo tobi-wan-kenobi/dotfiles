@@ -23,7 +23,7 @@ bar {
 	position bottom
 	tray_output none
 
-	status_command ~/.i3/bumblebee-status/bumblebee-status -m cmus -t solarized-powerline
+	status_command ~/.i3/bumblebee-status/bumblebee-status -m cmus xrandr -t solarized-powerline
 
 	colors {
 		focused_workspace		$base1  $base02 $base1

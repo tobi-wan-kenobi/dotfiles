@@ -18,9 +18,6 @@ def execute(cmd):
     p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     out = p.communicate()
 
-    if p.returncode != 0:
-        logging
-
     for line in out:
         if not line: continue
         logging.info(line.rstrip())
