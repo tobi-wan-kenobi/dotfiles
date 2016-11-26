@@ -8,4 +8,3 @@ xterm*termName: xterm-256color
 xterm*saveLines: 4096
 xterm*borderWidth: 0
 xterm*rightScrollBar: true
-xterm*ScrollBar: true

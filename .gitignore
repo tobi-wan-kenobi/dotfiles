@@ -7,6 +7,7 @@ dotifyc
 .vim/undo/
 .vim/.*
 
-.i3/bumblebee-status/
+.i3/bumblebee-status
 .i3/fonts/
 .i3/dircolors
+dircolors/dircolors-solarized
