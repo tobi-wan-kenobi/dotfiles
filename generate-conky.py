@@ -2,7 +2,7 @@
 
 import sys
 
-iconpath = "./conky/"
+iconpath = "~/.conky/"
 
 def inventory_item(cmd, item, pos):
     result = "{}${{image {}boxed_{}.png -s 64x64 -p {}}}".format(cmd, iconpath, item, pos)
