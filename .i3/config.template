@@ -139,6 +139,7 @@ bindsym $mod+y exec ~/.i3/bin/lock.sh
 bindsym XF86Sleep exec ~/.i3/bin/lock.sh
 bindsym $mod+r exec dmenu_run -fn "Inconsolata-12" -p "$ " -nb "#eee8d5" -nf "#586e75" -sb "#b58900" -sf "#eee8d5" -l 5 -i
 bindsym $mod+x [urgent=latest] focus
+bindsym $mod+v exec ~/.i3/bin/toggle-conky.sh
 
 # wm commands
 bindsym $mod+Shift+c kill
