@@ -199,7 +199,7 @@ exec --no-startup-id feh --bg-fill ~/.i3/images/background.png
 exec --no-startup-id nm-applet
 exec --no-startup-id /usr/libexec/deja-dup/deja-dup-monitor
 # bottom left
-exec --no-startup-id stalonetray --icon-size 20 -bg "#002b36" --skip-taskbar --grow-gravity W --icon-gravity E --window-type dock --sticky --geometry 1x1+0-0 --grow-gravity W --kludges force_icons_size
+#exec --no-startup-id stalonetray --icon-size 20 -bg "#002b36" --skip-taskbar --grow-gravity W --icon-gravity E --window-type dock --sticky --geometry 1x1+0-0 --grow-gravity W --kludges force_icons_size
 exec --no-startup-id xcompmgr
 exec --no-startup-id dunst
 exec --no-startup-id ~/.i3/bumblebee/bin/load-i3-bars.sh

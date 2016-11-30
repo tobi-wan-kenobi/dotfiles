@@ -1,5 +1,5 @@
 bar {
-	output DP1-1
+	output DP1-3
 	font pango:Inconsolata 11
 	position top
 	tray_output none
