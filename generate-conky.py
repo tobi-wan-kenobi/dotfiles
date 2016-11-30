@@ -87,6 +87,11 @@ ${{voffset -6}}${{color {inventorycolor}}}-INVENTORY-{inventory}${{color}}
 ${{image {iconpath}/progress_left.png -s 16x30 -p 0,200}}{networkdownspeed}${{image {iconpath}/progress_right.png -s 16x30 -p 370,200}}
 ${{image {iconpath}/progress_left.png -s 16x30 -p 0,235}}{networkupspeed}${{image {iconpath}/progress_right.png -s 16x30 -p 370,235}}
 
+${{image {iconpath}/progress_left.png -s 16x30 -p 0,270}}{networkdownspeed2}${{image {iconpath}/progress_right.png -s 16x30 -p 370,270}}
+${{image {iconpath}/progress_left.png -s 16x30 -p 0,305}}{networkupspeed2}${{image {iconpath}/progress_right.png -s 16x30 -p 370,305}}
+
+
+
 
 
 
@@ -105,4 +110,6 @@ print "conky.text = [[\n{}\n]]\n".format(body.format(
     inventorycolor="#ffbb00", inventory=generate_inventory(),
     networkdownspeed=generate_bar("downspeedf wlp2s0", 200, [ "network_empty", "network"], [ 0, 2*1024 ], 11, xoff=16),
     networkupspeed=generate_bar("upspeedf wlp2s0", 235, [ "network_empty", "networkup"], [ 0, 512 ], 11, xoff=16),
+    networkdownspeed2=generate_bar("downspeedf eno1", 270, [ "network_empty", "network"], [ 0, 2*1024 ], 11, xoff=16),
+    networkupspeed2=generate_bar("upspeedf eno1", 305, [ "network_empty", "networkup"], [ 0, 512 ], 11, xoff=16),
 ))
