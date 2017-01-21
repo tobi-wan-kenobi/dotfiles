@@ -15,9 +15,9 @@ set noerrorbells
 set novisualbell
 
 " indentation
-"set smartindent
 filetype plugin indent on
 set tabstop=4
+set softtabstop=4
 set shiftwidth=4
 set formatoptions+=r
 
@@ -39,7 +39,7 @@ endif
 
 " colorscheme
 set t_Co=16
-set background=dark
+set background=light
 colorscheme solarized
 hi SignColumn guibg=#002b36 ctermbg=8
 
@@ -57,3 +57,4 @@ nmap <F9> :SignatureToggle<CR>
 nmap <C-u> :GundoToggle<CR>
 
 autocmd FileType yaml let b:did_indent = 1
+au BufRead,BufNewFile SConstruct set filetype=python
