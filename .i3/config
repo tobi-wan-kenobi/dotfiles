@@ -203,6 +203,8 @@ exec --no-startup-id /usr/libexec/deja-dup/deja-dup-monitor
 exec --no-startup-id xcompmgr
 exec --no-startup-id dunst
 exec --no-startup-id ~/.i3/bumblebee/bin/load-i3-bars.sh
+exec --no-startup-id redshift
+
 bar {
 	output eDP1
 	font pango:Inconsolata 11
