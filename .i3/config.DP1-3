@@ -2,7 +2,7 @@ bar {
 	output DP1-3
 	font pango:Inconsolata 11
 	position top
-	tray_output none
+	tray_output DP1-3
 	status_command ~/.i3/bumblebee-status/bumblebee-status -m disk nic load cpu memory date time pasink pasource -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-powerline
 
 	colors {

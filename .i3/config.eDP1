@@ -23,7 +23,7 @@ bar {
 	position bottom
 	tray_output eDP1
 
-	status_command ~/.i3/bumblebee-status/bumblebee-status -m time xrandr -p time.format="%H:%M" -t solarized-powerline
+	status_command ~/.i3/bumblebee-status/bumblebee-status -m redshift time xrandr -p time.format="%H:%M" -t solarized-powerline
 
 	colors {
 		focused_workspace		$base1  $base02 $base1
