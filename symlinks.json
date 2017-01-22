@@ -12,5 +12,5 @@
 	{ "src": "dircolors/dircolors-solarized/dircolors.ansi-dark", "dst": ".dircolors" },
 	{ "src": "dunstrc", "dst": ".config/dunst/dunstrc" },
 	{ "src": "redshift.conf", "dst": ".config/redshift.conf" },
-	{ "src": "alacritty.yml", "dst": ".config/alacritty/" }
+	{ "src": "alacritty.yml", "dst": ".config/alacritty/alacritty.yml" }
 ]
