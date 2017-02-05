@@ -13,7 +13,7 @@ image_size=$(identify "$icon" | grep -o '[0-9]*x[0-9]*' | head -n 1)
 image_width=$(echo "$image_size" | cut -d'x' -f1)
 image_height=$(echo "$image_size" | cut -d'x' -f2)
 
-for res in $(xrandr -q | grep ' connected' | cut -d' ' -f3); do
+for res in $(xrandr -q | sed -e 's/ primary//' | grep ' connected' | cut -d' ' -f3); do
 	screen_x=$(echo $res | cut -d'x' -f1)
 	screen_y=$(echo $res | cut -d'x' -f2 | cut -d'+' -f1)
 	off_x=$(echo $res | cut -d'x' -f2 | cut -d'+' -f2)
