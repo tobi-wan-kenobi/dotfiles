@@ -44,10 +44,10 @@ set $green   #859900
 
 # class                 border  backgr. text    indicator	child-border
 # indicator: indicates *where* window is opened + color of split container bar
-client.focused			$base02	$base3	$base02 $yellow	$base02
-client.unfocused		$base03	$base03	$base01	$yellow	$base03
-client.focused_inactive $base02	$base02	$base01	$yellow	$base02
-client.urgent			$base02 $yellow $base3  $yellow $base02
+client.focused                 $base02 $base00 $base2  $yellow $base03
+client.unfocused               $base03 $base03 $base01 $yellow $base03
+client.focused_inactive $base02        $base02 $base01 $yellow $base02
+client.urgent                  $base02 $yellow $base3  $yellow $base02
 
 
 # assign workspaces
@@ -204,5 +204,4 @@ exec --no-startup-id /usr/libexec/deja-dup/deja-dup-monitor
 exec --no-startup-id xcompmgr
 exec --no-startup-id dunst
 exec --no-startup-id redshift
-exec --no-startup-id nextcloud
 exec --no-startup-id ~/.i3/bumblebee/bin/load-i3-bars.sh
