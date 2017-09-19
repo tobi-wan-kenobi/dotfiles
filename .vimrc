@@ -38,10 +38,13 @@ if !isdirectory(expand(&undodir))
 endif
 
 " colorscheme
-set t_Co=16
+"set t_Co=16
 set background=light
 colorscheme solarized
 hi SignColumn guibg=#002b36 ctermbg=8
+if $TERM == "xterm-256color"
+  set t_Co=256
+endif
 
 " status bar
 set laststatus=2
