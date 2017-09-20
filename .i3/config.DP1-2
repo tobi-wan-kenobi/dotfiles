@@ -4,7 +4,7 @@ bar {
 	position top
 	tray_output none
 
-	status_command ~/.i3/bumblebee-status/bumblebee-status -m weather traffic cmus -p -t solarized-powerline
+	status_command ~/.i3/bumblebee-status/bumblebee-status -m weather traffic cmus -p -t solarized-dark-awesome
 
 	colors {
 		focused_workspace		$base1  $base02 $base1
