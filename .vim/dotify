@@ -8,6 +8,7 @@ PLUGINS = [
     "https://github.com/sjl/gundo.vim.git",
     "https://github.com/altercation/vim-colors-solarized.git",
     "https://github.com/christoomey/vim-tmux-navigator",
+    "https://github.com/tomtom/tcomment_vim.git",
     "https://github.com/tpope/vim-pathogen.git",
 ]
 
