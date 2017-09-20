@@ -196,7 +196,7 @@ mode "mark" {
 }
 
 # autostart
-exec --no-startup-id feh --bg-fill ~/.i3/images/background.png
+exec --no-startup-id xsetroot -solid "#fdf6e3"
 exec --no-startup-id nm-applet
 exec --no-startup-id /usr/libexec/deja-dup/deja-dup-monitor
 # bottom left
