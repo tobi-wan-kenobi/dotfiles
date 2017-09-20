@@ -3,7 +3,7 @@ bar {
 	font pango:Inconsolata 11
 	position top
 	tray_output none
-	status_command ~/.i3/bumblebee-status/bumblebee-status -m nic load cpu battery pasink pasource brightness dnf -t solarized-powerline 
+	status_command ~/.i3/bumblebee-status/bumblebee-status -m nic load cpu battery pasink pasource brightness dnf -t solarized-powerline
 
 	colors {
 		focused_workspace		$base1  $base02 $base1
