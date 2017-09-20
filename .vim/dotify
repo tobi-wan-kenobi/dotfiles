@@ -6,13 +6,9 @@ from libdotify import utils
 
 PLUGINS = [
     "https://github.com/sjl/gundo.vim.git",
-    "https://github.com/majutsushi/tagbar.git",
-    "https://github.com/bling/vim-airline.git",
-    "https://github.com/vim-airline/vim-airline-themes.git",
     "https://github.com/altercation/vim-colors-solarized.git",
+    "https://github.com/christoomey/vim-tmux-navigator",
     "https://github.com/tpope/vim-pathogen.git",
-    "https://github.com/kshenoy/vim-signature.git",
-    "https://github.com/tpope/vim-fugitive.git",
 ]
 
 def update(args, dst):
