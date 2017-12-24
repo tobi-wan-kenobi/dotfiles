@@ -55,7 +55,7 @@
 *color7:                S_base2
 *color15:               S_base3
 
-Xft.hintstyle: hintslight
+Xft.hintstyle: hintfull
 Xft.hinting: true
 Xft.antialias: true
 Xft.rgba: rgb
