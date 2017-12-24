@@ -26,19 +26,23 @@ def execute(cmd):
 
 def git_update(dotmodule, dst, plugins):
     for plugin in plugins:
-        if "\.git" in plugin:
+        if ".git" in plugin:
             name = os.path.basename(plugin).rpartition(".git")[0] # replace trailing ".git"
         else:
             name = os.path.basename(plugin)
         path = "{}{}".format(dst, name)
 
+        print("path: {} ({})".format(path, name))
         if os.path.exists(path):
             logging.debug("updating {} plugin {}".format(dotmodule, name))
             with cd(path):
                 execute("git pull")
         else:
             logging.debug("cloning {} plugin {}".format(dotmodule, name))
-            os.makedirs(dst)
+            try:
+                os.makedirs(os.path.split(dst)[0])
+            except FileExistsError:
+                pass
             with cd(dst):
                 execute("git clone --recursive {}".format(plugin))
 
