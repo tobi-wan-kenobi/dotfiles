@@ -11,7 +11,6 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh/
 
 plugins=(
   git
-  ssh-agent
   zsh-dircolors-solarized
 )
 
@@ -22,6 +21,11 @@ if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
   export EDITOR='mvim'
+fi
+
+if [ -n "$DESKTOP_SESSION" ]; then
+	eval $(gnome-keyring-daemon --start)
+	export SSH_AUTH_SOCK
 fi
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
