@@ -1,21 +1,32 @@
-. /usr/share/powerline/zsh/powerline.zsh
+# Path to your oh-my-zsh installation.
+ZSH=/usr/share/oh-my-zsh/
 
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-# key bindings
-bindkey "\e[1~" beginning-of-line
-bindkey "\e[4~" end-of-line
-bindkey "\e[5~" beginning-of-history
-bindkey "\e[6~" end-of-history
-bindkey "\e[3~" delete-char
-bindkey "\e[2~" quoted-insert
-bindkey "\e[5C" forward-word
-bindkey "\eOc" emacs-forward-word
-bindkey "\e[5D" backward-word
-bindkey "\eOd" emacs-backward-word
-bindkey "\ee[C" forward-word
-bindkey "\ee[D" backward-word
-bindkey "^H" backward-delete-word
+ZSH_THEME="shadow-light"
 
-bindkey "\eOH" beginning-of-line
-bindkey "\eOF" end-of-line
+DISABLE_AUTO_UPDATE="true"
+ENABLE_CORRECTION="true"
+COMPLETION_WAITING_DOTS="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+ZSH_CUSTOM=$HOME/.oh-my-zsh/
+
+plugins=(
+  git
+  ssh-agent
+  zsh-dircolors-solarized
+)
+
+# User configuration
+zstyle :omz:plugins:ssh-agent agent-forwarding on
+
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
+
+ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+  mkdir $ZSH_CACHE_DIR
+fi
+
+source $ZSH/oh-my-zsh.sh
