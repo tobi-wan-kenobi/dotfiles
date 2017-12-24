@@ -13,4 +13,7 @@ dotifyc
 .i3/dircolors
 .i3/config
 .i3/images/background.png
+
+.oh-my-zsh/plugins/
+
 dircolors/dircolors-solarized
