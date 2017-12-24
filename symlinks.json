@@ -1,6 +1,7 @@
 [
 	{ "src": ".bashrc" },
-	{ "src": ".i3" },
+	{ "src": ".i3", "dst": ".config/i3" },
+	{ "src": ".oh-my-zsh" },
 	{ "src": ".vim" },
 	{ "src": ".vimrc" },
 	{ "src": ".Xdefaults" },
@@ -8,7 +9,7 @@
 	{ "src": ".zshrc" },
 	{ "src": ".tmux.conf" },
 	{ "src": ".cmus" },
-	{ "src": "dircolors", "dst": ".i3/dircolors" },
+	{ "src": "dircolors", "dst": ".config/i3/dircolors" },
 	{ "src": "dircolors/dircolors-solarized/dircolors.ansi-dark", "dst": ".dircolors" },
 	{ "src": "dunstrc", "dst": ".config/dunst/dunstrc" },
 	{ "src": "redshift.conf", "dst": ".config/redshift.conf" }
