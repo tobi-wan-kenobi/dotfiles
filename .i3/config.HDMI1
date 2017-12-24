@@ -1,9 +1,9 @@
 bar {
 	output HDMI1
-	font pango:Inconsolata 11
+	font pango:Inconsolata 12
 	position top
 	tray_output HDMI1
-	status_command ~/.i3/bumblebee-status/bumblebee-status -m disk nic load cpu memory date time pasink pasource -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-dark-awesome
+	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m disk nic load cpu memory date time pasink pasource -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-dark-awesome
 
 	colors {
 		focused_workspace		$base1  $base02 $base1

@@ -1,9 +1,9 @@
 bar {
 	output VGA1
-	font pango:Inconsolata 11
+	font pango:Inconsolata 12
 	position top
 	tray_output none
-	status_command ~/.i3/bumblebee-status/bumblebee-status -m nic disk:/ load cpu memory battery date time pasink pasource brightness dnf -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-dark-awesome
+	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m nic disk:/ load cpu memory battery date time pasink pasource brightness -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-dark-awesome
 
 	colors {
 		focused_workspace		$base1  $base02 $base1

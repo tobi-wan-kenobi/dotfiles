@@ -1,10 +1,10 @@
 bar {
 	output DP1-2
-	font pango:Inconsolata 11
+	font pango:Inconsolata 12
 	position top
 	tray_output none
 
-	status_command ~/.i3/bumblebee-status/bumblebee-status -m weather traffic cmus -p -t solarized-dark-awesome
+	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m weather traffic cmus -p -t solarized-dark-awesome
 
 	colors {
 		focused_workspace		$base1  $base02 $base1

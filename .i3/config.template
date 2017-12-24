@@ -132,15 +132,12 @@ bindsym $mod+Shift+p move scratchpad
 bindsym $mod+p scratchpad show
 
 # applications
-#bindsym $mod+Return exec xterm -fa "xft:Droid Sans Mono for Powerline:size=11"
-#bindsym $mod+Return exec xterm -fa "xft:DejaVu Sans Mono for Powerline:size=12"
-bindsym $mod+Return exec xterm -fa "xft:Inconsolata for Powerline:size=15"
-bindsym $mod+Shift+Return exec alacritty
-bindsym $mod+y exec ~/.i3/bin/lock.sh
-bindsym XF86Sleep exec ~/.i3/bin/lock.sh
-bindsym $mod+r exec dmenu_run -fn "Inconsolata-12" -p "$ " -nb "#eee8d5" -nf "#586e75" -sb "#b58900" -sf "#eee8d5" -l 5 -i
+bindsym $mod+Return exec urxvt
+bindsym $mod+y exec ~/.config/i3/bin/lock.sh
+bindsym XF86Sleep exec ~/.config/i3/bin/lock.sh
+bindsym $mod+r exec dmenu_run -fn "Inconsolata-14" -p "$ " -nb "#eee8d5" -nf "#586e75" -sb "#b58900" -sf "#eee8d5" -l 5 -i
 bindsym $mod+x [urgent=latest] focus
-bindsym $mod+v exec ~/.i3/bin/toggle-conky.sh
+bindsym $mod+v exec ~/.config/i3/bin/toggle-conky.sh
 
 # wm commands
 bindsym $mod+Shift+c kill
@@ -196,7 +193,7 @@ mode "mark" {
 }
 
 # autostart
-exec --no-startup-id feh --bg-fill ~/.i3/images/background.png
+exec --no-startup-id feh --bg-fill ~/.config/i3/images/background.png
 exec --no-startup-id nm-applet
 exec --no-startup-id /usr/libexec/deja-dup/deja-dup-monitor
 # bottom left
@@ -205,4 +202,4 @@ exec --no-startup-id xcompmgr
 exec --no-startup-id dunst
 exec --no-startup-id redshift
 exec --no-startup-id nextcloud
-exec --no-startup-id ~/.i3/bumblebee/bin/load-i3-bars.sh
+exec --no-startup-id ~/.config/i3/bumblebee-status/bin/load-i3-bars.sh

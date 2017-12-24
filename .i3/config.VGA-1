@@ -1,9 +1,9 @@
 bar {
-	output eDP1
+	output VGA-1
 	font pango:Inconsolata 12
 	position top
 	tray_output none
-	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m nic load cpu battery pasink pasource brightness -t solarized-dark-awesome
+	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m nic disk:/ load cpu memory battery date time pasink pasource brightness -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-dark-awesome
 
 	colors {
 		focused_workspace		$base1  $base02 $base1
@@ -18,12 +18,12 @@ bar {
 }
 
 bar {
-	output eDP1
+	output VGA-1
 	font pango:Inconsolata 12
 	position bottom
-	tray_output None
+	tray_output none
 
-	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m redshift time xrandr -p time.format="%H:%M" -t solarized-dark-awesome
+	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m cmus xrandr -t solarized-dark-awesome
 
 	colors {
 		focused_workspace		$base1  $base02 $base1
