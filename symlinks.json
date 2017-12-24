@@ -5,7 +5,6 @@
 	{ "src": ".oh-my-zsh" },
 	{ "src": ".vim" },
 	{ "src": ".vimrc" },
-	{ "src": ".Xdefaults" },
 	{ "src": ".Xresources" },
 	{ "src": ".zshrc" },
 	{ "src": ".tmux.conf" },
