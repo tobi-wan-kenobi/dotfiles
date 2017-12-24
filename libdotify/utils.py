@@ -26,7 +26,10 @@ def execute(cmd):
 
 def git_update(dotmodule, dst, plugins):
     for plugin in plugins:
-        name = os.path.basename(plugin).rpartition(".git")[0] # replace trailing ".git"
+        if "\.git" in plugin:
+            name = os.path.basename(plugin).rpartition(".git")[0] # replace trailing ".git"
+        else:
+            name = os.path.basename(plugin)
         path = "{}{}".format(dst, name)
 
         if os.path.exists(path):
@@ -35,7 +38,8 @@ def git_update(dotmodule, dst, plugins):
                 execute("git pull")
         else:
             logging.debug("cloning {} plugin {}".format(dotmodule, name))
+            os.makedirs(dst)
             with cd(dst):
-                execute("git clone {}".format(plugin))
+                execute("git clone --recursive {}".format(plugin))
 
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
