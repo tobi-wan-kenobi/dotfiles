@@ -78,4 +78,4 @@ URxvt.font: fonts
 URxvt.boldFont: fonts
 URxvt.italicFont: fonts
 URxvt.boldItalicFont: fonts
-URxvt.perl-ext-common: default,resize-font,url-select
+URxvt.perl-ext-common: default,url-select
