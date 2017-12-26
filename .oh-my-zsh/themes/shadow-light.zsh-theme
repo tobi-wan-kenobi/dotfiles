@@ -2,12 +2,12 @@
 
 if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
 	if [[ "$USER" == "root" ]]; then
-		USER_FORMAT='red'
+		USER_FORMAT='%{$fg_bold[red]%}'
 	else
-		USER_FORMAT='yellow'
+		USER_FORMAT='%{$fg[yellow]%}'
 	fi
-    PROMPT='[%{$fg[$USER_FORMAT]%}%n%{$reset_color%}@%{$fg[magenta]%}%m%{$reset_color%}:%{$fg[blue]%}%~%{$reset_color%}$(git_prompt_info)]
-\$ '
+    PROMPT="[$USER_FORMAT%n%{$reset_color%}@%{$fg[magenta]%}%m%{$reset_color%}:%{$fg[blue]%}%~%{$reset_color%}$(git_prompt_info)]
+\$ "
 
     ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[green]%}"
     ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
