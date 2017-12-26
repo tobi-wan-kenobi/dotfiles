@@ -61,6 +61,9 @@ Xft.antialias: true
 Xft.rgba: rgb
 
 #define fonts xft:Inconsolata:size=14,xft:DejaVu Sans Mono:size=14
+#define boldfonts xft:Inconsolata:bold:size=14,xft:DejaVu Sans Mono:size=14
+#define italicfonts xft:Inconsolata:italic:size=14,xft:DejaVu Sans Mono:size=14
+#define bifonts xft:Inconsolata:bold:italic:size=14,xft:DejaVu Sans Mono:size=14
 
 xterm*termName: xterm-256color
 xterm*locale: true
@@ -75,7 +78,7 @@ URxvt.saveLines: 40960
 URxvt.scrollStyle: rxvt
 URxvt.scrollBar: false
 URxvt.font: fonts
-URxvt.boldFont: fonts
-URxvt.italicFont: fonts
-URxvt.boldItalicFont: fonts
+URxvt.boldFont: boldfonts
+URxvt.italicFont: italicfonts
+URxvt.boldItalicFont: bifonts
 URxvt.perl-ext-common: default,url-select
