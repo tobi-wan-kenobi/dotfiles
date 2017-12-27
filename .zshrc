@@ -40,3 +40,6 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 export EDITOR=vim
+source <(gopass completion zsh)
+
+alias gopass='nocorrect gopass'

@@ -9,6 +9,8 @@ export SVN_EDITOR='vim'
 alias ls='ls --color=auto'
 alias ll='ls -la --color=auto'
 
+source <(gopass completion bash)
+
 YELLOW="\[\e[0;32m\]"
 CYAN="\[\e[0;36m\]"
 CYAN_BOLD="\[\e[1;36m\]"
