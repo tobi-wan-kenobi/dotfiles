@@ -1,7 +1,7 @@
 [global]
-    font = Cantarell 12
+    font = Droid Sans 12
 
-    allow_markup = yes
+    markup = yes
     format = "<b>%s</b>\n%b"
     
     sort = yes
@@ -34,11 +34,10 @@
     browser = /usr/bin/google-chrome
 
     icon_position = left
-    icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_folders = /usr/share/icons/Arc/status/16/:/usr/share/icons/Arc/devices/16/
 
-[frame]
-    width = 2
-    color = "#eee8d5"
+    frame_width = 2
+    frame_color = "#eee8d5"
 
 [shortcuts]
     close = mod4+q
