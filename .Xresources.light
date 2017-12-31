@@ -58,12 +58,11 @@
 Xft.hintstyle: hintfull
 Xft.hinting: true
 Xft.antialias: true
-Xft.rgba: rgb
 
-#define fonts xft:Inconsolata:size=14,xft:DejaVu Sans Mono:size=14
-#define boldfonts xft:Inconsolata:bold:size=14,xft:DejaVu Sans Mono:size=14
-#define italicfonts xft:Inconsolata:italic:size=14,xft:DejaVu Sans Mono:size=14
-#define bifonts xft:Inconsolata:bold:italic:size=14,xft:DejaVu Sans Mono:size=14
+#define fonts xft:Inconsolata:size=14,xft:DejaVu Sans Mono:size=14,xft:AwesomeFont:size=14
+#define boldfonts xft:Inconsolata:bold:size=14,xft:DejaVu Sans Mono:size=14,Xft:AwesomeFont:size=14
+#define italicfonts xft:Inconsolata:italic:size=14,xft:DejaVu Sans Mono:size=14:AwesomeFont:size=14
+#define bifonts xft:Inconsolata:bold:italic:size=14,xft:DejaVu Sans Mono:size=14:AwesomeFont:size=14
 
 xterm*termName: xterm-256color
 xterm*locale: true
@@ -81,4 +80,13 @@ URxvt.font: fonts
 URxvt.boldFont: boldfonts
 URxvt.italicFont: italicfonts
 URxvt.boldItalicFont: bifonts
-URxvt.perl-ext-common: default,url-select
+URxvt.perl-ext-common: default,url-select,selection-to-clipboard,clipboard
+URxvt.url-select.underline: true
+URxvt.clipboard.autocopy: true
+URxvt.clipboard.copycmd: xclip -i -selection clipboard
+URxvt.clipboard.pastecmd: xclip -o -selection clipboard
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+URxvt.keysym.C-C: perl:clipboard:copy
+URxvt.keysym.C-V: perl:clipboard:paste
+URxvt.keysym.Control-v: perl:clipboard:paste
