@@ -42,4 +42,6 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR=vim
 source <(gopass completion zsh)
 
+export PATH=~/bin:$PATH
+
 alias gopass='nocorrect gopass'
