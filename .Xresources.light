@@ -58,6 +58,8 @@
 Xft.hintstyle: hintfull
 Xft.hinting: true
 Xft.antialias: true
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
 
 #define fonts xft:Inconsolata:size=14,xft:DejaVu Sans Mono:size=14,xft:AwesomeFont:size=14
 #define boldfonts xft:Inconsolata:bold:size=14,xft:DejaVu Sans Mono:size=14,Xft:AwesomeFont:size=14
@@ -81,6 +83,7 @@ URxvt.boldFont: boldfonts
 URxvt.italicFont: italicfonts
 URxvt.boldItalicFont: bifonts
 URxvt.perl-ext-common: default,url-select,selection-to-clipboard,clipboard
+URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
 URxvt.clipboard.autocopy: true
 URxvt.clipboard.copycmd: xclip -i -selection clipboard
