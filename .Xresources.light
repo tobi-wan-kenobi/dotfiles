@@ -82,9 +82,10 @@ URxvt.font: fonts
 URxvt.boldFont: boldfonts
 URxvt.italicFont: italicfonts
 URxvt.boldItalicFont: bifonts
-URxvt.perl-ext-common: default,url-select,selection-to-clipboard,clipboard
+URxvt.perl-ext-common: default,matcher,url-select,selection-to-clipboard,clipboard
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
+URxvt.matcher.button: 1
 URxvt.clipboard.autocopy: true
 URxvt.clipboard.copycmd: xclip -i -selection clipboard
 URxvt.clipboard.pastecmd: xclip -o -selection clipboard
