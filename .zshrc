@@ -2,6 +2,8 @@ bindkey "^[Od" backward-word
 bindkey "^[Oc" forward-word
 bindkey "^[[1;5D" backward-word
 bindkey "^[[1;5C" forward-word
+bindkey "\033[1~" beginning-of-line
+bindkey "\033[4~" end-of-line
 
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
