@@ -132,16 +132,16 @@ bindsym $mod+Shift+p move scratchpad
 bindsym $mod+p scratchpad show
 
 # applications
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec gnome-terminal
 bindsym $mod+y exec ~/.config/i3/bin/lock.sh
 bindsym XF86Sleep exec ~/.config/i3/bin/lock.sh
 bindsym $mod+r exec dmenu_run -fn "Inconsolata-14" -p "$ " -nb "#eee8d5" -nf "#586e75" -sb "#b58900" -sf "#eee8d5" -l 5 -i
 bindsym $mod+x [urgent=latest] focus
-bindsym $mod+v exec ~/.config/i3/bin/toggle-conky.sh
+bindsym $mod+c exec gnome-screenshot -i
 
 # wm commands
 bindsym $mod+Shift+c kill
-bindsym $mod+c reload
+bindsym $mod+Control+c reload
 bindsym $mod+Control+r restart
 bindsym $mod+i border 1pixel
 bindsym $mod+u border normal
@@ -195,7 +195,7 @@ mode "mark" {
 # autostart
 exec --no-startup-id feh --bg-fill ~/.config/i3/images/background.png
 exec --no-startup-id nm-applet
-exec --no-startup-id /usr/libexec/deja-dup/deja-dup-monitor
+exec --no-startup-id /usr/lib/deja-dup/deja-dup-monitor
 exec --no-startup-id compton -c -C --inactive-dim 0.2 -b
 exec --no-startup-id dunst
 exec --no-startup-id redshift
