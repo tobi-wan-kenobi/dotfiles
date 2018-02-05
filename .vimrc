@@ -52,3 +52,5 @@ set showtabline=2
 autocmd FileType yaml let b:did_indent = 1
 au BufRead,BufNewFile SConstruct set filetype=python
 au BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile
+
+nmap <F8> :TagbarToggle<CR>
