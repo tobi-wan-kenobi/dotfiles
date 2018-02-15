@@ -13,6 +13,9 @@ PLUGINS = [
     "https://github.com/xolox/vim-misc.git",
     "https://github.com/xolox/vim-easytags.git",
     "https://github.com/majutsushi/tagbar.git",
+    "https://github.com/vim-airline/vim-airline.git",
+    "https://github.com/vim-airline/vim-airline-themes.git",
+    "https://github.com/tpope/vim-fugitive.git",
 ]
 
 def update(args, dst):

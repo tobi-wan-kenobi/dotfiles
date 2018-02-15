@@ -49,6 +49,10 @@ colorscheme solarized
 set laststatus=2
 set showtabline=2
 
+" airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme='solarized'
+
 autocmd FileType yaml let b:did_indent = 1
 au BufRead,BufNewFile SConstruct set filetype=python
 au BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile
