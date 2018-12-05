@@ -3,16 +3,16 @@ bar {
 	font pango:Inconsolata 12
 	position top
 	tray_output none
-	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m nic disk:/ load cpu memory battery date time pasink pasource brightness -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t solarized-dark-awesome
+	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m nic disk:/ load cpu memory battery date time pasink pasource brightness -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t gruvbox-powerline
 
 	colors {
-		focused_workspace		$base1  $base02 $base1
-		active_workspace		$base01 $base03 $base01
-		inactive_workspace		$base03 $base03 $base01
-		urgent_workspace		$base03 $yellow $base03
+        focused_workspace		$gray $gray $bg
+        inactive_workspace		$bg $bg $gray
+        active_workspace		$bg $bg $gray
+		urgent_workspace		$red $orange $bg
 
-		statusline				$base00
-		background				$base03
+		statusline				$gray
+		background				$bg
 		separator				$yellow
 	}
 }
@@ -23,16 +23,16 @@ bar {
 	position bottom
 	tray_output none
 
-	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m cmus xrandr -t solarized-dark-awesome
+	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m cmus xrandr -t gruvbox-powerline
 
 	colors {
-		focused_workspace		$base1  $base02 $base1
-		active_workspace		$base01 $base03 $base01
-		inactive_workspace		$base03 $base03 $base01
-		urgent_workspace		$base03 $yellow $base03
+        focused_workspace		$gray $gray $bg
+        inactive_workspace		$bg $bg $gray
+        active_workspace		$bg $bg $gray
+		urgent_workspace		$red $orange $bg
 
-		statusline				$base00
-		background				$base03
+		statusline				$gray
+		background				$bg
 		separator				$yellow
 	}
 }

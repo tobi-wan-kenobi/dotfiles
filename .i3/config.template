@@ -16,39 +16,26 @@ set $right DP1-2
 font pango:Droid Sans 13
 
 # window layout
-hide_edge_borders vertical
+hide_edge_borders smart 
 workspace_auto_back_and_forth yes
 
 for_window [class=".*"] title_format "<span size='smaller'>  %title  </span>"
-new_window 1pixel
+default_border pixel 3
+default_floating_border pixel 1
 
-# solarized colors
-# note: due to https://github.com/i3/i3/issues/2235, it's
-# better to define "short" variables first, and those that
-# contain the short name as prefix second
-set $base0   #839496
-set $base1   #93a1a1
-set $base2   #eee8d5
-set $base3   #fdf6e3
-set $base00  #657b83
-set $base01  #586e75
-set $base02  #073642
-set $base03  #002b36
-set $yellow  #b58900
-set $orange  #cb4b16
-set $red     #dc322f
-set $magenta #d33682
-set $violet  #6c71c4
-set $blue    #268bd2
-set $cyan    #2aa198
-set $green   #859900
-
-# class                 border  backgr. text    indicator	child-border
-# indicator: indicates *where* window is opened + color of split container bar
-client.focused			$base02	$base00	$base2	$yellow	$base03
-client.unfocused		$base03	$base03	$base01	$yellow	$base03
-client.focused_inactive $base02	$base02	$base01	$yellow	$base02
-client.urgent			$base02 $yellow $base3  $yellow $base02
+# gruvbox colors
+set $bg #282828
+set $fg #ebdbb2
+set $bglight #fbf1c7
+set $fglight #3c3836
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #928374
+set $orange #d65d0e
 
 # assign workspaces
 workspace 9 output $right
@@ -135,7 +122,7 @@ bindsym $mod+p scratchpad show
 bindsym $mod+Return exec gnome-terminal
 bindsym $mod+y exec ~/.config/i3/bin/lock.sh
 bindsym XF86Sleep exec ~/.config/i3/bin/lock.sh
-bindsym $mod+r exec dmenu_run -fn "Inconsolata-14" -p "$ " -nb "#eee8d5" -nf "#586e75" -sb "#b58900" -sf "#eee8d5" -l 5 -i
+bindsym $mod+r exec dmenu_run -fn "Inconsolata-14" -p "$ " -nb "#ebdbb2" -nf "#3c3836" -sb "#d79921" -sf "#fbf1c7" -l 5 -i
 bindsym $mod+x [urgent=latest] focus
 bindsym $mod+c exec gnome-screenshot -i
 
@@ -193,11 +180,10 @@ mode "mark" {
 }
 
 # autostart
+exec --no-startup-id compton -c -C -b
 exec --no-startup-id feh --bg-fill ~/.config/i3/images/background.png
 exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib/deja-dup/deja-dup-monitor
-exec --no-startup-id compton -c -C --inactive-dim 0.2 -b
 exec --no-startup-id dunst
 exec --no-startup-id redshift
-exec --no-startup-id nextcloud
 exec --no-startup-id ~/.config/i3/bumblebee-status/bin/load-i3-bars.sh
