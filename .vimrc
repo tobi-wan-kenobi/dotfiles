@@ -38,12 +38,10 @@ if !isdirectory(expand(&undodir))
 endif
 
 " colorscheme
-set t_Co=16
-if $TERM == "xterm-256color"
-  set t_Co=256
-endif
+set termguicolors
 set background=light
-colorscheme solarized
+let g:gruvbox_italic=1
+colorscheme gruvbox
 
 " status bar
 set laststatus=2
@@ -51,7 +49,7 @@ set showtabline=2
 
 " airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme='solarized'
+let g:airline_theme='gruvbox'
 
 autocmd FileType yaml let b:did_indent = 1
 au BufRead,BufNewFile SConstruct set filetype=python
