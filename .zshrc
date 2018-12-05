@@ -18,7 +18,7 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh/
 
 plugins=(
   git
-  zsh-dircolors-solarized
+  zsh-dircolors-gruvbox
 )
 
 # User configuration
@@ -42,8 +42,6 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 export EDITOR=vim
-source <(gopass completion zsh)
 
 export PATH=~/bin:$PATH
 
-alias gopass='nocorrect gopass'
