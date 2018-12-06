@@ -6,9 +6,9 @@ bar {
 	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m nic disk:/ load cpu memory battery date time pasink pasource brightness -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t gruvbox-powerline
 
 	colors {
-        focused_workspace		$gray $gray $bg
+        active_workspace		$gray $gray $bg
+        focused_workspace		$bglight $bglight $fglight
         inactive_workspace		$bg $bg $gray
-        active_workspace		$bg $bg $gray
 		urgent_workspace		$red $orange $bg
 
 		statusline				$gray
@@ -26,9 +26,9 @@ bar {
 	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m cmus xrandr -t gruvbox-powerline
 
 	colors {
-        focused_workspace		$gray $gray $bg
+        active_workspace		$gray $gray $bg
+        focused_workspace		$bglight $bglight $fglight
         inactive_workspace		$bg $bg $gray
-        active_workspace		$bg $bg $gray
 		urgent_workspace		$red $orange $bg
 
 		statusline				$gray

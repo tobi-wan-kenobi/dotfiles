@@ -7,10 +7,11 @@ bar {
 	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m weather traffic cmus -t gruvbox-powerline
 
 	colors {
-        focused_workspace		$gray $gray $bg
+        active_workspace		$gray $gray $bg
+        focused_workspace		$bglight $bglight $fglight
         inactive_workspace		$bg $bg $gray
-        active_workspace		$bg $bg $gray
 		urgent_workspace		$red $orange $bg
+
 
 		statusline				$gray
 		background				$bg

@@ -37,6 +37,14 @@ set $aqua #689d68
 set $gray #928374
 set $orange #d65d0e
 
+# class                 border  backgr. text    indicator       child-border
+# indicator: indicates *where* window is opened + color of split container bar
+client.focused                  $bglight        $bglight        $fglight        $yellow $fglight
+client.unfocused                $bg $bg $fg $yellow     $bg
+client.focused_inactive $fglight $fglight $bglight      $yellow $fglight
+client.urgent                   $red $yellow $red  $yellow $red
+
+
 # assign workspaces
 workspace 9 output $right
 workspace 1 output $middle
