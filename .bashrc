@@ -25,3 +25,4 @@ CYAN_UL="\[\e[4;36m\]"
 CYAN_BG="\[\e[7;36m\]"
 NC="\[\e[0m\]"
 export PS1="${YELLOW}\u${NC}@${ORANGE}\h${NC}:${BLUE}\W${NC}${BLUE} \$${NC} "
+export TERM=xterm-256color

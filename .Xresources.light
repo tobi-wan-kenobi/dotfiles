@@ -61,10 +61,10 @@ Xft.antialias: true
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
 
-#define fonts xft:Inconsolata:size=14,xft:DejaVu Sans Mono:size=14,xft:AwesomeFont:size=14
-#define boldfonts xft:Inconsolata:bold:size=14,xft:DejaVu Sans Mono:size=14,Xft:AwesomeFont:size=14
-#define italicfonts xft:Inconsolata:italic:size=14,xft:DejaVu Sans Mono:size=14:AwesomeFont:size=14
-#define bifonts xft:Inconsolata:bold:italic:size=14,xft:DejaVu Sans Mono:size=14:AwesomeFont:size=14
+#define fonts xft:Hack:size=15,xft:AwesomeFont:size=15
+#define boldfonts xft:Hack:bold:size=15,xft:AwesomeFont:size=15
+#define italicfonts xft:Hack:italic:size=15,xft:AwesomeFont:size=15
+#define bifonts xft:Hack:bold:italic:size=15,xft:AwesomeFont:size=15
 
 xterm*termName: xterm-256color
 xterm*locale: true

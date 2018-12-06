@@ -1,6 +1,6 @@
 bar {
 	output HDMI-1
-	font pango:Inconsolata 12
+	font pango:Hack 12
 	position top
 	tray_output HDMI-1
 	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m disk nic load cpu memory date time pasink pasource -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t gruvbox-powerline
@@ -9,7 +9,7 @@ bar {
         active_workspace		$gray $gray $bg
         focused_workspace		$bglight $bglight $fglight
         inactive_workspace		$bg $bg $gray
-		urgent_workspace		$red $orange $bg
+		urgent_workspace		$bg $yellow $bg
 
 		statusline				$gray
 		background				$bg

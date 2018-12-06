@@ -30,11 +30,11 @@
 
     separator_color = frame
     
-	dmenu = /usr/bin/dmenu_run -fn "Droid Sans Mono-12" -p "$ " -nb "#eee8d5" -nf "#586e75" -sb "#b58900" -sf "#eee8d5" -l 5 -i -p dunst:
-    browser = /usr/bin/google-chrome
+	dmenu = /usr/bin/dmenu_run -fn "Droid Sans Mono-12" -p "$ " -nb "#ebdbb2" -nf "#3c3836" -sb "#d79921" -sf "#fbf1c7" -l 5 -i -p dunst:
+    browser = /usr/bin/firefox
 
     icon_position = left
-    icon_folders = /usr/share/icons/Arc/status/16/:/usr/share/icons/Arc/devices/16/
+	icon_path = /usr/share/icons/Adwaita/16x16/status/
 
     frame_width = 2
     frame_color = "#eee8d5"
@@ -46,17 +46,17 @@
     context = mod4+n
 
 [urgency_low]
-    background = "#002b36"
-    foreground = "#839496"
+    background = "#282828"
+    foreground = "#ebdbb2"
     timeout = 5
 
 [urgency_normal]
-    background = "#002b36"
-    foreground = "#eee8d5"
+    background = "#282828"
+    foreground = "#ebdbb2"
     timeout = 10
 
 [urgency_critical]
-    background = "#dc322f"
-    foreground = "#002b36"
+    background = "#cc241d"
+    foreground = "#282828"
     timeout = 0
 

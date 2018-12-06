@@ -9,7 +9,7 @@ bar {
         active_workspace		$gray $gray $bg
         focused_workspace		$bglight $bglight $fglight
         inactive_workspace		$bg $bg $gray
-		urgent_workspace		$red $orange $bg
+		urgent_workspace		$bg $yellow $bg
 
 		statusline				$gray
 		background				$bg
@@ -29,7 +29,7 @@ bar {
         active_workspace		$gray $gray $bg
         focused_workspace		$bglight $bglight $fglight
         inactive_workspace		$bg $bg $gray
-		urgent_workspace		$red $orange $bg
+		urgent_workspace		$bg $yellow $bg
 
 		statusline				$gray
 		background				$bg
