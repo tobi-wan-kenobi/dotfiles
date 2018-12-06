@@ -186,4 +186,3 @@ exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib/deja-dup/deja-dup-monitor
 exec --no-startup-id dunst
 exec --no-startup-id redshift
-exec --no-startup-id ~/.config/i3/bumblebee-status/bin/load-i3-bars.sh
