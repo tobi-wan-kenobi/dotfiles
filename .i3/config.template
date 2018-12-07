@@ -42,8 +42,8 @@ set $orange #d65d0e
 # indicator: indicates *where* window is opened + color of split container bar
 client.focused                  $bglight        $bglight        $fglight        $yellow $fglight
 client.unfocused                $bg $bg $fg $yellow     $bg
-client.focused_inactive $fglight $fglight $bglight      $yellow $fglight
-client.urgent                   $red $yellow $red  $yellow $red
+client.focused_inactive			$fglight $fglight $bglight      $yellow $fglight
+client.urgent                   $bg $yellow $bg  $yellow $bg
 
 
 # assign workspaces
