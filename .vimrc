@@ -38,7 +38,8 @@ if !isdirectory(expand(&undodir))
 endif
 
 " colorscheme
-set termguicolors
+"set termguicolors
+set t_Co=256
 set background=light
 let g:gruvbox_italic=1
 colorscheme gruvbox

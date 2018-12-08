@@ -44,4 +44,4 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR=vim
 
 export PATH=~/bin:$PATH
-
+source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
