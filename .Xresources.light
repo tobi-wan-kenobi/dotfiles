@@ -1,70 +1,13 @@
-#define S_base03        #002b36
-#define S_base02        #073642
-#define S_base01        #586e75
-#define S_base00        #657b83
-#define S_base0         #839496
-#define S_base1         #93a1a1
-#define S_base2         #eee8d5
-#define S_base3         #fdf6e3
-#define S_yellow        #b58900
-#define S_orange        #cb4b16
-#define S_red           #dc322f
-#define S_magenta       #d33682
-#define S_violet        #6c71c4
-#define S_blue          #268bd2
-#define S_cyan          #2aa198
-#define S_green         #859900
-
-*background:            S_base3
-*foreground:            S_base00
-*fading:                40
-*fadeColor:             S_base3
-*cursorColor:           S_base01
-*pointerColorBackground:S_base1
-*pointerColorForeground:S_base01
-
-!! black dark/light
-*color0:                S_base02
-*color8:                S_base03
-
-!! red dark/light
-*color1:                S_red
-*color9:                S_orange
-
-!! green dark/light
-*color2:                S_green
-*color10:               S_base01
-
-!! yellow dark/light
-*color3:                S_yellow
-*color11:               S_base00
-
-!! blue dark/light
-*color4:                S_blue
-*color12:               S_base0
-
-!! magenta dark/light
-*color5:                S_magenta
-*color13:               S_violet
-
-!! cyan dark/light
-*color6:                S_cyan
-*color14:               S_base1
-
-!! white dark/light
-*color7:                S_base2
-*color15:               S_base3
-
 Xft.hintstyle: hintfull
 Xft.hinting: true
 Xft.antialias: true
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
 
-#define fonts xft:Hack:size=15,xft:AwesomeFont:size=15
-#define boldfonts xft:Hack:bold:size=15,xft:AwesomeFont:size=15
-#define italicfonts xft:Hack:italic:size=15,xft:AwesomeFont:size=15
-#define bifonts xft:Hack:bold:italic:size=15,xft:AwesomeFont:size=15
+#define fonts xft:Hack:size=12,xft:AwesomeFont:size=12
+#define boldfonts xft:Hack:bold:size=12,xft:AwesomeFont:size=12
+#define italicfonts xft:Hack:italic:size=12,xft:AwesomeFont:size=12
+#define bifonts xft:Hack:bold:italic:size=12,xft:AwesomeFont:size=12
 
 xterm*termName: xterm-256color
 xterm*locale: true
@@ -94,3 +37,22 @@ URxvt.iso14755_52: false
 URxvt.keysym.C-C: perl:clipboard:copy
 URxvt.keysym.C-V: perl:clipboard:paste
 URxvt.keysym.Control-v: perl:clipboard:paste
+
+*background: #fbf1c7
+*foreground: #3c3836
+*color0:  #fdf4c1
+*color1:  #cc241d
+*color2:  #98971a
+*color3:  #d79921
+*color4:  #458588
+*color5:  #b16286
+*color6:  #689d6a
+*color7:  #7c6f64
+*color8:  #928374
+*color9:  #9d0006
+*color10: #79740e
+*color11: #b57614
+*color12: #076678
+*color13: #8f3f71
+*color14: #427b58
+*color15: #3c3836

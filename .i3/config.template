@@ -19,9 +19,14 @@ font pango:Droid Sans 13
 hide_edge_borders smart 
 workspace_auto_back_and_forth yes
 
-for_window [class=".*"] title_format "<span size='smaller'>  %title  </span>"
-default_border pixel 3
-default_floating_border pixel 1
+smart_gaps on
+smart_borders on
+gaps inner 20
+
+#for_window [class=".*"] title_format "<span size='smaller'>  %title  </span>"
+for_window [class="^.*"] border pixel 0 
+#default_border pixel 3
+#default_floating_border pixel 1
 
 # gruvbox colors
 set $bg #282828
@@ -40,10 +45,10 @@ set $orange #d65d0e
 
 # class                 border  backgr. text    indicator       child-border
 # indicator: indicates *where* window is opened + color of split container bar
-client.focused                  $bglight        $bglight        $fglight        $yellow $fglight
-client.unfocused                $bg $bg $fg $yellow     $bg
-client.focused_inactive			$fglight $fglight $bglight      $yellow $fglight
-client.urgent                   $bg $yellow $bg  $yellow $bg
+client.focused			$bglight	$bglight	$fglight	$yellow	$fglight
+client.unfocused		$bg			$bg			$fg			$yellow	$bg
+client.focused_inactive	$fglight	$fglight	$bglight	$yellow	$fglight
+client.urgent			$bg			$yellow		$bg			$yellow	$bg
 
 
 # assign workspaces
@@ -128,10 +133,10 @@ bindsym $mod+Shift+p move scratchpad
 bindsym $mod+p scratchpad show
 
 # applications
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec urxvt
 bindsym $mod+y exec ~/.config/i3/bin/lock.sh
 bindsym XF86Sleep exec ~/.config/i3/bin/lock.sh
-bindsym $mod+r exec dmenu_run -fn "Inconsolata-14" -p "$ " -nb "#ebdbb2" -nf "#3c3836" -sb "#d79921" -sf "#fbf1c7" -l 5 -i
+bindsym $mod+r exec dmenu_run -fn "Hack-12" -p "$ " -nb "#ebdbb2" -nf "#3c3836" -sb "#d79921" -sf "#fbf1c7" -l 5 -i
 bindsym $mod+x [urgent=latest] focus
 bindsym $mod+c exec gnome-screenshot -i
 
@@ -189,7 +194,7 @@ mode "mark" {
 }
 
 # autostart
-exec --no-startup-id compton -c -C -b
+exec --no-startup-id compton -c -C -b --inactive-dim 0.2
 exec --no-startup-id feh --bg-fill ~/.config/i3/images/background.png
 exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib/deja-dup/deja-dup-monitor
