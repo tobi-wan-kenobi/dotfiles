@@ -43,13 +43,13 @@ set $lightgray #a89984
 set $orange #d65d0e
 
 set $activeborder #d5c4a1
-set $inactiveborder #665c454
+set $inactiveborder #3c3836
 
 # class                 border  backgr. text    indicator       child-border
 # indicator: indicates *where* window is opened + color of split container bar
-client.focused			$activeborder	$activeborder $fglight	$aqua	$activeborder
+client.focused			$activeborder	$activeborder			$fglight	$aqua	$activeborder
 client.unfocused		$inactiveborder	$inactiveborder			$fg			$aqua	$inactiveborder
-client.focused_inactive	$inactiveborder	$gray		$bglight	$aqua	$inactiveborder
+client.focused_inactive	$gray			$gray		$bglight	$aqua	$inactiveborder
 client.urgent			$bg				$yellow		$bg			$aqua	$bg
 
 
