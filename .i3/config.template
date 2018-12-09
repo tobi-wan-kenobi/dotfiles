@@ -24,7 +24,7 @@ smart_borders on
 gaps inner 15
 
 for_window [class=".*"] title_format "<span size='smaller'> %title </span>"
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 3
 
 # gruvbox colors
 set $bg #282828
@@ -39,14 +39,18 @@ set $blue #458588
 set $purple #b16286
 set $aqua #689d68
 set $gray #928374
+set $lightgray #a89984
 set $orange #d65d0e
+
+set $activeborder #d5c4a1
+set $inactiveborder #665c454
 
 # class                 border  backgr. text    indicator       child-border
 # indicator: indicates *where* window is opened + color of split container bar
-client.focused			$bglight	$bglight	$fglight	$yellow	$fglight
-client.unfocused		$bg			$bg			$fg			$yellow	$bg
-client.focused_inactive	$gray		$gray		$bglight	$yellow	$gray
-client.urgent			$bg			$yellow		$bg			$yellow	$bg
+client.focused			$activeborder	$activeborder $fglight	$aqua	$activeborder
+client.unfocused		$inactiveborder	$inactiveborder			$fg			$aqua	$inactiveborder
+client.focused_inactive	$inactiveborder	$gray		$bglight	$aqua	$inactiveborder
+client.urgent			$bg				$yellow		$bg			$aqua	$bg
 
 
 # assign workspaces
