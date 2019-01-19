@@ -158,43 +158,6 @@ bindsym XF86AudioNext exec "cmus-remote -n"
 bindsym XF86AudioPrev exec "cmus-remote -r"
 bindsym XF86AudioPlay exec "cmus-remote -u"
 
-bindsym $mod+m mode "mark"
-
-mode "mark" {
-	bindsym $mod+Shift+a mark --toggle a
-	bindsym $mod+a [con_mark="a"] focus
-
-	bindsym $mod+Shift+b mark --toggle b
-	bindsym $mod+b [con_mark="b"] focus
-
-	bindsym $mod+Shift+c mark --toggle c
-	bindsym $mod+c [con_mark="c"] focus
-
-	bindsym $mod+Shift+d mark --toggle d
-	bindsym $mod+d [con_mark="d"] focus
-
-	bindsym $mod+Shift+e mark --toggle e
-	bindsym $mod+e [con_mark="e"] focus
-
-	# focus movement
-	# vim-style
-	bindsym $mod+h focus left
-	bindsym $mod+j focus down
-	bindsym $mod+k focus up
-	bindsym $mod+l focus right
-
-	# focus movement
-	# cursor keys
-	bindsym $mod+Left focus left
-	bindsym $mod+Down focus down
-	bindsym $mod+Up focus up
-	bindsym $mod+Right focus right
-
-	bindsym $mod+m mode "default"
-	bindsym Esc mode "default"
-	bindsym Return mode "default"
-}
-
 # autostart
 exec --no-startup-id compton -c -C -b --inactive-dim 0.2
 exec --no-startup-id feh --bg-fill ~/.config/i3/images/background.png
