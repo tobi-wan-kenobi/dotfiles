@@ -47,10 +47,10 @@ set $inactiveborder #3c3836
 
 # class                 border  backgr. text    indicator       child-border
 # indicator: indicates *where* window is opened + color of split container bar
-client.focused			$activeborder	$activeborder			$fglight	$aqua	$activeborder
-client.unfocused		$inactiveborder	$inactiveborder			$fg			$aqua	$inactiveborder
-client.focused_inactive	$gray			$gray		$bglight	$aqua	$inactiveborder
-client.urgent			$bg				$yellow		$bg			$aqua	$bg
+client.focused			$activeborder	$activeborder		$fglight	$aqua	$activeborder
+client.unfocused		$inactiveborder	$inactiveborder		$fg			$aqua	$inactiveborder
+client.focused_inactive	$gray			$gray				$bglight	$aqua	$inactiveborder
+client.urgent			$bg				$yellow				$bg			$aqua	$bg
 
 
 # assign workspaces
@@ -72,23 +72,11 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# focus movement
-# cursor keys
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
 
 # switch to workspace
 bindsym $mod+1 workspace 1
