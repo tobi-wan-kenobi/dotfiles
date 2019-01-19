@@ -1,13 +1,13 @@
 bar {
 	output eDP-1
-	font pango:Inconsolata 12
+	font pango:Hack 12
 	position top
 	tray_output none
-	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m nic load cpu battery pasink pasource brightness -t gruvbox-powerline
+	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m nic load cpu battery time pasink pasource brightness -p time.format="%H:%M" -t gruvbox-powerline -a nic load cpu battery
 
 	colors {
         active_workspace		$gray $gray $bg
-        focused_workspace		$bglight $bglight $fglight
+        focused_workspace		$fg $fg $bg
         inactive_workspace		$bg $bg $gray
 		urgent_workspace		$bg $yellow $bg
 
@@ -23,11 +23,11 @@ bar {
 	position bottom
 	tray_output eDP-1
 
-	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m kernel redshift time xrandr -p time.format="%H:%M" -t gruvbox-powerline
+	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m redshift xrandr -t gruvbox-powerline
 
 	colors {
         active_workspace		$gray $gray $bg
-        focused_workspace		$bglight $bglight $fglight
+        focused_workspace		$fg $fg $bg
         inactive_workspace		$bg $bg $gray
 		urgent_workspace		$bg $yellow $bg
 

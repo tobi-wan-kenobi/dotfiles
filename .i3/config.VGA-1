@@ -1,13 +1,13 @@
 bar {
 	output VGA-1
-	font pango:Inconsolata 12
+	font pango:Hack 12
 	position top
 	tray_output none
-	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m nic disk:/ load cpu memory battery date time pasink pasource brightness -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t gruvbox-powerline
+	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m nic disk:/ load cpu memory battery date time pasink pasource brightness -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" pasink.limit="100%" pasource.limit=100 -t gruvbox-powerline -a nic load cpu memory battery / 
 
 	colors {
         active_workspace		$gray $gray $bg
-        focused_workspace		$bglight $bglight $fglight
+        focused_workspace		$fg $fg $bg
         inactive_workspace		$bg $bg $gray
 		urgent_workspace		$bg $yellow $bg
 
@@ -19,7 +19,7 @@ bar {
 
 bar {
 	output VGA-1
-	font pango:Inconsolata 12
+	font pango:Hack 12
 	position bottom
 	tray_output none
 
@@ -27,7 +27,7 @@ bar {
 
 	colors {
         active_workspace		$gray $gray $bg
-        focused_workspace		$bglight $bglight $fglight
+        focused_workspace		$fg $fg $bg
         inactive_workspace		$bg $bg $gray
 		urgent_workspace		$bg $yellow $bg
 
