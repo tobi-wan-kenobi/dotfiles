@@ -13,5 +13,6 @@
 	{ "src": "dircolors/dircolors-solarized/dircolors.ansi-dark", "dst": ".dircolors" },
 	{ "src": "dunstrc", "dst": ".config/dunst/dunstrc" },
 	{ "src": "gtk-3.0", "dst": ".config/gtk-3.0" },
-	{ "src": "redshift.conf", "dst": ".config/redshift.conf" }
+	{ "src": "redshift.conf", "dst": ".config/redshift.conf" },
+	{ "src": "nvim", "dst": ".config/nvim" }
 ]
