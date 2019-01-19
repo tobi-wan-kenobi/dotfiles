@@ -8,10 +8,6 @@
 
 set $mod Mod4
 floating_modifier $mod
-set $laptop eDP1
-set $left eDP1
-set $middle DP1-1
-set $right DP1-2
 
 font pango:Droid Sans 13
 
