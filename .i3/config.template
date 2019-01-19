@@ -109,33 +109,21 @@ bindsym $mod+Control+l move workspace to output left
 
 # layout stuff
 bindsym $mod+t layout tabbed
-bindsym $mod+z layout default
 bindsym $mod+f fullscreen
 bindsym $mod+w layout toggle split
-bindsym $mod+Shift+f floating toggle
-bindsym $mod+a focus parent
-bindsym $mod+e layout splith
-bindsym $mod+d layout splitv
 bindsym $mod+o move window to output right
-
-# scratchpad
-bindsym $mod+Shift+p move scratchpad
-bindsym $mod+p scratchpad show
 
 # applications
 bindsym $mod+Return exec gnome-terminal
 bindsym $mod+y exec ~/.config/i3/bin/lock.sh
 bindsym XF86Sleep exec ~/.config/i3/bin/lock.sh
 bindsym $mod+r exec dmenu_run -fn "Hack-12" -p "$ " -nb "#ebdbb2" -nf "#3c3836" -sb "#d79921" -sf "#fbf1c7" -l 5 -i
-bindsym $mod+x [urgent=latest] focus
 bindsym $mod+c exec gnome-screenshot -i
 
 # wm commands
 bindsym $mod+Shift+c kill
 bindsym $mod+Control+c reload
 bindsym $mod+Control+r restart
-bindsym $mod+i border 1pixel
-bindsym $mod+u border normal
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
 bindsym XF86AudioMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
