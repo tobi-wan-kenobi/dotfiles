@@ -3,8 +3,6 @@
 	{ "src": ".gtkrc-2.0" },
 	{ "src": ".i3", "dst": ".config/i3" },
 	{ "src": ".oh-my-zsh" },
-	{ "src": ".vim" },
-	{ "src": ".vimrc" },
 	{ "src": ".Xresources" },
 	{ "src": ".zshrc" },
 	{ "src": ".tmux.conf" },
