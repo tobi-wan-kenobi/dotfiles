@@ -24,11 +24,6 @@ plugins=(
 # User configuration
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
-fi
 
 if [ -n "$DESKTOP_SESSION" ]; then
 	eval $(gnome-keyring-daemon --start)
