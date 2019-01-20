@@ -44,3 +44,4 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR=vim
 
 export PATH=~/bin:$PATH
+source ~/.fzf.zsh
