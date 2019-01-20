@@ -8,7 +8,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/deoplete-clangx'
-Plug 'junegunn/fzf.vim'
 call plug#end()
 
 set number
