@@ -11,6 +11,7 @@ Plug 'Shougo/deoplete-clangx'
 call plug#end()
 
 set number
+set nocompatible
 syntax on
 set cursorline
 if has('mouse')
