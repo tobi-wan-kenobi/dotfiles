@@ -11,6 +11,7 @@ Plug 'Shougo/deoplete-clangx'
 call plug#end()
 
 set number
+set smartindent
 set nocompatible
 syntax on
 set cursorline
