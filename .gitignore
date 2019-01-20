@@ -3,6 +3,7 @@ backup/
 *.sw*
 dotifyc
 *.pyc
+bookmarks
 
 .vim/bundle/*
 .vim/undo/
