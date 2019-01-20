@@ -8,6 +8,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/deoplete-clangx'
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 set number
@@ -37,13 +38,19 @@ if !isdirectory(expand(&undodir))
 	call mkdir(expand(&undodir), "p")
 endif
 
+autocmd FileType yaml let b:did_indent = 1
+au BufRead,BufNewFile SConstruct set filetype=python
+
+" load files at last position
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
+
 " airline
 set noshowmode
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'gruvbox'
-
-autocmd FileType yaml let b:did_indent = 1
-au BufRead,BufNewFile SConstruct set filetype=python
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
