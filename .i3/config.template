@@ -110,7 +110,7 @@ bindsym $mod+w layout toggle split
 bindsym $mod+o move window to output right
 
 # applications
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec kitty
 bindsym $mod+y exec ~/.config/i3/bin/lock.sh
 bindsym XF86Sleep exec ~/.config/i3/bin/lock.sh
 bindsym $mod+r exec dmenu_run -fn "Hack-12" -p "$ " -nb "#ebdbb2" -nf "#3c3836" -sb "#d79921" -sf "#fbf1c7" -l 5 -i
