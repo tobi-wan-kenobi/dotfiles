@@ -12,5 +12,6 @@
 	{ "src": "dunstrc", "dst": ".config/dunst/dunstrc" },
 	{ "src": "gtk-3.0", "dst": ".config/gtk-3.0" },
 	{ "src": "redshift.conf", "dst": ".config/redshift.conf" },
-	{ "src": "nvim", "dst": ".config/nvim" }
+	{ "src": "nvim", "dst": ".config/nvim" },
+	{ "src": "kitty", "dst": ".config/kitty" }
 ]
