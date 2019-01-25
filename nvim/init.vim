@@ -2,17 +2,20 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/deoplete-clangx'
+Plug 'Shougo/neoinclude.vim'
 call plug#end()
 
 set number
 set smartindent
 set nocompatible
+set hidden
 syntax on
 set cursorline
 if has('mouse')
@@ -52,10 +55,16 @@ endif
 set noshowmode
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'gruvbox'
+let g:airline#extensions#tabline#enabled = 1
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 3
+
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+noremap bn :bn<CR>
+noremap bp :bp<CR>
+noremap bd :bd<CR>
 
 " nerdtree
 map <C-e> :NERDTreeToggle<CR>
