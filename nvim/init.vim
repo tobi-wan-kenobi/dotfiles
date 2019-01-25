@@ -10,6 +10,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/deoplete-clangx'
 Plug 'Shougo/neoinclude.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 call plug#end()
 
 set number
@@ -35,6 +36,7 @@ set softtabstop=4
 set shiftwidth=4
 set formatoptions+=r
 
+
 " persistent undo
 set undofile
 set undodir=~/.local/share/nvim/undo/
@@ -59,12 +61,20 @@ let g:airline#extensions#tabline#enabled = 1
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_start_length = 3
+set completeopt+=noinsert
+set completeopt-=preview
 
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" markdown
+let g:mkdp_auto_start = 1
+
+" custom keys
 noremap bn :bn<CR>
 noremap bp :bp<CR>
 noremap bd :bd<CR>
+noremap tn :tabn<CR>
+noremap tp :tabp<CR>
+noremap <C-t> :tabnew<CR>
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " nerdtree
 map <C-e> :NERDTreeToggle<CR>
