@@ -13,5 +13,6 @@
 	{ "src": "gtk-3.0", "dst": ".config/gtk-3.0" },
 	{ "src": "redshift.conf", "dst": ".config/redshift.conf" },
 	{ "src": "nvim", "dst": ".config/nvim" },
-	{ "src": "kitty", "dst": ".config/kitty" }
+	{ "src": "kitty", "dst": ".config/kitty" },
+	{ "src": "alacritty",  "dst": ".config/alacritty" }
 ]
