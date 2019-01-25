@@ -36,6 +36,13 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
+source ~/.fzf.zsh
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh<Paste>
+
 export EDITOR=nvim
 
+alias vim='nvim'
+alias fp='fzf --preview="head -$LINES {}"'
+
 export PATH=~/bin:$PATH
+
