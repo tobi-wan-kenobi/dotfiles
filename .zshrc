@@ -44,5 +44,5 @@ export EDITOR=nvim
 alias vim='nvim'
 alias fp='fzf --preview="head -$LINES {}"'
 
-export PATH=~/bin:$PATH
+export PATH=~/bin:$PATH:~/.local/bin
 
