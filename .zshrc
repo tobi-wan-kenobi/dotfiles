@@ -38,6 +38,8 @@ fi
 source $ZSH/oh-my-zsh.sh
 source ~/.fzf.zsh
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+source /usr/share/undistract-me/long-running.bash
+notify_when_long_running_commands_finish_install
 
 export EDITOR=nvim
 
