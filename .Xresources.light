@@ -1,8 +1,9 @@
-Xft.hintstyle: hintsfull
+Xft.hintstyle: hintslight
 Xft.hinting: true
 Xft.antialias: true
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
+Xft.autohint: 1
 
 #define fonts xft:Hack:size=12
 #define boldfonts xft:Hack:bold:size=12
