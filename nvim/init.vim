@@ -10,7 +10,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/deoplete-clangx'
 Plug 'Shougo/neoinclude.vim'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
+Plug 'davidgranstrom/nvim-markdown-preview'
 call plug#end()
 
 set number
