@@ -6,7 +6,7 @@ bindkey "\033[1~" beginning-of-line
 bindkey "\033[4~" end-of-line
 
 # Path to your oh-my-zsh installation.
-ZSH=/usr/share/oh-my-zsh/
+ZSH=$HOME/.oh-my-zsh/
 
 ZSH_THEME="shadow-light"
 
@@ -18,7 +18,8 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh/
 
 plugins=(
   git
-  zsh-dircolors-gruvbox
+  pass
+#  zsh-dircolors-gruvbox
 )
 
 # User configuration
@@ -36,15 +37,12 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
-source ~/.fzf.zsh
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
-source /usr/share/undistract-me/long-running.bash
-notify_when_long_running_commands_finish_install
+[[ -r "$HOME/.local/z.sh" ]] && source $HOME/.local/z.sh
 
 export EDITOR=nvim
 
 alias vim='nvim'
-alias fp='fzf --preview="head -$LINES {}"'
 
-export PATH=~/bin:$PATH:~/.local/bin
+export PATH=~/bin:$PATH:~/.local/bin:~/node_modules/.bin/
 
