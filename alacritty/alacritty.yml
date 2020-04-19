@@ -16,9 +16,7 @@ scrolling:
   history: 10000
 
   multiplier: 3
-  auto_scroll: false
 
-tabspaces: 4
 font:
   normal:
     family: Hack
@@ -39,35 +37,67 @@ font:
 
 draw_bold_text_with_bright_colors: true
 
-colors:
-  # Default colors
-  primary:
-    # hard contrast: background = '0xf9f5d7'
-    background: '0xfbf1c7'
-    # soft contrast: background = '0xf2e5bc'
-    foreground: '0x3c3836'
+schemes:
+  gruvbox_light: &gruvbox_light
+      # Default colors
+      primary:
+        # hard contrast: background = '0xf9f5d7'
+        background: '0xfbf1c7'
+        # soft contrast: background = '0xf2e5bc'
+        foreground: '0x3c3836'
 
-  # Normal colors
-  normal:
-    black:   '0xfbf1c7'
-    red:     '0xcc241d'
-    green:   '0x98971a'
-    yellow:  '0xd79921'
-    blue:    '0x458588'
-    magenta: '0xb16286'
-    cyan:    '0x689d6a'
-    white:   '0x7c6f64'
+      # Normal colors
+      normal:
+        black:   '0xfbf1c7'
+        red:     '0xcc241d'
+        green:   '0x98971a'
+        yellow:  '0xd79921'
+        blue:    '0x458588'
+        magenta: '0xb16286'
+        cyan:    '0x689d6a'
+        white:   '0x7c6f64'
 
-  # Bright colors
-  bright:
-    black:   '0x928374'
-    red:     '0x9d0006'
-    green:   '0x79740e'
-    yellow:  '0xb57614'
-    blue:    '0x076678'
-    magenta: '0x8f3f71'
-    cyan:    '0x427b58'
-    white:   '0x3c3836'
+      # Bright colors
+      bright:
+        black:   '0x928374'
+        red:     '0x9d0006'
+        green:   '0x79740e'
+        yellow:  '0xb57614'
+        blue:    '0x076678'
+        magenta: '0x8f3f71'
+        cyan:    '0x427b58'
+        white:   '0x3c3836'
+  gruvbox_dark: &gruvbox_dark
+    # Default colors
+    primary:
+      # hard contrast: background = '#1d2021'
+      background: '#282828'
+      # soft contrast: background = '#32302f'
+      foreground: '#ebdbb2'
+  
+    # Normal colors
+    normal:
+      black:   '#282828'
+      red:     '#cc241d'
+      green:   '#98971a'
+      yellow:  '#d79921'
+      blue:    '#458588'
+      magenta: '#b16286'
+      cyan:    '#689d6a'
+      white:   '#a89984'
+  
+    # Bright colors
+    bright:
+      black:   '#928374'
+      red:     '#fb4934'
+      green:   '#b8bb26'
+      yellow:  '#fabd2f'
+      blue:    '#83a598'
+      magenta: '#d3869b'
+      cyan:    '#8ec07c'
+      white:   '#ebdbb2'
+
+colors: *gruvbox_dark
 
 visual_bell:
   animation: EaseOutExpo
