@@ -25,7 +25,7 @@ endif
 
 " colorscheme
 set termguicolors
-set background=light
+set background=dark
 let g:gruvbox_italic=1
 colorscheme gruvbox
 
