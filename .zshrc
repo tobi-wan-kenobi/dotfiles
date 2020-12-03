@@ -19,6 +19,7 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh/
 plugins=(
   git
   pass
+  ssh-agent
 #  zsh-dircolors-gruvbox
 )
 
@@ -39,6 +40,7 @@ fi
 source $ZSH/oh-my-zsh.sh
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 [[ -r "$HOME/.local/z.sh" ]] && source $HOME/.local/z.sh
+[[ -r "$HOME/src/z/z.sh" ]] && source $HOME/src/z/z.sh
 
 export EDITOR=nvim
 

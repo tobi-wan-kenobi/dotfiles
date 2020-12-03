@@ -1,4 +1,5 @@
 window:
+  dynamic_title: true
   dimensions:
     columns: 80
     lines: 24
@@ -99,7 +100,7 @@ schemes:
 
 colors: *gruvbox_dark
 
-visual_bell:
+bell:
   animation: EaseOutExpo
   duration: 0
   color: '0xffffff'
@@ -122,8 +123,6 @@ selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
   save_to_clipboard: false
-
-dynamic_title: true
 
 cursor:
   style: Underline
@@ -228,7 +227,7 @@ key_bindings:
   - { key: Insert,   mods: Shift,   action: PasteSelection               }
   - { key: Key0,     mods: Control, action: ResetFontSize                }
   - { key: Equals,   mods: Control, action: IncreaseFontSize             }
-  - { key: Subtract, mods: Control, action: DecreaseFontSize             }
+  - { key: Minus,    mods: Control, action: DecreaseFontSize             }
   - { key: L,        mods: Control, action: ClearLogNotice               }
   - { key: L,        mods: Control, chars: "\x0c"                        }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
@@ -327,5 +326,5 @@ key_bindings:
   - { key: F11,      mods: Super,   chars: "\x1b[23;3~"                  }
   - { key: F12,      mods: Super,   chars: "\x1b[24;3~"                  }
   - { key: Key0,     mods: Control, action: ResetFontSize                }
-  - { key: Add,     mods: Control, action: IncreaseFontSize             }
+  - { key: Plus,     mods: Control, action: IncreaseFontSize             }
   - { key: Minus,    mods: Control, action: DecreaseFontSize             }
