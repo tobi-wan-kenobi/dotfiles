@@ -1,1 +1,13 @@
-* automatically clean up backup directory
+- nvim
+- xresources
+- i3
+- tmux
+- gnome-terminal
+- zsh
+- dunst (alternative???)
+- z (alternative???)
+- redshift
+- use git subrepo for most stuff
+- cmus (???)
+- dircolors (???)
+

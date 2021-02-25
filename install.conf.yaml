@@ -1,0 +1,17 @@
+- defaults:
+    link:
+        create: true
+        relink: true
+- link:
+    ~/.zshrc:
+        path: config/zshrc
+- create:
+    - '~/.cache/dotbot/'
+    - '~/bin/'
+- shell:
+    - 
+      command: curl -fsSL https://starship.rs/install.sh > ~/.cache/dotbot/starship.sh
+      description: download starship
+    - 
+      command: bash ~/.cache/dotbot/starship.sh --yes --bin-dir ~/bin/
+      description: install starship
