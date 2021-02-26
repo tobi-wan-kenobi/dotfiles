@@ -17,6 +17,10 @@
         path: config/nvim/init.vim
     ~/.tmux.conf:
         path: config/tmux.conf
+    ~/.config/gtk-3.0:
+        path: config/gtk-3.0
+    ~/.gtkrc-2.0:
+        path: config/gtk-2.0
 
 - shell:
     - 
