@@ -15,6 +15,8 @@
         path: config/alacritty/alacritty.yml
     ~/.config/nvim/init.vim:
         path: config/nvim/init.vim
+    ~/.tmux.conf:
+        path: config/tmux.conf
 
 - shell:
     - 
@@ -26,3 +28,7 @@
     - 
       command: curl -L git.io/antigen > ~/.config/zsh/antigen.zsh
       description: download antigen
+    -
+      command: sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+      description: download and install plug.vim
+
