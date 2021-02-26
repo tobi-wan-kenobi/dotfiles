@@ -2,12 +2,18 @@
     link:
         create: true
         relink: true
-- link:
-    ~/.zshrc:
-        path: config/zshrc
+- shell:
+    - 'rm -rf ~/.config/alacritty/'
 - create:
     - '~/.cache/dotbot/'
     - '~/bin/'
+    - '~/.config/alacritty/'
+    - '~/.config/zsh/'
+- link:
+    ~/.zshrc:
+        path: config/zshrc
+    ~/.config/alacritty/alacritty.yml:
+        path: config/alacritty.yml
 - shell:
     - 
       command: curl -fsSL https://starship.rs/install.sh > ~/.cache/dotbot/starship.sh
@@ -15,3 +21,6 @@
     - 
       command: bash ~/.cache/dotbot/starship.sh --yes --bin-dir ~/bin/
       description: install starship
+    - 
+      command: curl -L git.io/antigen > ~/.config/zsh/antigen.zsh
+      description: download antigen

@@ -1,0 +1,27 @@
+export PATH=~/bin:$PATH
+export EDITOR=nvim
+
+alias vim="nvim"
+
+
+bindkey "^[Od" backward-word
+bindkey "^[Oc" forward-word
+bindkey "^[[1;5D" backward-word
+bindkey "^[[1;5C" forward-word
+bindkey "\033[1~" beginning-of-line
+bindkey "\033[4~" end-of-line
+
+COMPLETION_WAITING_DOTS="true"
+
+source $HOME/.config/zsh/antigen.zsh
+
+antigen use oh-my-zsh
+antigen bundle git
+antigen bundle pass
+antigen bundle ssh-agent
+
+zstyle :omz:plugins:ssh-agent agent-forwarding on
+
+antigen apply
+
+eval "$(starship init zsh)"
