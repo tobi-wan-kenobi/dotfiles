@@ -122,10 +122,11 @@ cursor:
 live_config_reload: true
 
 key_bindings:
-  - { key: V,        mods: Control|Shift, action: Paste          }
-  - { key: C,        mods: Control|Shift, action: Copy                }
+  - { key: V,        mods: Control|Shift, action: Paste                  }
+  - { key: C,        mods: Control|Shift, action: Copy                   }
   - { key: Paste,                   action: Paste                        }
   - { key: Copy,                    action: Copy                         }
+  - { key: Return,   mods: Control, action: SpawnNewInstance             }
   - { key: L,        mods: Control, chars: "\x0c"                        }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
