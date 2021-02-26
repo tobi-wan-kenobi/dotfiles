@@ -113,7 +113,7 @@ mouse:
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
-  save_to_clipboard: true
+  save_to_clipboard: false
 
 cursor:
   style: Underline

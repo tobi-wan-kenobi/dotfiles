@@ -2,18 +2,20 @@
     link:
         create: true
         relink: true
-- shell:
-    - 'rm -rf ~/.config/alacritty/'
 - create:
     - '~/.cache/dotbot/'
     - '~/bin/'
     - '~/.config/alacritty/'
     - '~/.config/zsh/'
+    - '~/.config/nvim/'
 - link:
     ~/.zshrc:
         path: config/zshrc
     ~/.config/alacritty/alacritty.yml:
-        path: config/alacritty.yml
+        path: config/alacritty/alacritty.yml
+    ~/.config/nvim/init.vim:
+        path: config/nvim/init.vim
+
 - shell:
     - 
       command: curl -fsSL https://starship.rs/install.sh > ~/.cache/dotbot/starship.sh
