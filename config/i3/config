@@ -1,0 +1,156 @@
+# Requires:
+# - feh (background)
+# - acpi
+# - scrot + convert (imagemagick)
+# - i3lock
+
+set $mod Mod4
+floating_modifier $mod
+
+font pango:Droid Sans 13
+
+# window layout
+hide_edge_borders smart 
+workspace_auto_back_and_forth yes
+
+smart_gaps on
+smart_borders on
+gaps inner 15
+
+for_window [class=".*"] title_format "<span size='smaller'> %title </span>"
+for_window [class="^.*"] border pixel 3
+
+# gruvbox colors
+set $bg #282828
+set $fg #ebdbb2
+set $fg3 #bdae93
+set $bglight #fbf1c7
+set $fglight #3c3836
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #928374
+set $lightgray #a89984
+set $orange #d65d0e
+
+set $activeborder #d5c4a1
+set $inactiveborder #3c3836
+
+# class                 border  backgr. text    indicator       child-border
+# indicator: indicates *where* window is opened + color of split container bar
+client.focused			$activeborder	$activeborder		$fglight	$aqua	$activeborder
+client.unfocused		$inactiveborder	$inactiveborder		$fg			$aqua	$inactiveborder
+client.focused_inactive	$gray			$gray				$bglight	$aqua	$inactiveborder
+client.urgent			$bg				$yellow				$bg			$aqua	$bg
+
+
+# assign workspaces
+workspace 9 output $right
+workspace 1 output $middle
+workspace 2 output $middle
+workspace 3 output $middle
+workspace 4 output $middle
+
+workspace 5 output $right
+workspace 6 output $right
+workspace 7 output $right
+workspace 8 output $right
+
+# focus movement
+# vim-style
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+bindsym $mod+Control+Right move workspace to output right
+bindsym $mod+Control+Left move workspace to output left
+bindsym $mod+Control+h move workspace to output right
+bindsym $mod+Control+l move workspace to output left
+
+# layout stuff
+bindsym $mod+t layout tabbed
+bindsym $mod+f fullscreen
+bindsym $mod+w layout toggle split
+bindsym $mod+o move window to output right
+
+# applications
+bindsym $mod+Return exec alacritty
+bindsym $mod+y exec ~/.config/i3/bin/lock
+bindsym XF86Sleep exec ~/bin/lock
+bindsym $mod+r exec "rofi -modi window,drun,ssh,combi -theme gruvbox-light -font 'Hack 12' -show combi"
+bindsym $mod+c exec gnome-screenshot -i
+
+# wm commands
+bindsym $mod+Shift+c kill
+bindsym $mod+Control+c reload
+bindsym $mod+Control+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+
+#bindsym XF86AudioMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+#bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2%
+#bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%
+
+bindsym XF86AudioNext exec "cmus-remote -n"
+bindsym XF86AudioPrev exec "cmus-remote -r"
+bindsym XF86AudioPlay exec "cmus-remote -u"
+
+# autostart
+exec --no-startup-id feh --bg-fill ~/.config/i3/images/background.png
+exec --no-startup-id connman-ui-gtk
+exec --no-startup-id /usr/lib/deja-dup/deja-dup-monitor
+exec --no-startup-id dunst
+exec --no-startup-id redshift
+exec --no-startup-id xautolock -time 5 -locker "~/.config/i3/bin/lock.sh"
+
+bar {
+	output eDP
+	font pango:Hack 12
+	position top
+	tray_output eDP
+	status_command ~/bin/bumblebee-status/bumblebee-status -m nic load cpu battery time date amixer brightness -p time.format="%H:%M" -t gruvbox-powerline -a load cpu battery
+
+	colors {
+        active_workspace		$gray $gray $bg
+        focused_workspace		$fg $fg $bg
+        inactive_workspace		$bg $bg $gray
+		urgent_workspace		$bg $yellow $bg
+
+		statusline				$gray
+		background				$bg
+		separator				$yellow
+	}
+}

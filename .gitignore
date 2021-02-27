@@ -1,21 +1,4 @@
-backup/
-.cmus/
 *.sw*
-dotifyc
 *.pyc
-bookmarks
 
-.vim/bundle/*
-.vim/undo/
-.vim/.*
-
-.i3/bumblebee-status
-.i3/fonts/
-.i3/dircolors
-.i3/config
-.i3/images/background.png
-.i3/config.template.private
-
-.oh-my-zsh/plugins/
-
-dircolors/dircolors-solarized
+bin/bumblebee-status

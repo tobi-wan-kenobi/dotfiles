@@ -1,0 +1,19 @@
+
+bar {
+	output eDP
+	font pango:Hack 12
+	position top
+	tray_output eDP
+	status_command ~/bin/bumblebee-status/bumblebee-status -m nic load cpu battery time date amixer brightness -p time.format="%H:%M" -t gruvbox-powerline -a load cpu battery
+
+	colors {
+        active_workspace		$gray $gray $bg
+        focused_workspace		$fg $fg $bg
+        inactive_workspace		$bg $bg $gray
+		urgent_workspace		$bg $yellow $bg
+
+		statusline				$gray
+		background				$bg
+		separator				$yellow
+	}
+}
