@@ -3,7 +3,7 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
-Plug 'davidgranstrom/nvim-markdown-preview'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 call plug#end()
 
 set termguicolors
@@ -27,6 +27,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set formatoptions+=r
+set nomodeline
 
 " persistent undo
 set undofile
@@ -35,7 +36,7 @@ if !isdirectory(expand(&undodir))
 	call mkdir(expand(&undodir), "p")
 endif
 
-autocmd FileType yaml let b:did_indent = 1
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 au BufRead,BufNewFile SConstruct set filetype=python
 
 " load files at last position
