@@ -54,3 +54,6 @@
     - 
       command: cat ~/.config/i3/config.$(hostname) >> ~/.config/i3/config
       description: add host-specific i3 configuration
+    - 
+      command: curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/ajeetdsouza/zoxide/master/install.sh | sh
+      description: install zoxide

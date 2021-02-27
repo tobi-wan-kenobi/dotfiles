@@ -16,6 +16,7 @@ antigen bundle pass
 antigen bundle ssh-agent
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 
@@ -26,4 +27,5 @@ if [ -n "$DESKTOP_SESSION" ]; then
 	export SSH_AUTH_SOCK
 fi
 
+eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
