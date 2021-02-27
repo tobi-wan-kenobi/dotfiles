@@ -21,4 +21,9 @@ zstyle :omz:plugins:ssh-agent agent-forwarding on
 
 antigen apply
 
+if [ -n "$DESKTOP_SESSION" ]; then
+	eval $(gnome-keyring-daemon --start)
+	export SSH_AUTH_SOCK
+fi
+
 eval "$(starship init zsh)"
