@@ -61,5 +61,5 @@
       command: curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/ajeetdsouza/zoxide/master/install.sh | sh
       description: install zoxide
     - 
-      command: git clone https://github.com/bardisty/gruvbox-rofi ~/.config/rofi/themes/gruvbox
+      command: git -C ~/.config/rofi/themes/gruvbox pull || git clone https://github.com/bardisty/gruvbox-rofi ~/.config/rofi/themes/gruvbox
       description: install rofi themes
