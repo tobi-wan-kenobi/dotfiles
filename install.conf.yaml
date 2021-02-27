@@ -8,6 +8,7 @@
     - '~/.config/alacritty/'
     - '~/.config/zsh/'
     - '~/.config/nvim/'
+    - '~/.config/rofi/themes/'
     - '~/.tmux/plugins/'
 - link:
     ~/.zshrc:
@@ -26,6 +27,8 @@
         path: config/i3
     ~/.config/starship.toml:
         path: config/starship.toml
+    ~/.config/rofi/config:
+        path: config/rofi.rasi
     ~/bin/lock:
         path: bin/lock
 
@@ -57,3 +60,6 @@
     - 
       command: curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/ajeetdsouza/zoxide/master/install.sh | sh
       description: install zoxide
+    - 
+      command: git clone https://github.com/bardisty/gruvbox-rofi ~/.config/rofi/themes/gruvbox
+      description: install rofi themes

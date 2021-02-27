@@ -1,0 +1,47 @@
+
+bindsym XF86AudioMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%
+
+exec --no-startup-id nm-applet
+exec --no-startup-id xbindkeys
+exec --no-startup-id "setxkbmap -layout us -variant altgr-intl"
+
+bar {
+	output eDP1
+	font pango:Hack 12
+	position top
+	tray_output none
+	status_command ~/bin/bumblebee-status/bumblebee-status -m arch-update nic load cpu battery pasink pasource brightness -t gruvbox-powerline -a load cpu 
+
+	colors {
+        active_workspace		$gray $gray $bg
+        focused_workspace		$fg $fg $bg
+        inactive_workspace		$bg $bg $gray
+		urgent_workspace		$bg $yellow $bg
+
+		statusline				$gray
+		background				$bg
+		separator				$yellow
+	}
+}
+
+bar {
+	output eDP1
+	font pango:Hack 12
+	position bottom
+	tray_output eDP1
+
+	status_command ~/bin/bumblebee-status/bumblebee-status -m timetz:vienna date timetz:nottingham timetz:campbell cmus redshift -p vienna.format="%H:%M %Z" campbell.timezone="America/Los_Angeles" campbell.format="%H:%M %Z" nottingham.timezone="Europe/London" nottingham.format="%H:%M %Z" time.format="%H:%M" date.format="%d/%m/%Y (CW %W)" -t gruvbox-powerline
+
+	colors {
+        active_workspace		$gray $gray $bg
+        focused_workspace		$fg $fg $bg
+        inactive_workspace		$bg $bg $gray
+		urgent_workspace		$bg $yellow $bg
+
+		statusline				$gray
+		background				$bg
+		separator				$yellow
+	}
+}

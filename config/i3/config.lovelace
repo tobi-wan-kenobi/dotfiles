@@ -1,4 +1,6 @@
 
+exec --no-startup-id connman-ui-gtk
+
 bar {
 	output eDP
 	font pango:Hack 12

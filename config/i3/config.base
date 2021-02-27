@@ -109,10 +109,10 @@ bindsym $mod+o move window to output right
 
 # applications
 bindsym $mod+Return exec alacritty
-bindsym $mod+y exec ~/.config/i3/bin/lock
+bindsym $mod+y exec ~/bin/lock
 bindsym XF86Sleep exec ~/bin/lock
-bindsym $mod+r exec "rofi -modi window,drun,ssh,combi -theme gruvbox-light -font 'Hack 12' -show combi"
-bindsym $mod+c exec gnome-screenshot -i
+bindsym $mod+r exec "rofi -modi window,drun,ssh,combi -theme gruvbox-light -font 'Hack 12' -show combi -sidebar-mode"
+bindsym $mod+c exec flameshot launcher
 
 # wm commands
 bindsym $mod+Shift+c kill
@@ -130,8 +130,6 @@ bindsym XF86AudioPlay exec "cmus-remote -u"
 
 # autostart
 exec --no-startup-id feh --bg-fill ~/.config/i3/images/background.png
-exec --no-startup-id connman-ui-gtk
-exec --no-startup-id /usr/lib/deja-dup/deja-dup-monitor
 exec --no-startup-id dunst
 exec --no-startup-id redshift
 exec --no-startup-id xautolock -time 5 -locker "~/.config/i3/bin/lock.sh"
