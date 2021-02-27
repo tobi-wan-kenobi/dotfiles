@@ -24,6 +24,8 @@
         path: config/gtk-2.0
     ~/.config/i3:
         path: config/i3
+    ~/.config/starship.toml:
+        path: config/starship.toml
     ~/bin/lock:
         path: bin/lock
 
