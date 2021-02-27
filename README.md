@@ -11,6 +11,7 @@ I miserably failed on the last point, since having 24bit color support for alacr
 
 Anyhow, apart from that, here's my setup:
 
+- setup is done using dotbot
 - i3-gaps with very basic keybindings as window manager
 - host-specific extensions of i3 (by just "cat"ing files together)
 - alacritty as terminal (sane defaults, nice configuration, flawlessly works with links)
