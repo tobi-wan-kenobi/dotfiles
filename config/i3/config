@@ -111,7 +111,7 @@ bindsym $mod+o move window to output right
 bindsym $mod+Return exec alacritty
 bindsym $mod+y exec ~/.config/i3/bin/lock
 bindsym XF86Sleep exec ~/bin/lock
-bindsym $mod+r exec "rofi -modi window,drun,ssh,combi -theme gruvbox-light -font 'Hack 12' -show combi"
+bindsym $mod+r exec "rofi -modi window,drun,ssh,combi -theme gruvbox-light -font 'Hack 12' -show combi -sidebar-mode"
 bindsym $mod+c exec gnome-screenshot -i
 
 # wm commands
