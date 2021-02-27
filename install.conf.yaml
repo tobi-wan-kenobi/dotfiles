@@ -1,0 +1,65 @@
+- defaults:
+    link:
+        create: true
+        relink: true
+- create:
+    - '~/.cache/dotbot/'
+    - '~/bin/'
+    - '~/.config/alacritty/'
+    - '~/.config/zsh/'
+    - '~/.config/nvim/'
+    - '~/.config/rofi/themes/'
+    - '~/.tmux/plugins/'
+- link:
+    ~/.zshrc:
+        path: config/zshrc
+    ~/.config/alacritty/alacritty.yml:
+        path: config/alacritty/alacritty.yml
+    ~/.config/nvim/init.vim:
+        path: config/nvim/init.vim
+    ~/.tmux.conf:
+        path: config/tmux.conf
+    ~/.config/gtk-3.0:
+        path: config/gtk-3.0
+    ~/.gtkrc-2.0:
+        path: config/gtk-2.0
+    ~/.config/i3:
+        path: config/i3
+    ~/.config/starship.toml:
+        path: config/starship.toml
+    ~/.config/rofi/config:
+        path: config/rofi.rasi
+    ~/bin/lock:
+        path: bin/lock
+
+- shell:
+    - 
+      command: curl -fsSL https://starship.rs/install.sh > ~/.cache/dotbot/starship.sh
+      description: download starship
+    - 
+      command: bash ~/.cache/dotbot/starship.sh --yes --bin-dir ~/bin/
+      description: install starship
+    - 
+      command: curl -L git.io/antigen > ~/.config/zsh/antigen.zsh
+      description: download antigen
+    -
+      command: sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+      description: download and install plug.vim
+    - 
+      command: git -C ~/.tmux/plugins/tpm pull || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+      description: download or update tmux plugin manager
+    - 
+      command: git -C ~/bin/bumblebee-status pull || git clone https://github.com/tobi-wan-kenobi/bumblebee-status.git ~/bin/bumblebee-status
+      description: download or update bumblebee-status
+    - 
+      command: cat ~/.config/i3/config.base > ~/.config/i3/config
+      description: base i3 configuration
+    - 
+      command: cat ~/.config/i3/config.$(hostname) >> ~/.config/i3/config
+      description: add host-specific i3 configuration
+    - 
+      command: curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/ajeetdsouza/zoxide/master/install.sh | sh
+      description: install zoxide
+    - 
+      command: git clone https://github.com/bardisty/gruvbox-rofi ~/.config/rofi/themes/gruvbox
+      description: install rofi themes

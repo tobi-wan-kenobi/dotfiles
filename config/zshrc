@@ -1,0 +1,31 @@
+export PATH=~/bin:$PATH
+export EDITOR=nvim
+export BAT_THEME=gruvbox-light
+
+alias vim="nvim"
+
+bindkey -e
+
+COMPLETION_WAITING_DOTS="true"
+
+source $HOME/.config/zsh/antigen.zsh
+
+antigen use oh-my-zsh
+antigen bundle git
+antigen bundle pass
+antigen bundle ssh-agent
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+zstyle :omz:plugins:ssh-agent agent-forwarding on
+
+antigen apply
+
+if [ -n "$DESKTOP_SESSION" ]; then
+	eval $(gnome-keyring-daemon --start)
+	export SSH_AUTH_SOCK
+fi
+
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"

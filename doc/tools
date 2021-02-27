@@ -1,0 +1,11 @@
+bat -> better cat
+exa -> better ls
+ripgrep -> better grep
+ranger -> CLI file manager
+fd -> better find
+flameshot -> better screenshots
+ytop -> system dashboard
+nerd fonts -> required for starship.rs
+mosh -> better ssh
+bandwhich -> great network graphs
+tealdeer -> better man

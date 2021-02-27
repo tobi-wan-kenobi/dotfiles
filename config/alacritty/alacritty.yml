@@ -1,0 +1,171 @@
+window:
+  dynamic_title: true
+  padding:
+    x: 4
+    y: 4
+  dynamic_padding: false
+  decorations: none
+  startup_mode: Maximized
+
+env:
+  TERM: xterm-256color
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+font:
+  normal:
+    family: Hack
+    style: Regular
+  bold:
+    family: Hack
+    style: Bold
+  italic:
+    family: Hack
+    style: Italic
+  size: 9.5
+  offset:
+    x: 0
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+draw_bold_text_with_bright_colors: true
+
+schemes:
+  gruvbox_light: &gruvbox_light
+      # Default colors
+      primary:
+        # hard contrast: background = '0xf9f5d7'
+        background: '0xfbf1c7'
+        # soft contrast: background = '0xf2e5bc'
+        foreground: '0x3c3836'
+
+      # Normal colors
+      normal:
+        black:   '0xfbf1c7'
+        red:     '0xcc241d'
+        green:   '0x98971a'
+        yellow:  '0xd79921'
+        blue:    '0x458588'
+        magenta: '0xb16286'
+        cyan:    '0x689d6a'
+        white:   '0x7c6f64'
+
+      # Bright colors
+      bright:
+        black:   '0x928374'
+        red:     '0x9d0006'
+        green:   '0x79740e'
+        yellow:  '0xb57614'
+        blue:    '0x076678'
+        magenta: '0x8f3f71'
+        cyan:    '0x427b58'
+        white:   '0x3c3836'
+  gruvbox_dark: &gruvbox_dark
+    # Default colors
+    primary:
+      # hard contrast: background = '#1d2021'
+      background: '#282828'
+      # soft contrast: background = '#32302f'
+      foreground: '#ebdbb2'
+  
+    # Normal colors
+    normal:
+      black:   '#282828'
+      red:     '#cc241d'
+      green:   '#98971a'
+      yellow:  '#d79921'
+      blue:    '#458588'
+      magenta: '#b16286'
+      cyan:    '#689d6a'
+      white:   '#a89984'
+  
+    # Bright colors
+    bright:
+      black:   '#928374'
+      red:     '#fb4934'
+      green:   '#b8bb26'
+      yellow:  '#fabd2f'
+      blue:    '#83a598'
+      magenta: '#d3869b'
+      cyan:    '#8ec07c'
+      white:   '#ebdbb2'
+
+colors: *gruvbox_light
+
+bell:
+  animation: EaseOutExpo
+  duration: 0
+  color: '0xffffff'
+
+background_opacity: 1.0
+
+mouse_bindings:
+  - { mouse: Middle, action: PasteSelection }
+
+mouse:
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+
+  hide_when_typing: true
+
+  url:
+    launcher: xdg-open
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>"
+  save_to_clipboard: false
+
+cursor:
+  style: Underline
+  unfocused_hollow: true
+
+live_config_reload: true
+
+key_bindings:
+  - { key: V,        mods: Control|Shift, action: Paste                  }
+  - { key: C,        mods: Control|Shift, action: Copy                   }
+  - { key: Paste,                   action: Paste                        }
+  - { key: Copy,                    action: Copy                         }
+  - { key: Return,   mods: Control, action: SpawnNewInstance             }
+  - { key: L,        mods: Control, chars: "\x0c"                        }
+  - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
+  - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
+  - { key: End,                     chars: "\x1bOF",   mode: AppCursor   }
+  - { key: End,                     chars: "\x1b[F",   mode: ~AppCursor  }
+  - { key: PageUp,   mods: Shift,   chars: "\x1b[5;2~"                   }
+  - { key: PageUp,   mods: Control, chars: "\x1b[5;5~"                   }
+  - { key: PageUp,                  chars: "\x1b[5~"                     }
+  - { key: PageDown, mods: Shift,   chars: "\x1b[6;2~"                   }
+  - { key: PageDown, mods: Control, chars: "\x1b[6;5~"                   }
+  - { key: PageDown,                chars: "\x1b[6~"                     }
+  - { key: Tab,      mods: Shift,   chars: "\x1b[Z"                      }
+  - { key: Back,                    chars: "\x7f"                        }
+  - { key: Back,     mods: Alt,     chars: "\x1b\x7f"                    }
+  - { key: Insert,                  chars: "\x1b[2~"                     }
+  - { key: Delete,                  chars: "\x1b[3~"                     }
+  - { key: Left,     mods: Shift,   chars: "\x1b[1;2D"                   }
+  - { key: Left,     mods: Control, chars: "\x1b[1;5D"                   }
+  - { key: Left,     mods: Alt,     chars: "\x1b[1;3D"                   }
+  - { key: Left,                    chars: "\x1b[D",   mode: ~AppCursor  }
+  - { key: Left,                    chars: "\x1bOD",   mode: AppCursor   }
+  - { key: Right,    mods: Shift,   chars: "\x1b[1;2C"                   }
+  - { key: Right,    mods: Control, chars: "\x1b[1;5C"                   }
+  - { key: Right,    mods: Alt,     chars: "\x1b[1;3C"                   }
+  - { key: Right,                   chars: "\x1b[C",   mode: ~AppCursor  }
+  - { key: Right,                   chars: "\x1bOC",   mode: AppCursor   }
+  - { key: Up,       mods: Shift,   chars: "\x1b[1;2A"                   }
+  - { key: Up,       mods: Control, chars: "\x1b[1;5A"                   }
+  - { key: Up,       mods: Alt,     chars: "\x1b[1;3A"                   }
+  - { key: Up,                      chars: "\x1b[A",   mode: ~AppCursor  }
+  - { key: Up,                      chars: "\x1bOA",   mode: AppCursor   }
+  - { key: Down,     mods: Shift,   chars: "\x1b[1;2B"                   }
+  - { key: Down,     mods: Control, chars: "\x1b[1;5B"                   }
+  - { key: Down,     mods: Alt,     chars: "\x1b[1;3B"                   }
+  - { key: Down,                    chars: "\x1b[B",   mode: ~AppCursor  }
+  - { key: Down,                    chars: "\x1bOB",   mode: AppCursor   }
+  - { key: Key0,     mods: Control, action: ResetFontSize                }
+  - { key: Plus,     mods: Control, action: IncreaseFontSize             }
+  - { key: Minus,    mods: Control, action: DecreaseFontSize             }
