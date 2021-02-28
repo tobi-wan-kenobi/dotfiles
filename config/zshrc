@@ -8,6 +8,7 @@ bindkey -e
 
 COMPLETION_WAITING_DOTS="true"
 CASE_SENSITIVE="true"
+DISABLE_AUTO_UPDATE="true"
 
 source $HOME/.config/zsh/antigen.zsh
 
