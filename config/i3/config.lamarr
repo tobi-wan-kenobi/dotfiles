@@ -5,7 +5,6 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%
 
 exec --no-startup-id nm-applet
 exec --no-startup-id xbindkeys
-exec --no-startup-id "setxkbmap -layout us -variant altgr-intl"
 
 bar {
 	output eDP1
