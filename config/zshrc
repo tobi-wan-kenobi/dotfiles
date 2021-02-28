@@ -7,6 +7,7 @@ alias vim="nvim"
 bindkey -e
 
 COMPLETION_WAITING_DOTS="true"
+CASE_SENSITIVE="true"
 
 source $HOME/.config/zsh/antigen.zsh
 
@@ -21,6 +22,10 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 
 antigen apply
+
+if [ -f /usr/share/doc/fzf/key-bindings.zsh ]; then
+	source /usr/share/doc/fzf/key-bindings.zsh
+fi
 
 if [ -n "$DESKTOP_SESSION" ]; then
 	eval $(gnome-keyring-daemon --start)
