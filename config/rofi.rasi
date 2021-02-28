@@ -1,1 +1,7 @@
-rofi.theme: ~/.config/rofi/themes/gruvbox/gruvbox-light-soft.rasi
+configuration {
+	theme: "gruvbox/gruvbox-light";
+	font: "Hack 12";
+	show-icons: true;
+	sidebar-mode: true;
+}
+
