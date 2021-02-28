@@ -29,6 +29,8 @@
         path: config/starship.toml
     ~/.config/rofi/config:
         path: config/rofi.rasi
+    ~/.xbindkeysrc:
+        path: config/xbindkeysrc
     ~/bin/lock:
         path: bin/lock
 
