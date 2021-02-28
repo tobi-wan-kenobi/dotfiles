@@ -1,5 +1,5 @@
 bat -> better cat
-exa -> better ls
+lsd -> better ls
 ripgrep -> better grep
 ranger -> CLI file manager
 fd -> better find
