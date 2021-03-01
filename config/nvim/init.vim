@@ -3,6 +3,8 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
@@ -67,3 +69,4 @@ noremap bd :bd<CR>
 noremap tn :tabn<CR>
 noremap tp :tabp<CR>
 noremap <C-t> :tabnew<CR>
+noremap <C-p> :Files<CR>
