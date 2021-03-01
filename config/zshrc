@@ -35,3 +35,6 @@ fi
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+
+unset LS_COLORS
+unset LSCOLORS
