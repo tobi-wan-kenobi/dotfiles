@@ -18,6 +18,8 @@
         path: config/alacritty/alacritty.yml
     ~/.config/nvim/init.vim:
         path: config/nvim/init.vim
+    ~/.config/nvim/coc-settings.json:
+        path: config/nvim/coc-settings.json
     ~/.tmux.conf:
         path: config/tmux.conf
     ~/.config/gtk-3.0:

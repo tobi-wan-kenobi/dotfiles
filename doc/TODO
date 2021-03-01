@@ -1,13 +1,2 @@
 - nvim
-- xresources
-- i3
-- tmux
-- gnome-terminal
-- zsh
-- dunst (alternative???)
-- z (alternative???)
-- redshift
-- use git subrepo for most stuff
-- cmus (???)
-- dircolors (???)
-
+	:CocInstall coc-pyright -> how to automate?
