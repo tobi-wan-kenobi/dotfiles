@@ -4,7 +4,6 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%
 
 exec --no-startup-id nm-applet
-exec --no-startup-id xbindkeys
 
 bar {
 	output eDP1
