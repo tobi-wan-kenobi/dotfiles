@@ -2,4 +2,4 @@
 *.pyc
 
 bin/bumblebee-status
-config/i3/config
+config/private/*

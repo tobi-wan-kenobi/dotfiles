@@ -9,6 +9,7 @@
     - '~/.config/zsh/'
     - '~/.config/nvim/'
     - '~/.config/dunst/'
+    - '~/.config/i3/'
     - '~/.config/rofi/themes/'
     - '~/.config/ranger/plugins/'
     - '~/.tmux/plugins/'
@@ -27,8 +28,6 @@
         path: config/gtk-3.0
     ~/.gtkrc-2.0:
         path: config/gtk-2.0
-    ~/.config/i3:
-        path: config/i3
     ~/.config/starship.toml:
         path: config/starship.toml
     ~/.config/rofi/config.rasi:
@@ -62,11 +61,14 @@
       command: git -C ~/bin/bumblebee-status pull || git clone https://github.com/tobi-wan-kenobi/bumblebee-status.git ~/bin/bumblebee-status
       description: download or update bumblebee-status
     - 
-      command: cat ~/.config/i3/config.base > ~/.config/i3/config
+      command: cat config/i3/config.base > ~/.config/i3/config
       description: base i3 configuration
     - 
-      command: cat ~/.config/i3/config.$(hostname) >> ~/.config/i3/config
+      command: sh -c '[ -f config/i3/config.$(hostname) ] && cat config/i3/config.$(hostname) >> ~/.config/i3/config || true'
       description: add host-specific i3 configuration
+    - 
+      command: sh -c '[ -f config/private/i3/config ] && cat config/i3/private/config >> ~/.config/i3/config || true'
+      description: add private i3 configuration
     - 
       command: curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/ajeetdsouza/zoxide/master/install.sh | sh
       description: install zoxide
@@ -76,3 +78,6 @@
     - 
       command: git -C ~/.config/ranger/plugins/ranger_devicons pull || git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
       description: install ranger icons
+    - 
+      command: i3-msg restart
+      description: restart i3wm
