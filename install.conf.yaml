@@ -8,6 +8,7 @@
     - '~/.config/alacritty/'
     - '~/.config/zsh/'
     - '~/.config/nvim/'
+    - '~/.config/dunst/'
     - '~/.config/rofi/themes/'
     - '~/.config/ranger/plugins/'
     - '~/.tmux/plugins/'
@@ -34,6 +35,8 @@
         path: config/rofi.rasi
     ~/.config/ranger/rc.conf:
         path: config/ranger/rc.conf
+    ~/.config/dunst/dunstrc:
+        path: config/dunst/dunstrc
     ~/.xbindkeysrc:
         path: config/xbindkeysrc
     ~/bin/lock:
