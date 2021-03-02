@@ -15,6 +15,8 @@ set smartindent
 set nocompatible
 set hidden
 
+let mapleader = ','
+
 syntax on
 set cursorline
 if has('mouse')
@@ -54,6 +56,14 @@ autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \|   PlugInstall --sync | q
   \| endif
+
+" restart vim after saving init.vim
+if !exists('*reload_config')
+	fun! ReloadVimConfig()
+		source $MYVIMRC
+	endfun
+endif
+autocmd! BufWritePost $MYVIMRC call ReloadVimConfig()
 
 " airline
 set noshowmode
