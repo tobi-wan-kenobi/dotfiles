@@ -6,6 +6,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'iamcco/coc-vimlsp'
+Plug 'dense-analysis/ale'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
@@ -58,7 +60,7 @@ autocmd VimEnter *
   \| endif
 
 " restart vim after saving init.vim
-if !exists('*reload_config')
+if !exists('*ReloadVimConfig')
 	fun! ReloadVimConfig()
 		source $MYVIMRC
 	endfun
@@ -118,3 +120,13 @@ nmap <leader>rn <Plug>(coc-rename)
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
+
+" ale configuration
+let g:ale_linters_explicit = 1
+let g:ale_linters = {
+        \   'cpp': ['clangtidy'],
+        \}
+let g:ale_disable_lsp = 1
+let g:ale_cpp_clangtidy_executable = 'clang-tidy-wrapper'
+let g:ale_cpp_clangtidy_fix_errors = 0
+let g:ale_cpp_clangtidy_checks = ['modernize-*', '-modernize-use-trailing-return-type']
