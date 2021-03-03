@@ -2,35 +2,39 @@
 font = Droid Sans 12
 follow = mouse
 sort = true
-geometry = 300x50-5+5
-padding = 10
-horizontal_padding = 10
-notification_height = 100
+geometry = 300x55-25+10
+padding = 15
+horizontal_padding = 15
 separator_height = 2 
 separator_color = frame
 frame_width = 3
 markup = full
 browser = xdg-open
-format = "<b>%a</b>: %s\n%b\n%p"
+format = "<b>%a</b>: %s\n%b"
 word_wrap = true
 icon_position = left
 indicate_hidden = true
 idle_threshold = 120
+vertical_alignment = center
+corner_radius = 10
 
 [urgency_low]
-    background = "#a89984"
-    foreground = "#3c3836"
-	frame_color = "#3c3836"
-    timeout = 5
+foreground = "#fbf1c7"
+background = "#3c3836"
+frame_color = "#689d6a"
+highlight = "#689d6a"
+timeout = 5
 
 [urgency_normal]
-    background = "#d5c4a1"
-    foreground = "#3c3836"
-	frame_color = "#3c3836"
-    timeout = 5
+foreground = "#fbf1c7"
+background = "#3c3836"
+frame_color = "#458588"
+highlight = "#458588"
+timeout = 5
 
 [urgency_critical]
-    background = "#d5c4a1"
-    foreground = "#3c3836"
-	frame_color = "#cc241d"
-    timeout = 0
+foreground = "#fbf1c7"
+background = "#3c3836"
+frame_color = "#cc241d"
+highlight = "#cc241d"
+timeout = 0
