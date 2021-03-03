@@ -36,4 +36,4 @@ fi
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+export FZF_DEFAULT_COMMAND='rg --files --ignore-vcs --hidden --glob "!ccache/"'
