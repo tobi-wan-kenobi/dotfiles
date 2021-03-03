@@ -1,4 +1,31 @@
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$docker_context\
+$nodejs\
+$python\
+$ruby\
+$rust\
+$terraform\
+$vagrant\
+$nix_shell\
+$cmd_duration\
+$line_break\
+$jobs\
+$status\
+$character"""
+
+
 [character]
 success_symbol = "[\\$](bold green)"
 error_symbol = "[\\$](bold red)"
 vicmd_symbol = "[\\$](bold blue)"
+
+[status]
+format = "[$status]($style) "
+disabled = false
