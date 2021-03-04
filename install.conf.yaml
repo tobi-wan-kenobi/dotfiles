@@ -10,6 +10,7 @@
     - '~/.config/nvim/'
     - '~/.config/dunst/'
     - '~/.config/i3/'
+    - '~/.config/redshift/'
     - '~/.config/rofi/themes/'
     - '~/.config/ranger/plugins/'
     - '~/.tmux/plugins/'
@@ -36,6 +37,8 @@
         path: config/ranger/rc.conf
     ~/.config/dunst/dunstrc:
         path: config/dunst/dunstrc
+    ~/.config/redshift/redshift.conf:
+        path: config/redshift/redshift.conf
     ~/.xbindkeysrc:
         path: config/xbindkeysrc
     ~/bin/lock:
@@ -67,7 +70,7 @@
       command: sh -c '[ -f config/i3/config.$(hostname) ] && cat config/i3/config.$(hostname) >> ~/.config/i3/config || true'
       description: add host-specific i3 configuration
     - 
-      command: sh -c '[ -f config/private/i3/config ] && cat config/i3/private/config >> ~/.config/i3/config || true'
+      command: sh -c '[ -f config/private/i3/config ] && cat config/private/i3/config >> ~/.config/i3/config || true'
       description: add private i3 configuration
     - 
       command: curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/ajeetdsouza/zoxide/master/install.sh | sh
