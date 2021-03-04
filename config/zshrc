@@ -28,6 +28,10 @@ if [ -f /usr/share/doc/fzf/key-bindings.zsh ]; then
 	source /usr/share/doc/fzf/key-bindings.zsh
 fi
 
+if [ -f /usr/share/fzf/key-bindings.zsh ]; then
+	source /usr/share/fzf/key-bindings.zsh
+fi
+
 if [ -n "$DESKTOP_SESSION" ]; then
 	eval $(gnome-keyring-daemon --start)
 	export SSH_AUTH_SOCK
