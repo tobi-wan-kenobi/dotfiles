@@ -15,7 +15,6 @@ source $HOME/.config/zsh/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle git
 antigen bundle pass
-antigen bundle ssh-agent
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
