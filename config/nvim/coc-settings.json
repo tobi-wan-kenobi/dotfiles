@@ -2,6 +2,7 @@
 	"languageserver": {
 		"clangd": {
 			"command": "clangd",
+			"args": ["--background-index", "-j", "8"],
 			"rootPatterns": ["compile_flags.txt", "compile_commands.json"],
 			"filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
 		},
