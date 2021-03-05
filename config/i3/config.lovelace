@@ -6,7 +6,7 @@ bar {
 	font pango:Hack 12
 	position top
 	tray_output eDP
-	status_command ~/bin/bumblebee-status/bumblebee-status -m nic load cpu battery time date amixer brightness -p time.format="%H:%M" -t gruvbox-powerline -a load cpu battery
+	status_command ~/bin/bumblebee-status/bumblebee-status -m nic load cpu battery time date pasink pasource brightness -p time.format="%H:%M" -t gruvbox-powerline -a load cpu battery
 
 	colors {
         active_workspace		$gray $gray $bg
