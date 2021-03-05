@@ -39,6 +39,10 @@ if [ -n "$DESKTOP_SESSION" ]; then
 	export SSH_AUTH_SOCK
 fi
 
+if [ -f $HOME/.cargo/env ]; then
+	source $HOME/.cargo/env
+fi
+
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
