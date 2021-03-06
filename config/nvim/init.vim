@@ -21,7 +21,7 @@ set nocompatible
 set hidden
 
 let mapleader = ';'
-set timeoutlen=250
+set timeoutlen=500
 
 let g:tcomment_opleader1='c'
 
