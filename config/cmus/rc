@@ -1,0 +1,2 @@
+set output_plugin=pulse
+colorscheme gruvbox-warm

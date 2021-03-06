@@ -13,6 +13,7 @@
     - '~/.config/redshift/'
     - '~/.config/rofi/themes/'
     - '~/.config/ranger/plugins/'
+    - '~/.config/cmus/'
     - '~/.tmux/plugins/'
 - link:
     ~/.zshrc:
@@ -39,6 +40,8 @@
         path: config/dunst/dunstrc
     ~/.config/redshift/redshift.conf:
         path: config/redshift/redshift.conf
+    ~/.config/cmus/rc:
+        path: config/cmus/rc
     ~/.xbindkeysrc:
         path: config/xbindkeysrc
     ~/bin/lock:
