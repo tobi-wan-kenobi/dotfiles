@@ -4,6 +4,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
+Plug 'tomtom/tcomment_vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -11,7 +12,6 @@ Plug 'iamcco/coc-vimlsp'
 Plug 'dense-analysis/ale'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'tobi-wan-kenobi/vim-hints'
-Plug 'preservim/nerdcommenter'
 call plug#end()
 
 set termguicolors
@@ -22,6 +22,8 @@ set hidden
 
 let mapleader = ';'
 set timeoutlen=250
+
+let g:tcomment_opleader1='c'
 
 syntax on
 set cursorline
