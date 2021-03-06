@@ -11,6 +11,7 @@ Plug 'iamcco/coc-vimlsp'
 Plug 'dense-analysis/ale'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'tobi-wan-kenobi/vim-hints'
+Plug 'preservim/nerdcommenter'
 call plug#end()
 
 set termguicolors
