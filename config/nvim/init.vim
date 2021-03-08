@@ -2,6 +2,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
@@ -154,3 +155,4 @@ let g:ale_disable_lsp = 1
 let g:ale_cpp_clangtidy_executable = 'clang-tidy-wrapper'
 let g:ale_cpp_clangtidy_fix_errors = 0
 let g:ale_cpp_clangtidy_checks = ['modernize-*', '-modernize-use-trailing-return-type']
+
