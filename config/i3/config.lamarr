@@ -10,7 +10,7 @@ bar {
 	font pango:Hack 12
 	position top
 	tray_output none
-	status_command ~/bin/bumblebee-status/bumblebee-status -m arch-update nic load cpu battery pasink pasource brightness -t gruvbox-powerline -a load cpu 
+	status_command ~/bin/bumblebee-status/bumblebee-status -m keys arch-update nic load cpu battery pasink pasource brightness -t gruvbox-powerline -a load cpu
 
 	colors {
         active_workspace		$gray $gray $bg
