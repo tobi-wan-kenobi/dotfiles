@@ -29,6 +29,3 @@ vicmd_symbol = "[\\$](bold blue)"
 [status]
 format = "[$status]($style) "
 disabled = false
-
-[rust]
-symbol = " "

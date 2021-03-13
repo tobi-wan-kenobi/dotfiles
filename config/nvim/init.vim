@@ -9,11 +9,15 @@ Plug 'tomtom/tcomment_vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 Plug 'iamcco/coc-vimlsp'
 Plug 'dense-analysis/ale'
+Plug 'jbyuki/instant.nvim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'tobi-wan-kenobi/vim-hints'
 call plug#end()
+
+let g:instant_username = "tobi-wan-kenobi"
 
 set termguicolors
 set number
@@ -124,6 +128,10 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gn <Plug>(coc-diagnostic-prev)
+nmap <silent> gp <Plug>(coc-diagnostic-next)
+nmap <silent> gf <Plug>(coc-fix-current)
+nmap <silent> gc <Plug>(coc-codeaction)
 
 nnoremap <silent> , :call <SID>show_documentation()<CR>
 function! s:show_documentation()

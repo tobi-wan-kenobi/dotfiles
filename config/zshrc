@@ -34,6 +34,10 @@ if [ -f /usr/share/fzf/key-bindings.zsh ]; then
 	source /usr/share/fzf/key-bindings.zsh
 fi
 
+if [ -f $HOME/src/git-subrepo/.rc ]; then
+	source $HOME/src/git-subrepo/.rc
+fi
+
 if [ -n "$DESKTOP_SESSION" ]; then
 	eval $(gnome-keyring-daemon --start)
 	export SSH_AUTH_SOCK
