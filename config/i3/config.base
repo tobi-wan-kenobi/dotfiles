@@ -131,7 +131,6 @@ bindsym XF86AudioPlay exec "cmus-remote -u"
 # autostart
 exec --no-startup-id feh --bg-fill ~/.config/i3/images/background.png
 exec --no-startup-id dunst
-exec --no-startup-id redshift
 exec --no-startup-id xautolock -time 5 -locker "~/bin/lock.sh"
 exec --no-startup-id setxkbmap -layout us -variant altgr-intl
 exec --no-startup-id xbindkeys
