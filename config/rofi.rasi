@@ -1,8 +1,7 @@
 configuration {
-	theme: "gruvbox/gruvbox-light";
 	font: "Hack 12";
 	sidebar-mode: true;
 	terminal: "alacritty";
 	separator-style: "dash";
 }
-
+@theme "gruvbox/gruvbox-light"
