@@ -52,7 +52,7 @@
       command: curl -fsSL https://starship.rs/install.sh > ~/.cache/dotbot/starship.sh
       description: download starship
     - 
-      command: bash ~/.cache/dotbot/starship.sh --yes --bin-dir ~/bin/
+      command: sh ~/.cache/dotbot/starship.sh --yes --bin-dir ~/bin/
       description: install starship
     - 
       command: curl -L git.io/antigen > ~/.config/zsh/antigen.zsh
