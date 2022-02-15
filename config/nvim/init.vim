@@ -15,6 +15,7 @@ Plug 'dense-analysis/ale'
 Plug 'jbyuki/instant.nvim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'tobi-wan-kenobi/vim-hints'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 let g:instant_username = "tobi-wan-kenobi"
@@ -38,6 +39,7 @@ endif
 
 set background=light
 let g:gruvbox_italic=1
+let g:gruvbox_contrast_light="medium"
 colorscheme gruvbox
 
 " indentation

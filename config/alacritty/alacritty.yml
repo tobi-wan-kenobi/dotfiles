@@ -1,5 +1,6 @@
 window:
   dynamic_title: true
+  opacity: 1.0
   padding:
     x: 4
     y: 4
@@ -99,8 +100,6 @@ bell:
   animation: EaseOutExpo
   duration: 0
   color: '0xffffff'
-
-background_opacity: 1.0
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
