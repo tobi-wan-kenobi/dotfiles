@@ -3,3 +3,4 @@
 
 bin/bumblebee-status
 config/private/*
+config/gtk-3.0/bookmarks
