@@ -4,13 +4,14 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%
 
 exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
 
 bar {
 	output eDP1
 	font pango:Hack 12
 	position top
-	tray_output none
-	status_command ~/bin/bumblebee-status/bumblebee-status -m keys arch-update nic load cpu battery pasink pasource brightness -t gruvbox-powerline -a load cpu
+	tray_output eDP1
+	status_command ~/bin/bumblebee-status/bumblebee-status -m keys arch-update nic load cpu battery pasink pasource -p nic.exclude=lo,virbr,docker,vboxnet,veth,br,.*:avahi,enp0* -t gruvbox-powerline -a load cpu battery nic
 
 	colors {
         active_workspace		$gray $gray $bg
@@ -28,7 +29,7 @@ bar {
 	output eDP1
 	font pango:Hack 12
 	position bottom
-	tray_output eDP1
+	tray_output None
 
 	status_command ~/bin/bumblebee-status/bumblebee-status -m timetz:vienna date timetz:nottingham timetz:campbell cmus -p vienna.format="%H:%M %Z" campbell.timezone="America/Los_Angeles" campbell.format="%H:%M %Z" nottingham.timezone="Europe/London" nottingham.format="%H:%M %Z" time.format="%H:%M" date.format="%d/%m/%Y (CW %W)" -t gruvbox-powerline
 
