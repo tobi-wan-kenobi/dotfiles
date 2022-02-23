@@ -19,6 +19,10 @@ gaps inner 15
 
 for_window [class=".*"] title_format "<span size='smaller'> %title </span>"
 for_window [class="^.*"] border pixel 3
+for_window [class="zoom"] floating enable
+for_window [class="zoom"] border none
+for_window [class="zoom" title="Zoom - Licensed Account"] floating disable
+for_window [class="zoom" title="Zoom Meeting"] floating disable
 
 # gruvbox colors
 set $bg #282828
@@ -31,12 +35,12 @@ set $green #98971a
 set $yellow #d79921
 set $blue #458588
 set $purple #b16286
-set $aqua #689d68
+set $aqua #689d6a
 set $gray #928374
 set $lightgray #a89984
 set $orange #d65d0e
 
-set $activeborder #d5c4a1
+set $activeborder #fbf1c7
 set $inactiveborder #3c3836
 
 # class                 border  backgr. text    indicator       child-border
@@ -120,10 +124,6 @@ bindsym $mod+Control+c reload
 bindsym $mod+Control+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
-#bindsym XF86AudioMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-#bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2%
-#bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%
-
 bindsym XF86AudioNext exec "cmus-remote -n"
 bindsym XF86AudioPrev exec "cmus-remote -r"
 bindsym XF86AudioPlay exec "cmus-remote -u"
@@ -134,3 +134,4 @@ exec --no-startup-id dunst
 exec --no-startup-id xautolock -time 5 -locker "~/bin/lock.sh"
 exec --no-startup-id setxkbmap -layout us -variant altgr-intl
 exec --no-startup-id xbindkeys
+exec --no-startup-id picom --no-fading-openclose --inactive-dim 0.2 -i 1 -I 1 -O 1 -o 0
