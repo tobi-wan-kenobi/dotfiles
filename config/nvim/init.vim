@@ -13,9 +13,9 @@ Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 Plug 'iamcco/coc-vimlsp'
 Plug 'dense-analysis/ale'
 Plug 'jbyuki/instant.nvim'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'tobi-wan-kenobi/vim-hints'
 Plug 'tpope/vim-fugitive'
+Plug 'ellisonleao/glow.nvim'
 call plug#end()
 
 let g:instant_username = "tobi-wan-kenobi"
@@ -96,6 +96,7 @@ noremap bd :bd<CR>
 noremap tn :tabn<CR>
 noremap tp :tabp<CR>
 noremap <leader>h :help cheatsheet<CR>
+noremap <leader>s :Glow<CR>
 noremap <C-t> :tabnew<CR>
 noremap <C-p> :Files<CR>
 
