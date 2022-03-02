@@ -35,6 +35,33 @@ font:
 draw_bold_text_with_bright_colors: true
 
 schemes:
+  zengarden_light: &zengarden_light
+      # Default colors
+      primary:
+        background: '0xfaebd7'
+        foreground: '0x353839'
+
+      # Normal colors
+      normal:
+        black:   '0xE6F5DF'
+        red:     '0xBA1D58'
+        green:   '0x177245'
+        yellow:  '0x967117'
+        blue:    '0x174572'
+        magenta: '0x721772'
+        cyan:    '0x176372'
+        white:   '0xABA29B'
+
+      # Bright colors
+      bright:
+        black:   '0x7C8081'
+        red:     '0xD94070'
+        green:   '0x378C5D'
+        yellow:  '0xB38A32'
+        blue:    '0x365c8c'
+        magenta: '0x8d348c'
+        cyan:    '0x377c8b'
+        white:   '0xFFF5EE'
   gruvbox_light: &gruvbox_light
       # Default colors
       primary:
@@ -94,7 +121,7 @@ schemes:
       cyan:    '#8ec07c'
       white:   '#ebdbb2'
 
-colors: *gruvbox_light
+colors: *zengarden_light
 
 bell:
   animation: EaseOutExpo
