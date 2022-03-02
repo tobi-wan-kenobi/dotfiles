@@ -1,8 +1,8 @@
 [global]
+offset = 30x30
 font = Droid Sans 12
 follow = mouse
 sort = true
-geometry = 300x55-25+10
 padding = 15
 horizontal_padding = 15
 separator_height = 2 
@@ -17,24 +17,25 @@ indicate_hidden = true
 idle_threshold = 120
 vertical_alignment = center
 corner_radius = 10
+transparency = 20
 
 [urgency_low]
-foreground = "#fbf1c7"
-background = "#3c3836"
-frame_color = "#689d6a"
-highlight = "#689d6a"
+foreground = "#353839"
+background = "#53a776"
+frame_color = "#177245"
+highlight = "#377c8b"
 timeout = 5
 
 [urgency_normal]
-foreground = "#fbf1c7"
-background = "#3c3836"
-frame_color = "#d79921"
-highlight = "#458588"
+foreground = "#353839"
+background = "#5396a6"
+frame_color = "#176372"
+highlight = "#377c8b"
 timeout = 5
 
 [urgency_critical]
-foreground = "#fbf1c7"
-background = "#3c3836"
-frame_color = "#cc241d"
-highlight = "#cc241d"
+foreground = "#353839"
+background = "#f85e89"
+frame_color = "#ba1d58"
+highlight = "#377c8b"
 timeout = 0
