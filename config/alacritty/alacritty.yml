@@ -43,25 +43,25 @@ schemes:
 
       # Normal colors
       normal:
-        black:   '0xE6F5DF'
+        black:   '0x353839'
         red:     '0xBA1D58'
         green:   '0x177245'
         yellow:  '0x967117'
         blue:    '0x174572'
         magenta: '0x721772'
         cyan:    '0x176372'
-        white:   '0xABA29B'
+        white:   '0xe0d1be'
 
       # Bright colors
       bright:
-        black:   '0x7C8081'
+        black:   '0x686b6c'
         red:     '0xD94070'
         green:   '0x378C5D'
         yellow:  '0xB38A32'
         blue:    '0x365c8c'
         magenta: '0x8d348c'
         cyan:    '0x377c8b'
-        white:   '0xFFF5EE'
+        white:   '0xf4ece2'
   gruvbox_light: &gruvbox_light
       # Default colors
       primary:

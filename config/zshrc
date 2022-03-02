@@ -16,10 +16,10 @@ source $HOME/.config/zsh/antigen.zsh
 function bgnotify_formatted {
 	[ $1 -eq 0 ] && {
 		title="success"
-		additional="<b><span color='#b8bb26'>OK</span></b>"
+		additional="<br/><b><span color='#b8bb26'>OK</span></b>"
 	} || {
 		title="failure"
-		additional="<b><span color='#fb4934'>ERROR</span></b>"
+		additional="<br/><b><span color='#fb4934'>ERROR</span></b>"
 	}
 	duration=$(date -ud "@$3" +'%T')
 	[ $1 -eq 0 ] && title="success" || title="failure"
