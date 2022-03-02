@@ -15,7 +15,8 @@ Plug 'dense-analysis/ale'
 Plug 'jbyuki/instant.nvim'
 Plug 'tobi-wan-kenobi/vim-hints'
 Plug 'tpope/vim-fugitive'
-Plug 'ellisonleao/glow.nvim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'tobi-wan-kenobi/zengarden'
 call plug#end()
 
 let g:instant_username = "tobi-wan-kenobi"
@@ -41,6 +42,9 @@ set background=light
 let g:gruvbox_italic=1
 let g:gruvbox_contrast_light="medium"
 colorscheme gruvbox
+let g:zengarden_italic=1
+let g:zengarden_contrast_light="medium"
+colorscheme zengarden
 
 " indentation
 filetype plugin indent on
@@ -96,7 +100,6 @@ noremap bd :bd<CR>
 noremap tn :tabn<CR>
 noremap tp :tabp<CR>
 noremap <leader>h :help cheatsheet<CR>
-noremap <leader>s :Glow<CR>
 noremap <C-t> :tabnew<CR>
 noremap <C-p> :Files<CR>
 
