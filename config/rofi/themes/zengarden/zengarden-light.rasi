@@ -1,0 +1,48 @@
+* {
+    /* Theme settings */
+    highlight: bold italic;
+    scrollbar: true;
+
+    zengarden-light-bg0:          #faebd7;
+    zengarden-light-bg0-soft:     #ebddc9;
+    zengarden-light-bg2:          #c4b6a3;
+    zengarden-light-fg0:          #353839;
+    zengarden-light-fg1:          #444748;
+    zengarden-light-gray:         #686b6c;
+    zengarden-light-red-dark:     #d94070;
+    zengarden-light-red-light:    #f85e89;
+    zengarden-light-yellow-dark:  #b38a32;
+    zengarden-light-yellow-light: #d0a44c;
+
+    /* Theme colors */
+    background:                  @zengarden-light-bg0;
+    background-color:            @background;
+    foreground:                  @zengarden-light-fg1;
+    border-color:                @zengarden-light-gray;
+    separatorcolor:              @border-color;
+    scrollbar-handle:            @border-color;
+
+    normal-background:           @background;
+    normal-foreground:           @foreground;
+    alternate-normal-background: @zengarden-light-bg0-soft;
+    alternate-normal-foreground: @foreground;
+    selected-normal-background:  @zengarden-light-bg2;
+    selected-normal-foreground:  @zengarden-light-fg0;
+
+    active-background:           @zengarden-light-yellow-dark;
+    active-foreground:           @background;
+    alternate-active-background: @active-background;
+    alternate-active-foreground: @active-foreground;
+    selected-active-background:  @zengarden-light-yellow-light;
+    selected-active-foreground:  @active-foreground;
+
+    urgent-background:           @zengarden-light-red-dark;
+    urgent-foreground:           @background;
+    alternate-urgent-background: @urgent-background;
+    alternate-urgent-foreground: @urgent-foreground;
+    selected-urgent-background:  @zengarden-light-red-light;
+    selected-urgent-foreground:  @urgent-foreground;
+}
+
+@import "zengarden-common.rasi"
+

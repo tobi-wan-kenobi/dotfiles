@@ -4,4 +4,4 @@ configuration {
 	terminal: "alacritty";
 	separator-style: "dash";
 }
-@theme "gruvbox/gruvbox-light"
+@theme "zengarden/zengarden-dark"

@@ -80,7 +80,10 @@
       description: install zoxide
     - 
       command: git -C ~/.config/rofi/themes/gruvbox pull || git clone https://github.com/bardisty/gruvbox-rofi ~/.config/rofi/themes/gruvbox
-      description: install rofi themes
+      description: install rofi themes (gruvbox)
+    - 
+      command: cp -ra config/rofi/themes/* ~/.config/rofi/themes/
+      description: install rofi themes (zengarden)
     - 
       command: git -C ~/.config/ranger/plugins/ranger_devicons pull || git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
       description: install ranger icons
