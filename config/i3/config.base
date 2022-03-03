@@ -32,7 +32,7 @@ set $bglight #444748
 set $red #d94070
 set $green #378c5d
 set $yellow #b38a32
-set $blue #365c8c
+set $blue #477ab7
 set $purple #8d68b1
 set $aqua #3398a9
 set $gray #c4b6a3
