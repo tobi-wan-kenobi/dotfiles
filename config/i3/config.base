@@ -24,28 +24,30 @@ for_window [class="zoom"] border none
 for_window [class="zoom" title="Zoom - Licensed Account"] floating disable
 for_window [class="zoom" title="Zoom Meeting"] floating disable
 
-set $bg #e0d1be
-set $fg #353839
+set $fg #e0d1be
+set $bg #353839
 set $fg3 #d2c4b0
-set $bglight #f4ece2
-set $fglight #444748
+set $fglight #f4ece2
+set $bglight #444748
 set $red #d94070
 set $green #378c5d
 set $yellow #b38a32
 set $blue #365c8c
 set $purple #8d68b1
 set $aqua #3398a9
-set $gray #505354
+set $gray #c4b6a3
 set $lightgray #686b6c
 set $orange #ff7639
 
-set $activeborder #faebd7
-set $inactiveborder #c4b6a3
+#set $activeborder #faebd7
+#set $inactiveborder #c4b6a3
+set $activeborder #c4b6a3
+set $inactiveborder #393c3d
 
 # class                 border  backgr. text    indicator       child-border
 # indicator: indicates *where* window is opened + color of split container bar
-client.focused                  $activeborder   $activeborder           $fglight        $aqua   $activeborder
-client.unfocused                $inactiveborder $inactiveborder         $fg                     $aqua   $inactiveborder
+client.focused                  $activeborder   $activeborder           $bg        $aqua   $activeborder
+client.unfocused                $inactiveborder $inactiveborder         $gray                     $aqua   $inactiveborder
 client.focused_inactive $gray                   $gray                           $bglight        $aqua   $inactiveborder
 client.urgent                   $bg                             $yellow                         $bg                     $aqua   $bg
 
