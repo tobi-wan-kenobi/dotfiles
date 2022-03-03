@@ -38,10 +38,7 @@ if has('mouse')
 	set mouse=nv
 endif
 
-set background=light
-let g:gruvbox_italic=1
-let g:gruvbox_contrast_light="medium"
-colorscheme gruvbox
+set background=dark
 let g:zengarden_italic=1
 let g:zengarden_contrast_light="medium"
 colorscheme zengarden
