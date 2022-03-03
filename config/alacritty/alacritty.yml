@@ -62,6 +62,29 @@ schemes:
         magenta: '0x8d348c'
         cyan:    '0x377c8b'
         white:   '0xf4ece2'
+  zengarden_dark: &zengarden_dark
+      # Default colors
+      primary:
+        foreground: '0xfaebd7'
+        background: '0x353839'
+      bright:
+        black:   '0x686b6c'
+        red:     '0xf85e89'
+        green:   '0x53a776'
+        yellow:  '0xd0a44c'
+        blue:    '0x5175a6'
+        magenta: '0xa94fa6'
+        cyan:    '0x5396a6'
+        white:   '0xf4ece2'
+      normal:
+        black:   '0x505354'
+        red:     '0xD94070'
+        green:   '0x378C5D'
+        yellow:  '0xB38A32'
+        blue:    '0x365c8c'
+        magenta: '0x8d348c'
+        cyan:    '0x377c8b'
+        white:   '0xebddc9'
   gruvbox_light: &gruvbox_light
       # Default colors
       primary:
@@ -121,7 +144,7 @@ schemes:
       cyan:    '#8ec07c'
       white:   '#ebdbb2'
 
-colors: *zengarden_light
+colors: *zengarden_dark
 
 bell:
   animation: EaseOutExpo
