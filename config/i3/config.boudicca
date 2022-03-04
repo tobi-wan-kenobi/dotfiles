@@ -1,0 +1,21 @@
+
+exec --no-startup-id connman-ui-gtk
+
+bar {
+	output HDMI-A-0
+	font pango:Hack 12
+	position top
+	tray_output HDMI-A-0
+	status_command ~/bin/bumblebee-status/bumblebee-status -m keys load cpu battery time date pasink pasource -p cpu.percpu=true time.format="%H:%M" -t zengarden-powerline-light -a load cpu battery
+
+	colors {
+        active_workspace		$gray $gray $bg
+        focused_workspace		$fg $fg $bg
+        inactive_workspace		$bg $bg $gray
+		urgent_workspace		$bg $yellow $bg
+
+		statusline				$gray
+		background				$bg
+		separator				$yellow
+	}
+}
