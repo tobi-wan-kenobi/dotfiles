@@ -3,5 +3,6 @@ configuration {
 	sidebar-mode: true;
 	terminal: "alacritty";
 	separator-style: "dash";
+	show-icons: true;
 }
 @theme "zengarden/zengarden-dark"
