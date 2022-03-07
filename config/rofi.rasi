@@ -4,5 +4,6 @@ configuration {
 	terminal: "alacritty";
 	separator-style: "dash";
 	show-icons: true;
+	icon-theme: "Papirus";
 }
 @theme "zengarden/zengarden-dark"
