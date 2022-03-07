@@ -134,4 +134,4 @@ exec --no-startup-id dunst
 exec --no-startup-id xautolock -time 5 -locker "~/bin/lock.sh"
 exec --no-startup-id setxkbmap -layout us -variant altgr-intl
 exec --no-startup-id xbindkeys
-exec --no-startup-id picom --no-fading-openclose --inactive-dim 0.2 -i 1 -I 1 -O 1 -o 0
+exec --no-startup-id picom --experimental-backends
