@@ -12,6 +12,7 @@ Here's the current state of things:
 - setup: [dotbot](https://github.com/anishathalye/dotbot) (basically, just `git clone` followed by `./install`)
 - window manager: [i3-gaps](https://github.com/Airblader/i3)
 - terminal emulator: [alacritty](https://github.com/alacritty/alacritty)
+- compositor: [picom](https://github.com/yshui/picom)
 - editor: [neovim](https://neovim.io/) with a couple of plugins, most notably [CoC](https://github.com/neoclide/coc.nvim)
 - terminal multiplexer: [tmux](https://github.com/tmux/tmux)
 - theme: [gruvbox-light](https://github.com/morhetz/gruvbox)
@@ -22,5 +23,7 @@ Here's the current state of things:
   - find replacement: [fd](https://github.com/sharkdp/fd)
   - cat replacement: [bat](https://github.com/sharkdp/bat)
   - [fzf](https://github.com/junegunn/fzf)
+
+gtk themes belong in `~/.themes/`, icons in `~/.icons/` (or `/usr/share\{themes,icons}`, if you want to use them for lightdm as well).
 
 Hope you like it, and I always welcome suggestions for improvements as either tickets or PRs!
