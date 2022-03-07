@@ -26,6 +26,8 @@
         path: config/nvim/coc-settings.json
     ~/.tmux.conf:
         path: config/tmux.conf
+    ~/.picom.conf:
+        path: config/picom.conf
     ~/.config/gtk-3.0:
         path: config/gtk-3.0
     ~/.gtkrc-2.0:
