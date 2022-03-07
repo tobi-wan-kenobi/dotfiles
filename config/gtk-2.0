@@ -1,13 +1,13 @@
 # DO NOT EDIT! This file will be overwritten by LXAppearance.
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
-gtk-theme-name="Clearlooks"
-gtk-icon-theme-name="BeautyLine"
-gtk-font-name="DejaVu Sans 12"
-gtk-cursor-theme-name="Papirus"
+gtk-theme-name="Yaru-Teal-dark"
+gtk-icon-theme-name="Papirus-Dark"
+gtk-font-name="Droid Sans 12"
+gtk-cursor-theme-name="Adwaita"
 gtk-cursor-theme-size=0
-gtk-toolbar-style=GTK_TOOLBAR_BOTH_HORIZ
-gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
+gtk-toolbar-style=GTK_TOOLBAR_BOTH
+gtk-toolbar-icon-size=GTK_ICON_SIZE_SMALL_TOOLBAR
 gtk-button-images=0
 gtk-menu-images=0
 gtk-enable-event-sounds=1
