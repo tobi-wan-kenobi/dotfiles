@@ -1,5 +1,5 @@
 --- powermenu.sh.old	2022-03-07 11:48:51.505043891 +0100
-+++ powermenu.sh	2022-03-07 11:48:46.351735100 +0100
++++ powermenu.sh	2022-03-07 12:03:16.142178478 +0100
 @@ -15,19 +15,10 @@
  # full_circle     full_square     full_rounded     full_alt
  # row_circle      row_square      row_rounded      row_alt
@@ -22,3 +22,42 @@
  
  uptime=$(uptime -p | sed -e 's/up //g')
  
+@@ -55,14 +46,14 @@ msg() {
+ }
+ 
+ # Variable passed to rofi
+-options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
++options="$shutdown\n$reboot\n$lock\n$logout"
+ 
+ chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 2)"
+ case $chosen in
+     $shutdown)
+ 		ans=$(confirm_exit &)
+ 		if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
+-			systemctl poweroff
++			sudo shutdown -h now
+ 		elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
+ 			exit 0
+         else
+@@ -72,7 +63,7 @@ case $chosen in
+     $reboot)
+ 		ans=$(confirm_exit &)
+ 		if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
+-			systemctl reboot
++			sudo reboot
+ 		elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
+ 			exit 0
+         else
+@@ -80,11 +71,7 @@ case $chosen in
+         fi
+         ;;
+     $lock)
+-		if [[ -f /usr/bin/i3lock ]]; then
+-			i3lock
+-		elif [[ -f /usr/bin/betterlockscreen ]]; then
+-			betterlockscreen -l
+-		fi
++		~/bin/lock
+         ;;
+     $suspend)
+ 		ans=$(confirm_exit &)
