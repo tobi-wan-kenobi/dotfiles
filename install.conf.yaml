@@ -90,5 +90,20 @@
       command: git -C ~/.config/ranger/plugins/ranger_devicons pull || git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
       description: install ranger icons
     - 
+      command: git -C ~/src/rofi pull || git clone --depth=1 https://github.com/adi1090x/rofi.git
+      description: clone rofi applets/themes
+    - 
+      command: echo "1" | sh ~/src/rofi/setup.sh
+      description: setup rofi applets/themes
+    - 
+      command: cp config/rofi/patches/zengarden-dark.rasi ~/.config/rofi/powermenu/styles/
+      description: install zengarden theme for rofi powermenu
+    - 
+      command: patch ~/.config/rofi/powermenu/powermenu.sh config/rofi/patches/powermenu.patch
+      description: patch rofi powermenu
+    - 
+      command: patch ~/.config/rofi/launchers/misc/launcher.sh config/rofi/patches/launcher.patch
+      description: patch rofi powermenu
+    - 
       command: i3-msg restart
       description: restart i3wm
