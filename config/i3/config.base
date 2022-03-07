@@ -15,10 +15,10 @@ workspace_auto_back_and_forth yes
 
 smart_gaps on
 smart_borders on
-gaps inner 15
+gaps inner 25
 
 for_window [class=".*"] title_format "<span size='smaller'> %title </span>"
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border none
 for_window [class="zoom"] floating enable
 for_window [class="zoom"] border none
 for_window [class="zoom" title="Zoom - Licensed Account"] floating disable
@@ -113,9 +113,9 @@ bindsym $mod+o move window to output right
 
 # applications
 bindsym $mod+Return exec alacritty
-bindsym $mod+y exec ~/bin/lock
-bindsym XF86Sleep exec ~/bin/lock
-bindsym $mod+r exec "rofi -modi window,drun,ssh,combi -show combi"
+bindsym $mod+y exec ~/.config/rofi/powermenu/powermenu.sh
+bindsym XF86Sleep exec ~/.config/rofi/powermenu/powermenu.sh
+bindsym $mod+r exec ~/.config/rofi/launchers/misc/launcher.sh
 bindsym $mod+c exec flameshot launcher
 
 # wm commands
