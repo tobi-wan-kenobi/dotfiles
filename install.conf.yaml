@@ -109,7 +109,6 @@
       description: set rofi powermenu colors
     - 
       command: sudo cp config/lightdm-gtk-greeter.config /etc/lightdm/
-      command: sudo ln -s `pwd`/config/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
       description: copy lightdm gtk greeter configuration
     - 
       command: i3-msg restart
