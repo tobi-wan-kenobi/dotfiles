@@ -19,6 +19,8 @@ gaps inner 25
 
 for_window [class=".*"] title_format "<span size='smaller'> %title </span>"
 for_window [class="^.*"] border none
+for_window [class=".*"] title_window_icon yes
+for_window [class=".*"] title_window_icon padding 2
 for_window [class="zoom"] floating enable
 for_window [class="zoom"] border none
 for_window [class="zoom" title="Zoom - Licensed Account"] floating disable
