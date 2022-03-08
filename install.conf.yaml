@@ -108,7 +108,7 @@
       command: echo '@import "zengarden-dark.rasi"' > ~/.config/rofi/powermenu/styles/colors.rasi
       description: set rofi powermenu colors
     - 
-      command: sudo cp config/lightdm-gtk-greeter.config /etc/lightdm/
+      command: sudo cp config/lightdm-gtk-greeter.conf /etc/lightdm/
       description: copy lightdm gtk greeter configuration
     - 
       command: i3-msg restart
