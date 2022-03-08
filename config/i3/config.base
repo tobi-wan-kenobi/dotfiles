@@ -108,6 +108,8 @@ bindsym $mod+Control+l move workspace to output left
 # layout stuff
 bindsym $mod+t layout tabbed
 bindsym $mod+f fullscreen
+bindsym $mod+Shift+f floating toggle
+bindsym $mod+b border toggle
 bindsym $mod+w layout toggle split
 bindsym $mod+o move window to output right
 
