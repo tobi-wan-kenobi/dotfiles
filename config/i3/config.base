@@ -7,7 +7,7 @@
 set $mod Mod4
 floating_modifier $mod
 
-font pango:Droid Sans 13
+font pango:Ubuntu Medium 13
 
 # window layout
 hide_edge_borders smart 
