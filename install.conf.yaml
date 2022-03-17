@@ -15,6 +15,7 @@
     - '~/.config/ranger/plugins/'
     - '~/.config/cmus/'
     - '~/.tmux/plugins/'
+    - '~/.config/kitty/'
 - link:
     ~/.zshrc:
         path: config/zshrc
@@ -48,6 +49,8 @@
         path: config/xbindkeysrc
     ~/bin/lock:
         path: bin/lock
+    ~/.config/kitty/kitty.conf:
+        path: config/kitty/kitty.conf
 
 - shell:
     - 
