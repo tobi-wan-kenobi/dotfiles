@@ -4,6 +4,7 @@ export BAT_THEME=gruvbox-light
 
 alias vim="nvim"
 alias vimf="nvim \$(fzf)"
+alias ssh="TERM=xterm-256color ssh"
 
 bindkey -e
 
