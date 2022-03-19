@@ -6,11 +6,10 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
 
--- custom requires (all in ~/.config/awesome/modules/)
-package.path = gears.filesystem.get_configuration_dir() .. "/modules/?.lua;" .. package.path
-local errors = require("errors")
-local workspace = require("workspace")
-local input = require("input")
+-- custom requires
+local errors = require("misc.errors")
+local workspace = require("misc.workspace")
+local input = require(".misc.input")
 
 -- defines and stuff
 terminal = "kitty"
