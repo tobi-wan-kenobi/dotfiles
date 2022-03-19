@@ -5,7 +5,7 @@ local wibox = require("wibox")
 
 -- custom requires
 local taglist = require("misc.taglist")
---local bountiful = require("bountiful")
+local bountiful = require("bountiful")
 
 local workspace = {}
 
@@ -81,8 +81,6 @@ function workspace.setup(screen)
 
 	screen.wibox = awful.wibar({ position = "top", screen = screen })
 
-	local clock = wibox.container.margin(wibox.widget.textclock("%a %b %d, %H:%M %Z"), 10, 10)
-
 	screen.wibox:setup {
 		layout = wibox.layout.align.horizontal,
 		{
@@ -95,32 +93,13 @@ function workspace.setup(screen)
 		{
 			layout = wibox.layout.fixed.horizontal,
 			wibox.widget.systray(),
-			clock,
+			bountiful.clock({
+				format = "%a %b %d, %H:%M %Z",
+				additional_timezones = { "Europe/London", "America/Los_Angeles" }
+			}),
 			wibox.container.margin(screen.layoutbox, 10, 10, 5, 6),
 		}
 	}
-	local clock_popup = awful.popup {
-		ontop = true,
-		visible = false,
-		shape = gears.shape.rounded_rect,
-		border_width = 2,
-		border_color = beautiful.fg_normal,
-		offset = 2,
-		preferred_anchors = "middle",
-		preferred_positions = "bottom",
-		widget = {
-				layout = wibox.layout.fixed.vertical,
-				wibox.container.margin(wibox.widget.textclock("%a %b %d, %H:%M %Z", 60, "Europe/London"), 10, 10, 10, 10),
-				wibox.container.margin(wibox.widget.textclock("%a %b %d, %H:%M %Z", 60, "America/Los_Angeles"), 10, 10, 10, 10),
-		}
-	}
-	clock:connect_signal("mouse::enter", function()
-		clock_popup.visible = true
-		clock_popup:move_next_to(mouse.current_widget_geometry)
-	end)
-	clock:connect_signal("mouse::leave", function()
-		clock_popup.visible = false
-	end)
 	screen.wibox:buttons(gears.table.join(
 		awful.button({ }, 5, function()
 			awful.tag.viewnext(screen)
