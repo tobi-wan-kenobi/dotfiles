@@ -93,9 +93,14 @@ function workspace.setup(screen)
 		{
 			layout = wibox.layout.fixed.horizontal,
 			wibox.widget.systray(),
-			bountiful.clock({
-				format = "%a %b %d, %H:%M %Z",
-				additional_timezones = { "Europe/London", "America/Los_Angeles" }
+			wibox.container.margin(
+				bountiful.clock({
+					format = "%a %b %d, %H:%M %Z",
+					additional_timezones = { "Europe/London", "America/Los_Angeles" },
+					margin = 10,
+				}), 10, 10
+			),
+			bountiful.pamixer({
 			}),
 			wibox.container.margin(screen.layoutbox, 10, 10, 5, 6),
 		}
