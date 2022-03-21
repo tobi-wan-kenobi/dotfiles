@@ -14,10 +14,9 @@ local themes_path = gfs.get_configuration_dir() .. "/themes/"
 local colors = {
 	fg = "#e0d1be",
 	bg = "#353839",
-	bglight = "#393c3d",
 	fg3 = "#d2c4b0",
 	fglight = "#f4ece2",
-	bglight = "#444748",
+	bglight = "#505354",
 	red = "#d94070",
 	green = "#378c5d",
 	yellow = "#b38a32",
@@ -28,11 +27,18 @@ local colors = {
 	lightgray = "#686b6c",
 	orange = "#ff7639",
 	lightblue = "#6493d3",
+	dark = {
+		green = "#177245",
+		blue = "#26619c",
+		aqua = "#176372",
+		red = "#ba1d58",
+	}
 }
 
 local theme = {}
 
 theme.font          = "Ubuntu Medium 12"
+theme.colors        = colors
 
 theme.bg_normal     = colors.bg
 theme.bg_focus      = colors.gray

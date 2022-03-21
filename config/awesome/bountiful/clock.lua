@@ -4,12 +4,13 @@ local gears = require("gears")
 local beautiful = require("beautiful")
 
 local function create_widget(_, args)
-	args = args or {}
-	refresh = args.refresh or 60
-	timezone = args.timezone
-	additional_zones = args.additional_timezones or {}
-	format = args.format or "%a %b %d"
-	margin = args.margin or {}
+	local args = args or {}
+	local refresh = args.refresh or 60
+	local timezone = args.timezone
+	local additional_zones = args.additional_timezones or {}
+	local format = args.format or "%a %b %d"
+	local margin = args.margin or {}
+	local theme = beautiful.get() or {}
 
 	if type(margin) == "number" then
 		margin = {
@@ -17,7 +18,19 @@ local function create_widget(_, args)
 		}
 	end
 
-	local widget = wibox.widget.textclock(format, refresh, timezone)
+	local widget = wibox.widget {
+		widget = wibox.container.background,
+		bg = theme.colors.dark.blue,
+		shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, height/2) end,
+		{
+			widget = wibox.container.margin,
+			left = margin.left,
+			right = margin.right,
+			{
+				widget = wibox.widget.textclock(format, refresh, timezone)
+			}
+		}
+	}
 
 	local popup_widgets = {
 		layout = wibox.layout.fixed.vertical
@@ -33,13 +46,16 @@ local function create_widget(_, args)
 		widget.popup = awful.popup {
 			ontop = true,
 			visible = false,
-			shape = gears.shape.rectangle,
-			border_width = 1,
-			border_color = beautiful.fg_normal,
+			shape = gears.shape.rounded_rect,
+			border_width = 0,
 			offset = 2,
 			preferred_anchors = "middle",
 			preferred_positions = "bottom",
-			widget = popup_widgets
+			widget = wibox.widget {
+				widget = wibox.container.background,
+				bg = theme.colors.bglight,
+				popup_widgets
+			}
 		}
 		widget:connect_signal("mouse::enter", function()
 			widget.popup.visible = true
