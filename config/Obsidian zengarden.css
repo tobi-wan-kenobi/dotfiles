@@ -479,3 +479,24 @@ input.task-list-item-checkbox:checked
     fill: var(--dark3) !important;
 }
 
+.cm-scroller, .markdown-preview-view
+{
+	background-color: var(--background-secondary) !important;
+}
+
+.cm-content, .markdown-preview-section
+{
+	background-color: var(--background-primary);
+	max-width: 80% !important;
+	padding: 10px !important;
+}
+
+.cm-contentContainer
+{
+	max-width: 80% !important;
+}
+
+.cm-contentContainer div
+{
+	max-width: 80% !important;
+}
