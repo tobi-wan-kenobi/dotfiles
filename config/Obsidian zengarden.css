@@ -135,6 +135,10 @@
 }
 */
 
+* {
+	font-family: Ubuntu !important;
+}
+
 html,
 body
 {
@@ -484,16 +488,27 @@ input.task-list-item-checkbox:checked
 	background-color: var(--background-secondary) !important;
 }
 
-.cm-content, .markdown-preview-section
+.markdown-preview-section
 {
 	background-color: var(--background-primary);
-	max-width: 80% !important;
 	padding: 10px !important;
+	min-height: 50% !important;
+}
+
+.markdown-source-view.mod-cm6.is-line-wrap .cm-content
+{
+	background-color: var(--background-primary);
+	padding: 10px !important;
+	width: 100% !important;
+	min-width: 100% !important;
+	min-height: 50% !important;
+	display: block !important;
 }
 
 .cm-contentContainer
 {
 	max-width: 80% !important;
+	min-height: 50% !important;
 }
 
 .cm-contentContainer div
