@@ -9,7 +9,8 @@ local naughty = require("naughty")
 -- custom requires
 local errors = require("misc.errors")
 local workspace = require("misc.workspace")
-local input = require(".misc.input")
+local input = require("misc.input")
+local autostart = require("misc.autostart")
 
 -- defines and stuff
 terminal = "kitty"
@@ -74,6 +75,4 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
--- autostarts
---awful.util.spawn("xbindkeys")
---awful.util.spawn("picom --experimental-backends")
+autostart.init()
