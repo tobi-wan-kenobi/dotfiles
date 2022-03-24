@@ -1,6 +1,8 @@
-# Still needed
+# Notes
 
 - widgets for
 	- audio
-	- cpu utilization?
-	- datetime in other zones
+	- cpu utilization
+	- battery
+	- memory
+- "pill-style" widgets
