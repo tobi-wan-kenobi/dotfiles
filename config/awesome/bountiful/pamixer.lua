@@ -157,12 +157,12 @@ local function create_widget(_, args)
 	local widget = base.widget(args)
 
 	local bar = wibox.widget {
-		max_value     = 100,
+		max_value = 100,
 		forced_height = height,
-		forced_width  = args.widget.forced_width,
-		shape         = gears.shape.rounded_bar,
-		border_width  = 0,
-		widget        = wibox.widget.progressbar,
+		forced_width = args.widget.forced_width,
+		shape = gears.shape.rounded_bar,
+		border_width = 0,
+		widget = wibox.widget.progressbar,
 	}
 
 	local full_widget = wibox.widget {
@@ -226,10 +226,6 @@ local function create_widget(_, args)
 						popup:move_next_to(mouse.current_widget_geometry)
 					end)
 				end)
-
-				awful.spawn.easy_async(mixer.list, function(stdout)
-				end)
-
 			end
 		end),
 		awful.button({}, 4, function()
