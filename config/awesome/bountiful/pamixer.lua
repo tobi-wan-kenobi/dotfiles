@@ -52,7 +52,6 @@ local function parse_device_list(data)
 		local fields = {}
 		local id, name = line:match("\"([^\"]+)\"%s+\"([^\"]+)\"")
 
-		
 		if id then
 			devices[id] = {
 				name = name,
@@ -89,22 +88,23 @@ local function create_device_widgets(popup, mixer, devices, size, margin, colors
 	}
 
 	for id, dev in pairs(devices) do
+		local checkbox = wibox.widget {
+			widget = wibox.widget.checkbox,
+			checked = dev.default,
+			forced_height = size,
+			forced_width = size,
+			color = beautiful.fg_normal,
+			paddings = 2,
+			shape = gears.shape.circle,
+		}
+		local label = wibox.widget {
+			text = "  " .. dev.name,
+			widget = wibox.widget.textbox,
+		}
 		local widget = wibox.widget {
 			{
 				widget = wibox.layout.fixed.horizontal,
-				{
-					widget = wibox.widget.checkbox,
-					checked       = dev.default,
-					forced_height = size,
-					forced_width  = size,
-					color         = beautiful.fg_normal,
-					paddings      = 2,
-					shape         = gears.shape.circle,
-				},
-				{
-					text = "  " .. dev.name,
-					widget = wibox.widget.textbox,
-				}
+				checkbox, label
 			},
 			left = margin.left,
 			right = margin.right,
@@ -113,12 +113,13 @@ local function create_device_widgets(popup, mixer, devices, size, margin, colors
 			widget = wibox.container.margin
 		}
 		widget:connect_signal("mouse::enter", function()
-			widget.widget.children[1].color = colors.fglight
-			widget.widget.children[2].markup = "<span foreground='" .. colors.fglight ..  "'>" .. widget.widget.children[2].text .. "</span>"
+
+			checkbox.color = colors.fglight
+			label.markup = "<span foreground='" .. colors.fglight ..  "'>" .. label.text .. "</span>"
 		end)
 		widget:connect_signal("mouse::leave", function()
-			widget.widget.children[1].color = beautiful.fg_normal
-			widget.widget.children[2].markup = widget.widget.children[2].text
+			checkbox.color = beautiful.fg_normal
+			label.markup = label.text
 		end)
 		widget:buttons(gears.table.join(
 			awful.button({}, 1, function()
@@ -150,15 +151,15 @@ local function create_widget(_, args)
 
 	args.widget = wibox.widget.textbox("n/a")
 
-	local x,y = wibox.widget.textbox(volume_string("muted", mixer.not_muted)):get_preferred_size(awful.screen.primary)
-	args.widget.forced_width = x
+	local width, height = wibox.widget.textbox(volume_string("muted", mixer.not_muted)):get_preferred_size(awful.screen.primary)
+	args.widget.forced_width = width
 	args.widget.align = "center"
 
 	local widget = base.widget(args)
 
 	local bar = wibox.widget {
 		max_value     = 100,
-		forced_height = y,
+		forced_height = height,
 		forced_width  = args.widget.forced_width,
 		shape         = gears.shape.rounded_bar,
 		border_width  = 0,
@@ -217,17 +218,15 @@ local function create_widget(_, args)
 					awful.spawn.easy_async_with_shell(mixer.get_default, function(stdout)
 						devices = mark_default_device(devices, stdout)
 
-					
 						popup.widget = wibox.widget {
 							widget = wibox.container.background,
 							bg = theme.colors.bglight,
-							create_device_widgets(popup, mixer, devices, y, margin, theme.colors)
+							create_device_widgets(popup, mixer, devices, height, margin, theme.colors)
 						}
 						popup.visible = true
 						popup:move_next_to(mouse.current_widget_geometry)
 					end)
 				end)
-
 
 				awful.spawn.easy_async(mixer.list, function(stdout)
 				end)
