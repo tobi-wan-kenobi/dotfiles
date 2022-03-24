@@ -85,33 +85,49 @@ function workspace.setup(screen)
 		layout = wibox.layout.align.horizontal,
 		{
 			layout = wibox.layout.fixed.horizontal,
-			screen.taglist
+			screen.taglist,
+			buttons = gears.table.join(
+				awful.button({ }, 5, function()
+					awful.tag.viewnext(screen)
+				end),
+				awful.button({ }, 4, function()
+					awful.tag.viewprev(screen)
+				end)
+
+			),
 		},
 		{
 			layout = wibox.layout.fixed.horizontal,
+			buttons = gears.table.join(
+				awful.button({ }, 5, function()
+					awful.tag.viewnext(screen)
+				end),
+				awful.button({ }, 4, function()
+					awful.tag.viewprev(screen)
+				end)
+
+			),
 		},
 		{
-			layout = wibox.layout.fixed.horizontal,
-			wibox.widget.systray(),
-			wibox.container.margin(
+			layout = wibox.container.margin,
+			top = 2,
+			bottom = 2,
+			{
+				layout = wibox.layout.fixed.horizontal,
+				top = 2,
+				bottom = 2,
+				wibox.widget.systray(),
+				bountiful.pamixer({ margin = 10 }),
+				bountiful.pamixer({ source = true, margin = 10 }),
 				bountiful.clock({
 					format = "%a %b %d, %H:%M %Z",
 					additional_timezones = { "Europe/London", "America/Los_Angeles" },
 					margin = 10,
-				}), 10, 10
-			),
-			bountiful.pamixer({
-			}),
-			wibox.container.margin(screen.layoutbox, 10, 10, 5, 6),
+				}),
+				screen.layoutbox,
+				spacing = 10
+			}
 		}
 	}
-	screen.wibox:buttons(gears.table.join(
-		awful.button({ }, 5, function()
-			awful.tag.viewnext(screen)
-		end),
-		awful.button({ }, 4, function()
-			awful.tag.viewprev(screen)
-		end)
-	))
 end
 return workspace
