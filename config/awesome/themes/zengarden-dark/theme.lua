@@ -32,12 +32,16 @@ local colors = {
 		blue = "#26619c",
 		aqua = "#176372",
 		red = "#ba1d58",
+		yellow = "#967117",
+		purple = "#721772",
+		orange = "#c04000",
 	}
 }
 
 local theme = {}
 
-theme.font          = "Ubuntu Medium 12"
+--theme.font          = "Ubuntu Medium 12"
+theme.font          = "FontAwesome 11"
 theme.colors        = colors
 
 theme.bg_normal     = colors.bg
