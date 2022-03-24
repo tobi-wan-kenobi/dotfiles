@@ -67,8 +67,6 @@ end
 local function mark_default_device(devices, data)
 	local def = data:match(": (%S+)")
 
-	print("def: " .. def)
-
 	devices[def].default = true
 
 	return devices
