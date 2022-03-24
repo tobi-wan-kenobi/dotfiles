@@ -12,6 +12,8 @@ end
 function autostart.init()
 	run_once("xbindkeys")
 	run_once("picom --experimental-backends")
+	run_once("nm-applet")
+	awful.spawn("setxkbmap -layout us -variant altgr-intl")
 end
 
 return autostart

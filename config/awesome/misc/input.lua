@@ -98,10 +98,18 @@ function input.global_keys(modkey)
 			function () awful.layout.inc(-1) end,
 			{ description = "select previous", group = "layout" }
 		),
+		awful.key({ modkey }, "c",
+			function()  awful.spawn("flameshot launcher") end,
+			{ description = "take screenshot with flameshot", group="launcher" }
+		),
 
 		awful.key({ modkey }, "r",
 			function () awful.spawn(gears.filesystem.get_xdg_config_home () .. "/rofi/launchers/misc/launcher.sh") end,
 			{ description = "run applications", group = "launcher" }
+		),
+		awful.key({ modkey }, "y",
+			function () awful.spawn(gears.filesystem.get_xdg_config_home () .. "/rofi/powermenu/powermenu.sh") end,
+			{ description = "show power menu", group = "launcher" }
 		)
 	)
 	for i = 1, 9 do

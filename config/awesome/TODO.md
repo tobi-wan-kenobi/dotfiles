@@ -1,7 +1,6 @@
 # Notes
 
 - widgets for
-	- audio
 	- cpu utilization
 	- battery
 	- memory
