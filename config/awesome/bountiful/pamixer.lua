@@ -87,6 +87,7 @@ local function create_device_widgets(popup, mixer, devices, size, margin, colors
 		}
 	}
 
+	local checkboxes = {}
 	for id, dev in pairs(devices) do
 		local checkbox = wibox.widget {
 			widget = wibox.widget.checkbox,
@@ -97,6 +98,7 @@ local function create_device_widgets(popup, mixer, devices, size, margin, colors
 			paddings = 2,
 			shape = gears.shape.circle,
 		}
+		table.insert(checkboxes, checkbox)
 		local label = wibox.widget {
 			text = "  " .. dev.name,
 			widget = wibox.widget.textbox,
@@ -113,7 +115,6 @@ local function create_device_widgets(popup, mixer, devices, size, margin, colors
 			widget = wibox.container.margin
 		}
 		widget:connect_signal("mouse::enter", function()
-
 			checkbox.color = colors.fglight
 			label.markup = "<span foreground='" .. colors.fglight ..  "'>" .. label.text .. "</span>"
 		end)
@@ -123,13 +124,11 @@ local function create_device_widgets(popup, mixer, devices, size, margin, colors
 		end)
 		widget:buttons(gears.table.join(
 			awful.button({}, 1, function()
-				for i, w in ipairs(popup.widget.widget.children) do
-					if #w.children[1].children > 0 then
-						w.children[1].children[1].checked = false
-					end
+				for _, c in ipairs(checkboxes) do
+					c.checked = false
 				end
 				awful.spawn.easy_async(mixer.set_default .. id, function()
-					widget.widget.children[1].checked = true
+					checkbox.checked = true
 				end)
 			end)
 		))
