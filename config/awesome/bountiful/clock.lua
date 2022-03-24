@@ -2,6 +2,7 @@ local wibox = require("wibox")
 local awful = require("awful")
 local gears = require("gears")
 local beautiful = require("beautiful")
+local base = require("bountiful.base")
 
 local function create_widget(_, args)
 	local args = args or {}
@@ -9,28 +10,13 @@ local function create_widget(_, args)
 	local timezone = args.timezone
 	local additional_zones = args.additional_timezones or {}
 	local format = args.format or "%a %b %d"
-	local margin = args.margin or {}
-	local theme = beautiful.get() or {}
 
-	if type(margin) == "number" then
-		margin = {
-			left = margin, right = margin, top = margin, bottom = margin
-		}
-	end
+	local theme = beautiful.get()
+	local margin = base.margin(args)
 
-	local widget = wibox.widget {
-		widget = wibox.container.background,
-		bg = theme.colors.dark.blue,
-		shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, height/2) end,
-		{
-			widget = wibox.container.margin,
-			left = margin.left,
-			right = margin.right,
-			{
-				widget = wibox.widget.textclock(format, refresh, timezone)
-			}
-		}
-	}
+	args.widget = wibox.widget.textclock(format, refresh, timezone)
+	args.bg = theme.colors.dark.blue
+	local widget = base.widget(args)
 
 	local popup_widgets = {
 		layout = wibox.layout.fixed.vertical
