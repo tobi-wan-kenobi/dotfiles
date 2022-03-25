@@ -112,14 +112,15 @@ function input.global_keys(modkey)
 			{ description = "show power menu", group = "launcher" }
 		)
 	)
-	for i = 1, 9 do
+	for i = 1, 10 do
+		local num = tostring(i % 10)
 		globalkeys = gears.table.join(globalkeys,
-			awful.key({ modkey }, "#" .. i + 9,
+			awful.key({ modkey }, num,
 				function () view_tag_only(i) end,
-				{ description = "view tag #"..i, group = "tag" }
+				{ description = "view tag #"..num, group = "tag" }
 			),
 			-- Toggle tag display.
-			awful.key({ modkey, "Control" }, "#" .. i + 9,
+			awful.key({ modkey, "Control" }, num,
 				function ()
 					local screen = awful.screen.focused()
 					local tag = screen.tags[i]
@@ -127,10 +128,10 @@ function input.global_keys(modkey)
 						awful.tag.viewtoggle(tag)
 					end
 				end,
-				{ description = "toggle tag #" .. i, group = "tag" }
+				{ description = "toggle tag #" .. num, group = "tag" }
 			),
 			-- Move client to tag.
-			awful.key({ modkey, "Shift" }, "#" .. i + 9,
+			awful.key({ modkey, "Shift" }, "#" .. num,
 				function ()
 					if client.focus then
 						local tag = client.focus.screen.tags[i]
@@ -139,10 +140,10 @@ function input.global_keys(modkey)
 						end
 					end
 				end,
-				{ description = "move focused client to tag #"..i, group = "tag" }
+				{ description = "move focused client to tag #"..num, group = "tag" }
 			),
 			-- Toggle tag on focused client.
-			awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
+			awful.key({ modkey, "Control", "Shift" }, num,
 				function ()
 					if client.focus then
 						local tag = client.focus.screen.tags[i]
@@ -151,7 +152,7 @@ function input.global_keys(modkey)
 						end
 					end
 				end,
-				{ description = "toggle focused client on tag #" .. i, group = "tag" }
+				{ description = "toggle focused client on tag #" .. num, group = "tag" }
 			)
 		)
 	end

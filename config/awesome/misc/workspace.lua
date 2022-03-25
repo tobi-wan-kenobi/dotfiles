@@ -23,48 +23,53 @@ end
 function workspace.setup(screen)
 	workspace.set_wallpaper(screen)
 
-	awful.tag.add("  ", {
+	awful.tag.add("1  ", {
 		layout             = awful.layout.suit.tile,
 		gap_single_client  = false,
 		screen             = screen,
 		selected = true,
 	})
-	awful.tag.add("  ", {
+	awful.tag.add("2  ", {
 		layout             = awful.layout.suit.tile,
 		gap_single_client  = false,
 		screen             = screen,
 	})
-	awful.tag.add("  ", {
+	awful.tag.add("3  ", {
 		layout             = awful.layout.suit.tile,
 		gap_single_client  = false,
 		screen             = screen,
 	})
-	awful.tag.add("  ", {
+	awful.tag.add("4  ", {
 		layout             = awful.layout.suit.tile,
 		gap_single_client  = false,
 		screen             = screen,
 	})
-	awful.tag.add("  ", {
+	awful.tag.add("5  ", {
 		layout             = awful.layout.suit.tile,
 		gap_single_client  = false,
 		screen             = screen,
 	})
-	awful.tag.add("  ", {
+	awful.tag.add("6  ", {
 		layout             = awful.layout.suit.tile,
 		gap_single_client  = false,
 		screen             = screen,
 	})
-	awful.tag.add("  ", {
+	awful.tag.add("7  ", {
 		layout             = awful.layout.suit.tile,
 		gap_single_client  = false,
 		screen             = screen,
 	})
-	awful.tag.add("  ", {
+	awful.tag.add("8  ", {
 		layout             = awful.layout.suit.floating,
 		gap_single_client  = false,
 		screen             = screen,
 	})
-	awful.tag.add("  ", {
+	awful.tag.add("9  ", {
+		layout             = awful.layout.suit.tile,
+		gap_single_client  = false,
+		screen             = screen,
+	})
+	awful.tag.add("0  ", {
 		layout             = awful.layout.suit.tile,
 		gap_single_client  = false,
 		screen             = screen,
