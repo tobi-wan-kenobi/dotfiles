@@ -34,7 +34,7 @@ function workspace.setup(screen)
 		gap_single_client  = false,
 		screen             = screen,
 	})
-	awful.tag.add("3  ", {
+	awful.tag.add("3  ", {
 		layout             = awful.layout.suit.tile,
 		gap_single_client  = false,
 		screen             = screen,
