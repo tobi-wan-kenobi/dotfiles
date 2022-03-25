@@ -8,4 +8,5 @@
 - widgets for
 	- cpu utilization
 	- battery
-	- memory
+- use widget id concept (https://awesomewm.org/doc/api/classes/gears.timer.html)
+- memory: add top consumers & chart

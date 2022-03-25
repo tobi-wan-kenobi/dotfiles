@@ -122,6 +122,7 @@ function workspace.setup(screen)
 				top = 2,
 				bottom = 2,
 				wibox.widget.systray(),
+				bountiful.memory({ margin = 10 }),
 				bountiful.pamixer({ margin = 10 }),
 				bountiful.pamixer({ source = true, margin = 10 }),
 				bountiful.clock({
