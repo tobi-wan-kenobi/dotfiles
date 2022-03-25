@@ -208,6 +208,9 @@ local function create_widget(_, args)
 		awful.button({}, 1, function()
 			awful.spawn(mixer.toggle_mute)
 		end),
+		awful.button({}, 2, function()
+			awful.spawn("pavucontrol")
+		end),
 		awful.button({}, 3, function()
 			if popup.visible then
 				popup.visible = false
