@@ -91,6 +91,7 @@ function workspace.setup(screen)
 		{
 			layout = wibox.layout.fixed.horizontal,
 			screen.taglist,
+			bountiful.focus({ margin = 10 }),
 			buttons = gears.table.join(
 				awful.button({ }, 5, function()
 					awful.tag.viewnext(screen)
@@ -98,8 +99,7 @@ function workspace.setup(screen)
 				awful.button({ }, 4, function()
 					awful.tag.viewprev(screen)
 				end)
-
-			),
+			)
 		},
 		{
 			layout = wibox.layout.fixed.horizontal,

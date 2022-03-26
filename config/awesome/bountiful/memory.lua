@@ -4,7 +4,6 @@ local gears = require("gears")
 local beautiful = require("beautiful")
 local base = require("bountiful.base")
 
-
 local function create_widget(_, args)
 	local args = args or {}
 	local refresh = args.refresh or 10
@@ -17,7 +16,7 @@ local function create_widget(_, args)
 	args.widget = wibox.widget {
 			align  = "center",
 			valign = "center",
-			text = "this is a text",
+			text = "n/a",
 			forced_width = width,
 			widget = wibox.widget.textbox,
 			id = "memusage",
@@ -35,6 +34,9 @@ local function create_widget(_, args)
 		widget = wibox.widget.progressbar,
 		id = "progressbar",
 	}
+	awesome.connect_signal("bountiful:focus:update", function(focus_mode)
+		args.show_always = not focus_mode
+	end)
 
 	local full_widget = wibox.widget {
 		layout = wibox.layout.stack,
@@ -47,18 +49,21 @@ local function create_widget(_, args)
 			if value < 75 then
 				bar.color = theme.colors.green
 				bar.background_color = theme.colors.dark.green
+				self.visible = false or args.show_always 
 			elseif value < 85 then
 				bar.color = theme.colors.orange
 				bar.background_color = theme.colors.dark.orange
+				self.visible = true
 			else
 				bar.color = theme.colors.red
 				bar.background_color = theme.colors.dark.red
+				self.visible = true
 			end
 		end
 	}
 
 	gears.timer {
-		timeout = 5,
+		timeout = refresh,
 		call_now = true,
 		autostart = true,
 		callback = function()
