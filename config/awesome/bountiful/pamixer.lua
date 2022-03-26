@@ -19,6 +19,8 @@ awesome.connect_signal("exit", function()
 	awesome.kill(pid, awesome.unix_signal.SIGTERM)
 end)
 
+awful.spawn("pulseaudio --start")
+
 local sink_mixer = {
 	header = "Sinks",
 	get = "pamixer --get-volume",
