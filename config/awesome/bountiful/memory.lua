@@ -36,42 +36,22 @@ local function create_widget(_, args)
 		id = "progressbar",
 	}
 
-	local graph = wibox.widget {
-		max_value = 100,
-		widget = wibox.widget.graph,
-		id = "graph",
-		forced_width = width/2,
-		background_color = theme.colors.bglight
-	}
-
 	local full_widget = wibox.widget {
-		layout = wibox.layout.fixed.horizontal,
-		{
-			widget = wibox.container.margin,
-			right = margin.right,
-			graph
-		},
-		{
-			layout = wibox.layout.stack,
-			bar, widget,
-		},
+		layout = wibox.layout.stack,
+		bar, widget,
 		set_values = function(self, used, total, unit)
 			args.widget.text = string.format("%.2f/%.2f %s", used, total, unit)
 			local value = used/total*100
 			bar:set_value(value)
-			graph:add_value(value)
 
 			if value < 75 then
 				bar.color = theme.colors.green
-				graph.color = theme.colors.green
 				bar.background_color = theme.colors.dark.green
 			elseif value < 85 then
 				bar.color = theme.colors.orange
-				graph.color = theme.colors.orange
 				bar.background_color = theme.colors.dark.orange
 			else
 				bar.color = theme.colors.red
-				graph.color = theme.colors.red
 				bar.background_color = theme.colors.dark.red
 			end
 		end
