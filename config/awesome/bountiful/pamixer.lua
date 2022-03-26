@@ -205,6 +205,9 @@ local function create_widget(_, args)
 			bg = theme.colors.bglight
 		}
 	}
+	popup:connect_signal("mouse::leave", function()
+		popup.visible = false
+	end)
 
 	widget:buttons(gears.table.join(
 		awful.button({}, 1, function()
