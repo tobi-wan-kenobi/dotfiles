@@ -4,14 +4,24 @@ local gears = require("gears")
 local beautiful = require("beautiful")
 local base = require("bountiful.base")
 
+local pid = awful.spawn.with_line_callback("mpstat -P all 1", {
+	stdout = function(line)
+		if not line:match ".*all.*" then return end
+		awesome.emit_signal("bountiful:cpu:data", line)
+	end
+})
+
+awesome.connect_signal("exit", function()
+	awesome.kill(pid, awesome.unix_signal.SIGTERM)
+end)
+
 local function create_widget(_, args)
 	local args = args or {}
-	local refresh = args.refresh or 1
 
 	local theme = beautiful.get()
 	local margin = base.margin(args)
 
-	local width, height = wibox.widget.textbox("  99.0/99.0GiB"):get_preferred_size(awful.screen.primary)
+	local width, height = wibox.widget.textbox("  100.00%"):get_preferred_size(awful.screen.primary)
 
 	args.widget = wibox.widget {
 			align  = "center",
@@ -19,7 +29,6 @@ local function create_widget(_, args)
 			text = "n/a",
 			forced_width = width,
 			widget = wibox.widget.textbox,
-			id = "memusage",
 	}
 
 	local widget = base.widget(args)
@@ -41,12 +50,12 @@ local function create_widget(_, args)
 	local full_widget = wibox.widget {
 		layout = wibox.layout.stack,
 		bar, widget,
-		set_values = function(self, used, total, unit)
-			args.widget.text = string.format("  %.2f/%.2f %s", used, total, unit)
-			local value = used/total*100
+		visible = false,
+		set_value = function(self, value)
+			args.widget.text = string.format("  %.2f%%", value)
 			bar:set_value(value)
 
-			if value < 75 then
+			if value < 50 then
 				bar.color = theme.colors.green
 				bar.background_color = theme.colors.dark.green
 				self.visible = false or args.show_always 
@@ -62,23 +71,10 @@ local function create_widget(_, args)
 		end
 	}
 
-	gears.timer {
-		timeout = refresh,
-		call_now = true,
-		autostart = true,
-		callback = function()
-			awful.spawn.easy_async("free --si -m", function(stdout)
-				for line in stdout:gmatch("([^\n]*)\n?") do
-					if line:match("Mem:") then
-						local total, used = line:match("Mem:%s+(%d+)%s+(%d+)")
-						total = tonumber(total)/1000
-						used = tonumber(used)/1000
-						full_widget:set_values(used, total, "GiB")
-					end
-				end
-			end)
-		end
-	}
+	awesome.connect_signal("bountiful:cpu:data", function(data)
+		local idle = data:match("([%d.]+)\n?$")
+		full_widget:set_value(100.0 - tonumber(idle))
+	end)
 
 	return full_widget
 end
