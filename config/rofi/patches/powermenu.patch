@@ -1,5 +1,5 @@
---- powermenu.sh.old	2022-03-07 11:48:51.505043891 +0100
-+++ powermenu.sh	2022-03-07 12:03:16.142178478 +0100
+--- powermenu.sh.old	2022-03-06 14:26:50.505066824 +0100
++++ powermenu.sh	2022-03-26 20:56:10.788230476 +0100
 @@ -15,19 +15,10 @@
  # full_circle     full_square     full_rounded     full_alt
  # row_circle      row_square      row_rounded      row_alt
@@ -61,3 +61,12 @@
          ;;
      $suspend)
  		ans=$(confirm_exit &)
+@@ -107,6 +94,8 @@ case $chosen in
+ 				bspc quit
+ 			elif [[ "$DESKTOP_SESSION" == "i3" ]]; then
+ 				i3-msg exit
++			elif [[ "$DESKTOP_SESSION" == "awesome" ]]; then
++				awesome-client "awesome.quit()"
+ 			fi
+ 		elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
+ 			exit 0
