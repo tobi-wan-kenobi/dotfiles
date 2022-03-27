@@ -42,7 +42,7 @@ local function create_widget(_, args)
 		layout = wibox.layout.stack,
 		bar, widget,
 		set_values = function(self, used, total, unit)
-			args.widget.text = string.format("  %.2f/%.2f %s", used, total, unit)
+			args.widget.text = string.format("  %.1f/%.1f %s", used, total, unit)
 			local value = used/total*100
 			bar:set_value(value)
 

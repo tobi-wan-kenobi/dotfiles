@@ -21,14 +21,14 @@ local function create_widget(_, args)
 	local theme = beautiful.get()
 	local margin = base.margin(args)
 
-	local width, height = wibox.widget.textbox("  100.00%"):get_preferred_size(awful.screen.primary)
+	local width, height = wibox.widget.textbox("  800.0%"):get_preferred_size(awful.screen.primary)
 
 	args.widget = wibox.widget {
-			align  = "center",
-			valign = "center",
-			text = "n/a",
-			forced_width = width,
-			widget = wibox.widget.textbox,
+		align  = "center",
+		valign = "center",
+		text = "n/a",
+		forced_width = width,
+		widget = wibox.widget.textbox,
 	}
 
 	local widget = base.widget(args)
@@ -52,7 +52,7 @@ local function create_widget(_, args)
 		bar, widget,
 		visible = false,
 		set_value = function(self, value)
-			args.widget.text = string.format("  %.2f%%", value)
+			args.widget.text = string.format("  %.1f%%", value)
 			bar:set_value(value)
 
 			if value < 50 then
