@@ -3,10 +3,23 @@ local gears = require("gears")
 
 local taglist = {}
 
+function view_tag_only(i)
+	local screen = awful.screen.focused()
+	local tag = screen.tags[i]
+
+	if tag == screen.selected_tag then
+		tag = screen.previous_tag
+	end
+	screen.previous_tag = screen.selected_tag
+	if tag then
+		tag:view_only()
+	end
+end
+
 function taglist.taglist(screen)
 	local taglist_buttons = gears.table.join(
 		awful.button({ }, 1, function(t)
-			t:view_only()
+			view_tag_only(t.index)
 		end),
 		awful.button({ modkey }, 1, function(t)
 			if client.focus then

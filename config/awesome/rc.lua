@@ -24,6 +24,7 @@ beautiful.master_width_factor = 0.7
 
 awful.layout.layouts = {
 	awful.layout.suit.tile,
+	awful.layout.suit.fair,
 	awful.layout.suit.floating,
 	awful.layout.suit.tile.top,
 	awful.layout.suit.max,
@@ -51,7 +52,7 @@ awful.rules.rules = {
 		}
 	},
 	{
-		rule = { class = "zoom" },
+		rule = { class = "zoom " },
 		properties = {
 			tag = awful.screen.focused().tags[8],
 			switchtotag = true,
@@ -79,3 +80,5 @@ end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 autostart.init()
+
+dofile(gears.filesystem.get_configuration_dir() .. "private.lua")

@@ -27,7 +27,7 @@ end
 
 function input.global_keys(modkey)
 	local globalkeys = gears.table.join(
-		awful.key({ modkey }, "s",
+		awful.key({ modkey }, "o",
 			hotkeys_popup.show_help,
 			{ description="show help", group="awesome" }
 		),
@@ -131,7 +131,7 @@ function input.global_keys(modkey)
 				{ description = "toggle tag #" .. num, group = "tag" }
 			),
 			-- Move client to tag.
-			awful.key({ modkey, "Shift" }, "#" .. num,
+			awful.key({ modkey, "Shift" }, num,
 				function ()
 					if client.focus then
 						local tag = client.focus.screen.tags[i]
@@ -179,6 +179,13 @@ function input.client_keys()
 		awful.key({ modkey, "Shift" }, "Return",
 			function (c) c:swap(awful.client.getmaster()) end,
 			{ description = "move to master", group = "client" }
+		),
+		awful.key({ modkey }, "s",
+			function(c)
+				awful.client.swap.byidx(1, c)
+				awful.client.focus.byidx(-1)
+			end,
+			{ description = "swap master with next window", group="client" }
 		),
 		awful.key({ modkey }, "f",
 			function (c)
