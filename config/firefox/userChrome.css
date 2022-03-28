@@ -1,0 +1,7 @@
+#urlbar { font-size: 12pt !important; }
+#TabsToolbar { font-size: 12pt !important; }
+toolbarbutton { font-size: 12pt !important; }
+
+   menubar, menubutton, menulist, menu, menuitem, textbox,
+   toolbar, .tab-text, tree, tooltip, sidebarheader, statusbar {
+   font-size: 12pt !important; }
