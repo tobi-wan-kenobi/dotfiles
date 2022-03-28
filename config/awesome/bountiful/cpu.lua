@@ -4,17 +4,6 @@ local gears = require("gears")
 local beautiful = require("beautiful")
 local base = require("bountiful.base")
 
-local pid = awful.spawn.with_line_callback("mpstat -P all 1", {
-	stdout = function(line)
-		if not line:match ".*all.*" then return end
-		awesome.emit_signal("bountiful:cpu:data", line)
-	end
-})
-
-awesome.connect_signal("exit", function()
-	awesome.kill(pid, awesome.unix_signal.SIGTERM)
-end)
-
 local function create_widget(_, args)
 	local args = args or {}
 

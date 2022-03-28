@@ -8,7 +8,6 @@ local taglist = require("misc.taglist")
 local bountiful = require("bountiful")
 
 local workspace = {}
-
 function workspace.set_wallpaper(screen)
 	if beautiful.wallpaper then
 		local wallpaper = beautiful.wallpaper
@@ -137,5 +136,11 @@ function workspace.setup(screen)
 			}
 		}
 	}
+	bountiful.events:init({
+		pulseaudio = true,
+		cpu = true,
+	})
+
 end
+
 return workspace

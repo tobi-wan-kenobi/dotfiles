@@ -8,17 +8,6 @@ local function volume_string(volume, icon)
 	return icon .. "  " .. volume .. "%"
 end
 
-local pid = awful.spawn.with_line_callback("pactl subscribe", {
-	stdout = function(line)
-		if line:match ".*client.*" then return end
-		awesome.emit_signal("bountiful:pamixer:update")
-	end
-})
-
-awesome.connect_signal("exit", function()
-	awesome.kill(pid, awesome.unix_signal.SIGTERM)
-end)
-
 awful.spawn("pulseaudio --start")
 
 local sink_mixer = {
@@ -172,7 +161,7 @@ local function create_widget(_, args)
 		bar, widget
 	}
 
-	awesome.connect_signal("bountiful:pamixer:update", function()
+	awesome.connect_signal("bountiful:pulseaudio:update", function()
 		local volume = "n/a"
 		awful.spawn.easy_async(mixer.get, function(stdout, stderr, reason, code)
 			volume = stdout:gsub("^%s*(.-)%s*$", "%1")
@@ -243,8 +232,6 @@ local function create_widget(_, args)
 			awful.spawn(mixer.decrease)
 		end)
 	))
-	-- initial update
-	awesome.emit_signal("bountiful:pamixer:update")
 
 	return full_widget
 end

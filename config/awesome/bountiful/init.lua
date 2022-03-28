@@ -6,4 +6,5 @@ return {
 	cpu = require("bountiful.cpu"),
 	focus = require("bountiful.focus"),
 	arch = require("bountiful.arch"),
+	events = require("bountiful.events"),
 }
