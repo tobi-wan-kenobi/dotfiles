@@ -2,7 +2,7 @@
 *.pyc
 
 bin/bumblebee-status
-config/private/*
 config/gtk-3.0/bookmarks
+*private*
 
 config/awesome/themes/zengarden-dark/background.png
