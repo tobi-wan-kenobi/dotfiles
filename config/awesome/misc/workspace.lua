@@ -132,7 +132,7 @@ function workspace.setup(screen)
 				}),
 				wibox.widget.systray(),
 				screen.layoutbox,
-				spacing = 10
+				spacing = 5
 			}
 		}
 	}

@@ -17,7 +17,6 @@ function base.widget(args)
 	local margin = base.margin(args)
 	local widget = wibox.widget {
 		widget = wibox.container.background,
-		bg = args.bg,
 		shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, height/2) end,
 		{
 			widget = wibox.container.margin,

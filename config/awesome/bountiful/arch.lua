@@ -9,7 +9,6 @@ local function create_widget(_, args)
 	local refresh = args.refresh or 3600
 
 	local theme = beautiful.get()
-	local margin = base.margin(args)
 
 	local width, height = wibox.widget.textbox("  100"):get_preferred_size(awful.screen.primary)
 
