@@ -5,4 +5,5 @@ return {
 	memory = require("bountiful.memory"),
 	cpu = require("bountiful.cpu"),
 	focus = require("bountiful.focus"),
+	arch = require("bountiful.arch"),
 }
