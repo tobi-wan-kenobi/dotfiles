@@ -90,6 +90,12 @@ function input.global_keys(modkey)
 			function () awful.tag.incnmaster(-1, nil, true) end,
 			{ description = "decrease the number of master clients", group = "layout" }
 		),
+		awful.key({ modkey }, "m",
+			function()
+				awful.client.getmaster():jump_to(false)
+			end,
+			{ description = "focus master", group="layout" }
+		),
 		awful.key({ modkey }, "space",
 			function () awful.layout.inc(1) end,
 			{ description = "select next", group = "layout" }

@@ -8,8 +8,6 @@ local function volume_string(volume, icon)
 	return icon .. "  " .. volume .. "%"
 end
 
-awful.spawn("pulseaudio --start")
-
 local sink_mixer = {
 	header = "Sinks",
 	get = "pamixer --get-volume",

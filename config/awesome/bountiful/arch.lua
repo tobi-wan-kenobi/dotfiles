@@ -18,6 +18,7 @@ local function create_widget(_, args)
 		valign = "center",
 		text = "n/a",
 		forced_width = width,
+		forced_height = height,
 		widget = wibox.widget.textbox,
 	}
 
