@@ -19,7 +19,7 @@ local sink_mixer = {
 	get_default = "pactl info | grep -i 'default sink'",
 	set_default = "pactl set-default-sink ",
 	not_muted = "",
-	muted = "",
+	muted = "婢",
 }
 local source_mixer = {
 	header = "Sources",

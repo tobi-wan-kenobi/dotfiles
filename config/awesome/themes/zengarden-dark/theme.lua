@@ -40,8 +40,7 @@ local colors = {
 
 local theme = {}
 
---theme.font          = "Ubuntu Medium 12"
-theme.font          = "FontAwesome 11"
+theme.font          = "Ubuntu Nerd Font 11"
 theme.colors        = colors
 
 theme.bg_normal     = colors.bg
