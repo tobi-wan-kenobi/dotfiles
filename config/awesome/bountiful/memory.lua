@@ -11,7 +11,7 @@ local function create_widget(_, args)
 	local theme = beautiful.get()
 	local margin = base.margin(args)
 
-	local width, height = wibox.widget.textbox("  99.0/99.0GiB"):get_preferred_size(awful.screen.primary)
+	local width, height = wibox.widget.textbox("  99.0/99.0GiB"):get_preferred_size(awful.screen.primary)
 
 	args.widget = wibox.widget {
 			align  = "center",
@@ -42,7 +42,7 @@ local function create_widget(_, args)
 		layout = wibox.layout.stack,
 		bar, widget,
 		set_values = function(self, used, total, unit)
-			args.widget.text = string.format("  %.1f/%.1f %s", used, total, unit)
+			args.widget.text = string.format("  %.1f/%.1f %s", used, total, unit)
 			local value = used/total*100
 			bar:set_value(value)
 

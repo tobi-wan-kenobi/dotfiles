@@ -63,12 +63,12 @@ function workspace.setup(screen)
 		gap_single_client  = false,
 		screen             = screen,
 	})
-	awful.tag.add("9  ", {
+	awful.tag.add("9  ", {
 		layout             = awful.layout.suit.tile,
 		gap_single_client  = false,
 		screen             = screen,
 	})
-	awful.tag.add("0  ", {
+	awful.tag.add("0  ", {
 		layout             = awful.layout.suit.tile,
 		gap_single_client  = false,
 		screen             = screen,

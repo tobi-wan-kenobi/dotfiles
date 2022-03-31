@@ -10,7 +10,7 @@ local function create_widget(_, args)
 
 	local theme = beautiful.get()
 
-	local width, height = wibox.widget.textbox("  100"):get_preferred_size(awful.screen.primary)
+	local width, height = wibox.widget.textbox("  100"):get_preferred_size(awful.screen.primary)
 
 	args.bg = theme.colors.dark.blue
 	args.widget = wibox.widget {
@@ -42,7 +42,7 @@ local function create_widget(_, args)
 						packages = packages + 1
 					end
 				end
-				args.widget.text = "  " .. tostring(packages)
+				args.widget.text = "  " .. tostring(packages)
 				if packages > 0 then
 					widget.bg = theme.colors.orange
 					widget.visible = true
