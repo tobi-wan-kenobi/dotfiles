@@ -1,18 +1,21 @@
 Config {
+	overrideRedirect = True,
 	font = "xft:Ubuntu:size:10:antialias=true",
 	bgColor = "#353839",
 	fgColor = "#faebd7",
+--	position = TopW L 90,
 	position = Top,
 
 	sepChar = "%",
 	alignSep = "}{",
-	template = " %date% ",
+	template = " %XMonadLog% }{ %date% ",
 	lowerOnStart = False,
 	hideOnStart = False,
 	allDesktops = True,
 	persistent = True,
 
 	commands = [
-		Run Date "%F (%a) %T" "date" 10
+		Run XMonadLog,
+		Run Date "%a %b %d, %H:%M %Z" "date" 30
 	]
 }
