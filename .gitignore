@@ -6,3 +6,9 @@ config/gtk-3.0/bookmarks
 *private*
 
 config/awesome/themes/zengarden-dark/background.png
+
+config/xmonad/stack.yaml*
+config/xmonad/.stack*
+config/xmonad/xmonad/
+config/xmonad/xmonad-contrib/
+config/xmonad/xmobar/

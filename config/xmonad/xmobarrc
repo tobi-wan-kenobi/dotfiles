@@ -1,0 +1,18 @@
+Config {
+	font = "xft:Ubuntu:size:10:antialias=true",
+	bgColor = "#353839",
+	fgColor = "#faebd7",
+	position = Top,
+
+	sepChar = "%",
+	alignSep = "}{",
+	template = " %date% ",
+	lowerOnStart = False,
+	hideOnStart = False,
+	allDesktops = True,
+	persistent = True,
+
+	commands = [
+		Run Date "%F (%a) %T" "date" 10
+	]
+}
