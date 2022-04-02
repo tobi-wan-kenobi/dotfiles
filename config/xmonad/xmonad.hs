@@ -2,21 +2,23 @@ import XMonad
 
 import XMonad.StackSet
 import XMonad.Util.EZConfig
+import XMonad.Util.SpawnOnce
 
 import XMonad.Actions.Promote
 
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.Magnifier
 import XMonad.Layout.Spacing
+import XMonad.Layout.NoBorders
 
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
 
-_layout = tiled ||| Mirror tiled ||| Full ||| three_columns
+_layout = noBorders tiled ||| noBorders (Mirror tiled) ||| noBorders Full ||| noBorders threeColumns
 	where
-		three_columns = magnifiercz' 1.3 $ ThreeColMid nmain delta ratio
+		threeColumns = magnifiercz' 1.3 $ ThreeColMid nmain delta ratio
 		tiled = magnifiercz' 1.3 $ Tall nmain delta ratio
 		nmain = 1
 		ratio = 1/2
@@ -25,6 +27,7 @@ _layout = tiled ||| Mirror tiled ||| Full ||| three_columns
 _config = def
 	{ modMask = mod4Mask
 	, terminal = "kitty"
+	, startupHook = _startup
 	, layoutHook = smartSpacingWithEdge 5 $ _layout
 	}
 	`additionalKeysP`
@@ -33,6 +36,12 @@ _config = def
 	, ("M-s", windows $ swapMaster . focusDown)
 	, ("M-S-<Return>", promote)
 	]
+
+_startup = do
+	spawnOnce "xmobar ~/.config/xmonad/xmobarrc"
+	spawnOnce "xbindkeys"
+	spawnOnce "feh --bg-fill ~/.config/background.png"
+	spawnOnce "picom --experimental-backends -b"
 
 _xmobar_pp :: PP
 _xmobar_pp = def
