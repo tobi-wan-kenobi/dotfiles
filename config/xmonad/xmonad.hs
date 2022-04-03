@@ -1,7 +1,7 @@
 import XMonad hiding ( (|||) )
 import XMonad.Config.Desktop
 
-import XMonad.StackSet (focusDown, swapMaster, swapDown, sink)
+import XMonad.StackSet (focusDown, swapMaster, swapDown, sink, shift)
 import XMonad.Util.EZConfig
 import XMonad.Util.SpawnOnce
 import XMonad.Util.Loggers
@@ -151,6 +151,7 @@ _startup = do
 	spawnOnce "feh --bg-fill ~/.config/background.png"
 	spawnOnce "picom --experimental-backends -b"
 	spawnOnce "stalonetray --sticky --skip-taskbar --geometry 8x1-5+0 -bg \"#353839\" -i 20 -s 30"
+	spawnOnce "pasystray"
 
 _xmobar_pp :: PP
 _xmobar_pp = def
