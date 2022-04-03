@@ -7,6 +7,7 @@ import XMonad.Util.SpawnOnce
 import XMonad.Util.Loggers
 
 import XMonad.Actions.Promote
+import XMonad.Actions.CycleWS
 
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.Magnifier
@@ -126,12 +127,21 @@ _config = desktopConfig
 	, handleEventHook = _event_hook
 	}
 	`additionalKeysP`
+	_keys
+
+_keys =
 	[ ("M-<Return>", spawn "kitty")
 	, ("M-s", windows $ swapMaster . focusDown)
 	, ("M-S-<Return>", promote)
 	, ("M-t", sendMessage $ JumpToLayout "\xf9e8")
 	, ("M-f", sendMessage $ JumpToLayout "\xf792")
 	, ("M-r", spawn "~/.config/rofi/launchers/misc/launcher.sh")
+	]
+	++
+	[ (otherModMasks ++ "M-" ++ [key], action tag)
+		| (tag, key)  <- zip _workspaces "1234567890"
+			, (otherModMasks, action) <- [ ("", toggleOrView)
+		, ("S-", windows . shift)]
 	]
 
 _startup = do
