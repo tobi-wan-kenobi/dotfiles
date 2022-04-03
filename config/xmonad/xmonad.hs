@@ -140,7 +140,7 @@ _startup = do
 	spawnOnce "dunst"
 	spawnOnce "feh --bg-fill ~/.config/background.png"
 	spawnOnce "picom --experimental-backends -b"
-	spawnOnce "stalonetray --sticky --skip-taskbar --geometry 8x1-2+0 -bg \"#353839\" -i 20 -s 30"
+	spawnOnce "stalonetray --sticky --skip-taskbar --geometry 8x1-5+0 -bg \"#353839\" -i 20 -s 30"
 
 _xmobar_pp :: PP
 _xmobar_pp = def
