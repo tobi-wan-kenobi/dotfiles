@@ -64,7 +64,21 @@ full = renamed [Replace "\xf792"]
 	$ Full
 
 tabs = renamed [Replace "\xf9e8"]
-	 simpleTabbed
+	$ tabbed shrinkText _tabtheme
+
+
+_tabtheme = def
+	{ activeTextColor = "#faebd7"
+	, activeColor = "#353839"
+	, activeBorderWidth = 0
+	, inactiveColor = "#c4b6a3"
+	, inactiveTextColor = "#353839"
+	, inactiveBorderWidth = 0
+	, urgentColor = "#b38a32"
+	, urgentBorderWidth = 0
+	, urgentTextColor = "#faebd7"
+	, fontName = "xft:Ubuntu:size=12"
+	}
 
 _layout = three ||| tiled ||| mtiled ||| grid ||| full ||| tabs
 
@@ -119,11 +133,11 @@ _config = def
 	]
 
 _startup = do
-	spawnOnce "killall xmobar && /home/twitek/.local/bin/xmobar ~/.config/xmonad/xmobarrc"
-	spawnOnce "killall xbindkeys && xbindkeys"
+	spawnOnce "/home/twitek/.local/bin/xmobar ~/.config/xmonad/xmobarrc"
+	spawnOnce "xbindkeys"
 	spawnOnce "feh --bg-fill ~/.config/background.png"
-	spawnOnce "killall picom && picom --experimental-backends -b"
-	spawnOnce "killall stalonetray && stalonetray --sticky --skip-taskbar --geometry 8x1-2+2 -bg \"#353839\" -i 19 -s 30"
+	spawnOnce "picom --experimental-backends -b"
+	spawnOnce "stalonetray --sticky --skip-taskbar --geometry 8x1-2+0 -bg \"#353839\" -i 20 -s 30"
 
 _xmobar_pp :: PP
 _xmobar_pp = def
