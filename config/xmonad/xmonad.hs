@@ -87,10 +87,11 @@ _config = def
 	]
 
 _startup = do
-	spawnOnce "/home/twitek/.local/bin/xmobar ~/.config/xmonad/xmobarrc"
-	spawnOnce "xbindkeys"
+	spawnOnce "killall xmobar && /home/twitek/.local/bin/xmobar ~/.config/xmonad/xmobarrc"
+	spawnOnce "killall xbindkeys && xbindkeys"
 	spawnOnce "feh --bg-fill ~/.config/background.png"
-	spawnOnce "picom --experimental-backends -b"
+	spawnOnce "killall picom && picom --experimental-backends -b"
+	spawnOnce "killall stalonetray && stalonetray --sticky --skip-taskbar --geometry 8x1-0+0 -bg \"#353839\""
 
 _xmobar_pp :: PP
 _xmobar_pp = def
