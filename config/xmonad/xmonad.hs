@@ -130,11 +130,13 @@ _config = def
 	, ("M-S-<Return>", promote)
 	, ("M-t", sendMessage $ JumpToLayout "\xf9e8")
 	, ("M-f", sendMessage $ JumpToLayout "\xf792")
+	, ("M-r", spawn "~/.config/rofi/launchers/misc/launcher.sh")
 	]
 
 _startup = do
 	spawnOnce "/home/twitek/.local/bin/xmobar ~/.config/xmonad/xmobarrc"
 	spawnOnce "xbindkeys"
+	spawnOnce "dunst"
 	spawnOnce "feh --bg-fill ~/.config/background.png"
 	spawnOnce "picom --experimental-backends -b"
 	spawnOnce "stalonetray --sticky --skip-taskbar --geometry 8x1-2+0 -bg \"#353839\" -i 20 -s 30"
