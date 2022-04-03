@@ -68,7 +68,7 @@ tabs = renamed [Replace "\xf9e8"]
 _layout = three ||| tiled ||| mtiled ||| grid ||| full ||| tabs
 
 _workspaces :: [String]
-_workspaces = [ "1 \xe795", "2 \xf269", "3 \xe795", "4 \xe795", "5 \xf6ed", "6 \xf9b0", "7 \xf17a", "8 \xf03d", "9 \xfc76", "0 \xfc76" ]
+_workspaces = [ "1 \xe795", "2 \xf738", "3 \xe795", "4 \xe795", "5 \xf6ed", "6 \xf9b0", "7 \xe70f", "8 \xfa66", "9 \xfc76", "0 \xfc76" ]
 
 _config = def
 	{ modMask = mod4Mask
