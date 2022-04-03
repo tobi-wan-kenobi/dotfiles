@@ -70,11 +70,11 @@ tabs = renamed [Replace "\xf9e8"]
 
 
 _tabtheme = def
-	{ activeTextColor = "#faebd7"
-	, activeColor = "#353839"
+	{ inactiveTextColor = "#faebd7"
+	, inactiveColor = "#505354"
 	, activeBorderWidth = 0
-	, inactiveColor = "#c4b6a3"
-	, inactiveTextColor = "#353839"
+	, activeColor = "#c4b6a3"
+	, activeTextColor = "#353839"
 	, inactiveBorderWidth = 0
 	, urgentColor = "#b38a32"
 	, urgentBorderWidth = 0
@@ -135,7 +135,7 @@ _keys =
 	, ("M-S-<Return>", promote)
 	, ("M-t", sendMessage $ JumpToLayout "\xf9e8")
 	, ("M-f", sendMessage $ JumpToLayout "\xf792")
-	, ("M-r", spawn "~/.config/rofi/launchers/misc/launcher.sh")
+	, ("M-r", spawn "rofi -modi window,drun,ssh,combi -show combi")
 	]
 	++
 	[ (otherModMasks ++ "M-" ++ [key], action tag)

@@ -1,6 +1,8 @@
-/** Basic config file **/
-
 configuration {
-  show-icons:         true;
-  icon-theme:         "Papirus";
+  show-icons: true;
+  icon-theme: "Papirus";
+  font: "Hack 12";
+  sidebar-mode: true;
 }
+
+@theme "zengarden/zengarden-light.rasi"
