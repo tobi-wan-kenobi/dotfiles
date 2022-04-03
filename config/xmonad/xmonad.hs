@@ -94,23 +94,21 @@ _startup = do
 
 _xmobar_pp :: PP
 _xmobar_pp = def
-	{ ppSep = magenta " | "
+	{ ppSep = cyan " | "
 	, ppTitleSanitize = xmobarStrip
 	, ppCurrent = xmobarBorder "Top" "#5396a6" 2 . wrap " " " "
 	, ppHidden = fg . wrap " " " "
-	, ppHiddenNoWindows = fg . wrap " " " "
+	, ppHiddenNoWindows = fgOff . wrap " " " "
 	, ppUrgent = red . wrap (yellow "!") (yellow "!")
 	, ppOrder = \[ws, l, _] -> [ws, l]
 	}
 	where
-	cyan, blue, lowWhite, magenta, red, fg, yellow :: String -> String
+	cyan, red, fg, fgOff, yellow :: String -> String
 	cyan = xmobarColor "#377c8b" ""
-	magenta = xmobarColor "#ff79c6" ""
-	blue = xmobarColor "#bd93f9" ""
 	fg = xmobarColor "#faebd7" ""
-	yellow = xmobarColor "#f1fa8c" ""
-	red = xmobarColor "#ff5555" ""
-	lowWhite = xmobarColor "#bbbbbb" ""
+	fgOff = xmobarColor "#5c5f60" ""
+	yellow = xmobarColor "#d0a44c" ""
+	red = xmobarColor "#f85e89" ""
 
 main :: IO ()
 main = xmonad
