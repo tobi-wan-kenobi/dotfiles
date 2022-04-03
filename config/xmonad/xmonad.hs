@@ -1,5 +1,4 @@
 import XMonad
-import XMonad.Config.Desktop
 
 import XMonad.StackSet (focusDown, swapMaster)
 import XMonad.Util.EZConfig
@@ -20,24 +19,64 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
 
-_layout = renamed [Replace "tiled"] (noBorders tiled) ||| noBorders (Mirror tiled) ||| simpleTabbed ||| noBorders Full ||| noBorders threeColumns
+-- desired layouts:
+-- default: 3 columns
+-- Tall
+-- Mirror tiled
+-- Grid
+-- Tabbed
+-- Full
+
+three = renamed [Replace "three"]
+	$ noBorders
+	$ smartSpacingWithEdge 5
+	$ magnifiercz' 1.3
+	$ ThreeColMid nmain delta ratio
 	where
-		threeColumns = magnifiercz' 1.3 $ ThreeColMid nmain delta ratio
-		tiled = magnifiercz' 1.3 $ Tall nmain delta ratio
 		nmain = 1
 		ratio = 1/2
 		delta = 3/100
 
+tiled = renamed [Replace "tiled"]
+	$ noBorders
+	$ smartSpacingWithEdge 5
+	$ magnifiercz' 1.3
+	$ Tall nmain delta ratio
+	where
+		nmain = 1
+		ratio = 1/2
+		delta = 3/100
+
+mtiled = renamed [Replace "mtiled"]
+	$ noBorders
+	$ smartSpacingWithEdge 5
+	$ magnifiercz' 1.3
+	$ Mirror
+	$ Tall nmain delta ratio
+	where
+		nmain = 1
+		ratio = 1/2
+		delta = 3/100
+
+full = renamed [Replace "full"]
+	$ noBorders
+	$ Full
+
+tabs = renamed [Replace "tabs"]
+	$ simpleTabbed
+
+_layout = three ||| tiled ||| mtiled ||| full ||| tabs
+
 _workspaces :: [String]
 _workspaces = [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" ]
 
-_config = desktopConfig
+_config = def
 	{ modMask = mod4Mask
 	, terminal = "kitty"
 	, borderWidth = 0
 	, workspaces = _workspaces
-	, startupHook = _startup <+> startupHook desktopConfig
-	, layoutHook = smartSpacingWithEdge 5 $ _layout
+	, startupHook = _startup
+	, layoutHook = _layout
 	}
 	`additionalKeysP`
 	[ ("M-<Return>", spawn "kitty")
