@@ -1,4 +1,4 @@
-import XMonad
+import XMonad hiding ( (|||) )
 
 import XMonad.StackSet (focusDown, swapMaster)
 import XMonad.Util.EZConfig
@@ -14,19 +14,12 @@ import XMonad.Layout.Grid
 import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Renamed
+import XMonad.Layout.LayoutCombinators
 
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
-
--- desired layouts:
--- default: 3 columns
--- Tall
--- Mirror tiled
--- Grid
--- Tabbed
--- Full
 
 three = renamed [Replace "\xfc26"]
 	$ noBorders
@@ -89,6 +82,8 @@ _config = def
 	[ ("M-<Return>", spawn "kitty")
 	, ("M-s", windows $ swapMaster . focusDown)
 	, ("M-S-<Return>", promote)
+	, ("M-t", sendMessage $ JumpToLayout "\xf9e8")
+	, ("M-f", sendMessage $ JumpToLayout "\xf792")
 	]
 
 _startup = do
