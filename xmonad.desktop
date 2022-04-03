@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=XMonad
+Encoding=UTF-8
+Comment=Lightweight tiling window manager
+Exec=/usr/bin/dbus-launch /home/twitek/.local/bin/xmonad
+Icon=/home/twitek/Pictures/xmonad.png
+Type=XSession
