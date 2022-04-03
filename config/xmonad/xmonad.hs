@@ -1,4 +1,5 @@
 import XMonad hiding ( (|||) )
+import XMonad.Config.Gnome
 
 import XMonad.StackSet (focusDown, swapMaster, swapDown, sink)
 import XMonad.Util.EZConfig
@@ -114,7 +115,7 @@ _event_hook =
 		, handleEventHook def
 		]
 
-_config = def
+_config = gnomeConfig
 	{ modMask = mod4Mask
 	, terminal = "kitty"
 	, borderWidth = 0
