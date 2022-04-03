@@ -76,12 +76,14 @@ _manage_zoom_hook =
 	composeAll $
 	[ (className =? zoomClassName) <&&> shouldFloat <$> title --> doFloat
 	, (className =? zoomClassName) <&&> shouldSink <$> title --> doSink
+	, (className =? zoomClassName) --> doShift "8 \xfa66"
 	]
 	where
-		zoomClassName = "zoom"
+		zoomClassName = "zoom "
 		tileTitles =
 			[ "Zoom - Free Account"
 			, "Zoom - Licensed Account"
+			, "Zoom Cloud Meetings"
 			, "Zoom"
 			, "Zoom Meeting"
 			]
