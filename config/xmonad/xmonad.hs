@@ -8,6 +8,7 @@ import XMonad.Util.Loggers
 
 import XMonad.Actions.Promote
 import XMonad.Actions.CycleWS
+import XMonad.Actions.UpdatePointer
 
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.Magnifier
@@ -125,6 +126,7 @@ _config = desktopConfig
 	, layoutHook = _layout
 	, manageHook = _manage_hook
 	, handleEventHook = _event_hook
+	, logHook = updatePointer (0.5, 0.15) (0, 0)
 	}
 	`additionalKeysP`
 	_keys
