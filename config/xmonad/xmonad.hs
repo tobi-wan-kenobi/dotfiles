@@ -27,7 +27,7 @@ import XMonad.Hooks.StatusBar.PP
 -- Tabbed
 -- Full
 
-three = renamed [Replace "three"]
+three = renamed [Replace "\xfa6c"]
 	$ noBorders
 	$ smartSpacingWithEdge 5
 	$ magnifiercz' 1.3
@@ -37,7 +37,7 @@ three = renamed [Replace "three"]
 		ratio = 1/2
 		delta = 3/100
 
-tiled = renamed [Replace "tiled"]
+tiled = renamed [Replace "\xfd33"]
 	$ noBorders
 	$ smartSpacingWithEdge 5
 	$ magnifiercz' 1.3
@@ -47,7 +47,7 @@ tiled = renamed [Replace "tiled"]
 		ratio = 1/2
 		delta = 3/100
 
-mtiled = renamed [Replace "mtiled"]
+mtiled = renamed [Replace "\xfd35"]
 	$ noBorders
 	$ smartSpacingWithEdge 5
 	$ magnifiercz' 1.3
@@ -58,11 +58,11 @@ mtiled = renamed [Replace "mtiled"]
 		ratio = 1/2
 		delta = 3/100
 
-full = renamed [Replace "full"]
+full = renamed [Replace "\xf792"]
 	$ noBorders
 	$ Full
 
-tabs = renamed [Replace "tabs"]
+tabs = renamed [Replace "\xf9e8"]
 	$ simpleTabbed
 
 _layout = three ||| tiled ||| mtiled ||| full ||| tabs
