@@ -64,13 +64,12 @@ full = renamed [Replace "\xf792"]
 	$ Full
 
 tabs = renamed [Replace "\xf9e8"]
-	$ simpleTabbed
+	 simpleTabbed
 
 _layout = three ||| tiled ||| mtiled ||| grid ||| full ||| tabs
 
 _workspaces :: [String]
 _workspaces = [ "1 \xe795", "2 \xf738", "3 \xe795", "4 \xe795", "5 \xf6ed", "6 \xf9b0", "7 \xe70f", "8 \xfa66", "9 \xfc76", "0 \xfc76" ]
-
 
 _manage_zoom_hook =
 	composeAll $
@@ -124,7 +123,7 @@ _startup = do
 	spawnOnce "killall xbindkeys && xbindkeys"
 	spawnOnce "feh --bg-fill ~/.config/background.png"
 	spawnOnce "killall picom && picom --experimental-backends -b"
-	spawnOnce "killall stalonetray && stalonetray --sticky --skip-taskbar --geometry 8x1-0+0 -bg \"#353839\" -i 19 -s 24"
+	spawnOnce "killall stalonetray && stalonetray --sticky --skip-taskbar --geometry 8x1-2+2 -bg \"#353839\" -i 19 -s 30"
 
 _xmobar_pp :: PP
 _xmobar_pp = def
