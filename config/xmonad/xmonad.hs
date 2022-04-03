@@ -70,7 +70,7 @@ tabs = renamed [Replace "\xf9e8"]
 
 
 _tabtheme = def
-	{ inactiveTextColor = "#faebd7"
+	{ inactiveTextColor = "#d2c4b0"
 	, inactiveColor = "#505354"
 	, activeBorderWidth = 0
 	, activeColor = "#c4b6a3"
@@ -79,7 +79,7 @@ _tabtheme = def
 	, urgentColor = "#b38a32"
 	, urgentBorderWidth = 0
 	, urgentTextColor = "#faebd7"
-	, fontName = "xft:Ubuntu:size=12"
+	, fontName = "xft:Ubuntu:size=11"
 	}
 
 _layout = three ||| tiled ||| mtiled ||| grid ||| full ||| tabs
@@ -133,7 +133,7 @@ _keys =
 	[ ("M-<Return>", spawn "kitty")
 	, ("M-s", windows $ swapMaster . focusDown)
 	, ("M-S-<Return>", promote)
-	, ("M-t", sendMessage $ JumpToLayout "\xf9e8")
+	, ("M-S-t", sendMessage $ JumpToLayout "\xf9e8")
 	, ("M-f", sendMessage $ JumpToLayout "\xf792")
 	, ("M-r", spawn "rofi -modi window,drun,ssh,combi -show combi")
 	]
