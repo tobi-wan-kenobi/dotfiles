@@ -1,6 +1,6 @@
 import XMonad hiding ( (|||) )
 
-import XMonad.StackSet (focusDown, swapMaster)
+import XMonad.StackSet (focusDown, swapMaster, swapDown, sink)
 import XMonad.Util.EZConfig
 import XMonad.Util.SpawnOnce
 import XMonad.Util.Loggers
@@ -18,6 +18,7 @@ import XMonad.Layout.LayoutCombinators
 
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.DynamicProperty
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
 
@@ -70,6 +71,34 @@ _layout = three ||| tiled ||| mtiled ||| grid ||| full ||| tabs
 _workspaces :: [String]
 _workspaces = [ "1 \xe795", "2 \xf738", "3 \xe795", "4 \xe795", "5 \xf6ed", "6 \xf9b0", "7 \xe70f", "8 \xfa66", "9 \xfc76", "0 \xfc76" ]
 
+
+_manage_zoom_hook =
+	composeAll $
+	[ (className =? zoomClassName) <&&> shouldFloat <$> title --> doFloat
+	, (className =? zoomClassName) <&&> shouldSink <$> title --> doSink
+	]
+	where
+		zoomClassName = "zoom"
+		tileTitles =
+			[ "Zoom - Free Account"
+			, "Zoom - Licensed Account"
+			, "Zoom"
+			, "Zoom Meeting"
+			]
+		shouldFloat title = title `notElem` tileTitles
+		shouldSink title = title `elem` tileTitles
+		doSink = (ask >>= doF . sink) <+> doF swapDown
+
+_manage_hook =
+	_manage_zoom_hook
+	<+> manageHook def
+
+_event_hook =
+	mconcat
+		[ dynamicTitle _manage_zoom_hook
+		, handleEventHook def
+		]
+
 _config = def
 	{ modMask = mod4Mask
 	, terminal = "kitty"
@@ -77,6 +106,8 @@ _config = def
 	, workspaces = _workspaces
 	, startupHook = _startup
 	, layoutHook = _layout
+	, manageHook = _manage_hook
+	, handleEventHook = _event_hook
 	}
 	`additionalKeysP`
 	[ ("M-<Return>", spawn "kitty")
@@ -91,7 +122,7 @@ _startup = do
 	spawnOnce "killall xbindkeys && xbindkeys"
 	spawnOnce "feh --bg-fill ~/.config/background.png"
 	spawnOnce "killall picom && picom --experimental-backends -b"
-	spawnOnce "killall stalonetray && stalonetray --sticky --skip-taskbar --geometry 8x1-0+0 -bg \"#353839\""
+	spawnOnce "killall stalonetray && stalonetray --sticky --skip-taskbar --geometry 8x1-0+0 -bg \"#353839\" -i 19 -s 24"
 
 _xmobar_pp :: PP
 _xmobar_pp = def
