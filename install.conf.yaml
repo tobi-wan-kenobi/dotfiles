@@ -16,6 +16,7 @@
     - '~/.config/cmus/'
     - '~/.tmux/plugins/'
     - '~/.config/kitty/'
+    - '~/.config/polybar/'
 - link:
     ~/.zshrc:
         path: config/zshrc
@@ -51,6 +52,8 @@
         path: bin/lock
     ~/.config/kitty/kitty.conf:
         path: config/kitty/kitty.conf
+    ~/.config/polybar/polybar.ini:
+        path: config/polybar.ini
 
 - shell:
     - 
