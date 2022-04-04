@@ -1,10 +1,13 @@
 import XMonad hiding ( (|||) )
 import XMonad.Config.Desktop
 
-import XMonad.StackSet (focusDown, swapMaster, swapDown, sink, shift)
+import XMonad.StackSet as W
+import XMonad.ManageHook
 import XMonad.Util.EZConfig
 import XMonad.Util.SpawnOnce
 import XMonad.Util.Loggers
+import XMonad.Util.NamedScratchpad
+import XMonad.Util.ClickableWorkspaces
 
 import XMonad.Actions.Promote
 import XMonad.Actions.CycleWS
@@ -88,6 +91,12 @@ _layout = three ||| tiled ||| mtiled ||| grid ||| full ||| tabs
 _workspaces :: [String]
 _workspaces = [ "1 \xe795", "2 \xf738", "3 \xe795", "4 \xe795", "5 \xf6ed", "6 \xf9b0", "7 \xe70f", "8 \xfa66", "9 \xfc76", "0 \xfc76" ]
 
+_scratchpads :: [NamedScratchpad]
+_scratchpads =
+	[ NS "scratch" "kitty -T scratch" (title =? "scratch")
+		(customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
+	]
+
 _manage_zoom_hook =
 	composeAll $
 	[ (className =? zoomClassName) <&&> shouldFloat <$> title --> doFloat
@@ -109,6 +118,7 @@ _manage_zoom_hook =
 
 _manage_hook =
 	_manage_zoom_hook
+	<+> namedScratchpadManageHook _scratchpads
 	<+> manageHook def
 
 _event_hook =
@@ -117,16 +127,19 @@ _event_hook =
 		, handleEventHook def
 		]
 
+_log_hook =
+	updatePointer (0.5, 0.15) (0, 0)
+
 _config = desktopConfig
 	{ modMask = mod4Mask
 	, terminal = "kitty"
 	, borderWidth = 0
-	, workspaces = _workspaces
+	, XMonad.workspaces = _workspaces
 	, startupHook = _startup
 	, layoutHook = _layout
 	, manageHook = _manage_hook
 	, handleEventHook = _event_hook
-	, logHook = updatePointer (0.5, 0.15) (0, 0)
+	, logHook = _log_hook
 	}
 	`additionalKeysP`
 	_keys
@@ -138,6 +151,9 @@ _keys =
 	, ("M-S-t", sendMessage $ JumpToLayout "\xf9e8")
 	, ("M-f", sendMessage $ JumpToLayout "\xf792")
 	, ("M-r", spawn "rofi -modi window,drun,ssh,combi -show combi")
+	, ("M-p", namedScratchpadAction _scratchpads "scratch")
+	, ("M-v", spawn "~/bin/pass-notify")
+	, ("M-c", spawn "flameshot launcher")
 	]
 	++
 	[ (otherModMasks ++ "M-" ++ [key], action tag)
@@ -147,35 +163,37 @@ _keys =
 	]
 
 _startup = do
-	spawnOnce "/home/twitek/.local/bin/xmobar ~/.config/xmonad/xmobarrc"
+	spawnOnce "~/.local/bin/xmobar ~/.config/xmonad/xmobarrc"
 	spawnOnce "xbindkeys"
 	spawnOnce "dunst"
 	spawnOnce "feh --bg-fill ~/.config/background.png"
 	spawnOnce "picom --experimental-backends -b"
-	spawnOnce "stalonetray --sticky --skip-taskbar --geometry 8x1-5+0 -bg \"#353839\" -i 20 -s 30"
+	spawnOnce "stalonetray --sticky --skip-taskbar --geometry 8x1-10+0 -bg \"#353839\" -i 24 -s 30"
 	spawnOnce "pasystray"
+	spawnOnce "nm-applet"
 
 _xmobar_pp :: PP
 _xmobar_pp = def
 	{ ppSep = cyan " | "
 	, ppTitleSanitize = xmobarStrip
 	, ppCurrent = xmobarBorder "Top" "#5396a6" 2 . wrap " " " "
-	, ppHidden = fg . wrap " " " "
-	, ppHiddenNoWindows = fgOff . wrap " " " "
+	, ppHidden = fg . pad
+	, ppHiddenNoWindows = fgOff . pad
 	, ppUrgent = red . wrap (yellow "!") (yellow "!")
 	, ppOrder = \[ws, l, _] -> [ws, l]
 	}
 	where
-	cyan, red, fg, fgOff, yellow :: String -> String
-	cyan = xmobarColor "#377c8b" ""
-	fg = xmobarColor "#faebd7" ""
-	fgOff = xmobarColor "#5c5f60" ""
-	yellow = xmobarColor "#d0a44c" ""
-	red = xmobarColor "#f85e89" ""
+		cyan, red, fg, fgOff, yellow :: String -> String
+		cyan = xmobarColor "#377c8b" ""
+		fg = xmobarColor "#faebd7" ""
+		fgOff = xmobarColor "#5c5f60" ""
+		yellow = xmobarColor "#d0a44c" ""
+		red = xmobarColor "#f85e89" ""
 
 main :: IO ()
 main = xmonad
 	. ewmhFullscreen
 	. ewmh
-	. withEasySB (statusBarProp "xmobar ~/.config/xmonad/xmobarrc" (pure _xmobar_pp)) defToggleStrutsKey
+	. withEasySB (statusBarProp "xmobar ~/.config/xmonad/xmobarrc" (clickablePP (filterOutWsPP [scratchpadWorkspaceTag] _xmobar_pp))) defToggleStrutsKey
 	$ _config
+

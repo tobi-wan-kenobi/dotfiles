@@ -1,20 +1,44 @@
 Config {
 	overrideRedirect = False,
-	font = "xft:Ubuntu Nerd Font:size:10:antialias=true",
+	font = "xft:Ubuntu Nerd Font:size=13:antialias=true",
 	bgColor = "#353839",
 	fgColor = "#faebd7",
-	position = Static { xpos = 5, ypos = 0, width=1660, height = 30 },
+	position = Static { xpos = 10, ypos = 0, width=1640, height = 30 },
 
 	sepChar = "%",
 	alignSep = "}{",
-	template = " %XMonadLog% }{ %date% ",
+	template = " %UnsafeXMonadLog% }{ <fc=#377c8b>|</fc> %memory% <fc=#377c8b>|</fc> %disku% <fc=#377c8b>|</fc> %battery% <fc=#377c8b>|</fc> %date% ",
 	lowerOnStart = False,
 	hideOnStart = False,
 	allDesktops = True,
 	persistent = True,
 
 	commands = [
-		Run XMonadLog,
+		Run UnsafeXMonadLog,
+		Run Battery
+			[ "--template", "<acstatus>"
+			, "--suffix", "Off", "--ddigits", "0", "--minwidth", "3"
+			, "--Low", "15", "--High", "90", "--ppad", "3"
+			, "--low", "#f85e89", "--high", "#53a776"
+			, "--bwidth", "0"
+			, "--bfore", "\xf244\xf243\xf243\xf243\xf242\xf242\xf242\xf241\xf241\xf240"
+			, "--"
+			, "-P"
+			, "-A", "5"
+			, "-i", "\xf1e6"
+			, "-O", "<leftbar>  \xf1e6 <left>"
+			, "-o", "<leftbar> <left>"
+			] 60,
+		Run DiskU [("/", "\xf7c9 <used>/<size>")]
+			[
+				"-L", "20", "-H", "50", "-m", "1", "-p", "3"
+			] 20,
+		Run Memory
+			[ "--template" ,"\xf85a <usedratio>%"
+			, "--Low", "20"        -- units: %
+			, "--High", "90"        -- units: %
+			, "--high", "#f85e89"
+		] 10,
 		Run Date "%a %b %d, %H:%M %Z  " "date" 30
 	]
 }
