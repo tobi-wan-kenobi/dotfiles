@@ -168,7 +168,8 @@ _startup = do
 	spawnOnce "dunst"
 	spawnOnce "feh --bg-fill ~/.config/background.png"
 	spawnOnce "picom --experimental-backends -b"
-	spawnOnce "stalonetray --sticky --skip-taskbar --geometry 8x1-10+0 -bg \"#353839\" -i 24 -s 30"
+	spawnOnce "polybar -c ~/.config/polybar/polybar.ini main"
+	spawnOnce "polybar -c ~/.config/polybar/polybar.ini systray"
 	spawnOnce "pasystray"
 	spawnOnce "nm-applet"
 
