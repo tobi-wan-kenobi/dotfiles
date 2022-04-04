@@ -17,7 +17,7 @@ Config {
 		Run UnsafeXMonadLog,
 		Run Battery
 			[ "--template", "<acstatus>"
-			, "--suffix", "Off", "--ddigits", "0", "--minwidth", "3"
+			, "--suffix", "Off", "--ddigits", "0", "--minwidth", "0"
 			, "--Low", "15", "--High", "90", "--ppad", "3"
 			, "--low", "#f85e89", "--high", "#53a776"
 			, "--bwidth", "0"
@@ -26,7 +26,7 @@ Config {
 			, "-P"
 			, "-A", "5"
 			, "-i", "\xf1e6"
-			, "-O", "<leftbar>  \xf1e6 <left>"
+			, "-O", "<leftbar> \xf1e6 <left>"
 			, "-o", "<leftbar> <left>"
 			] 60,
 		Run DiskU [("/", "\xf7c9 <used>/<size>")]
