@@ -95,7 +95,7 @@ _scratchpads :: [NamedScratchpad]
 _scratchpads =
 	[ NS "scratch" "kitty -T scratch" (title =? "scratch")
 		(customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
-	, NS "clock" "gnome-clocks" (className =? "org.gnome.clocks")
+	, NS "clock" "gnome-clocks" (title =? "Clocks")
 		(customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
 	]
 
