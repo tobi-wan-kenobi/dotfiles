@@ -27,6 +27,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.DynamicProperty
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
+import XMonad.Hooks.ManageHelpers
 
 three = renamed [Replace "\xfc26"]
 	$ noBorders
@@ -127,6 +128,7 @@ _manage_zoom_hook =
 _manage_hook =
 	_manage_zoom_hook
 	<+> namedScratchpadManageHook _scratchpads
+	<+> doCenterFloat
 	<+> manageHook def
 
 _event_hook =
