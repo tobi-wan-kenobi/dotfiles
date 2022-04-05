@@ -107,6 +107,7 @@ _manage_zoom_hook =
 	, (className =? zoomClassName) --> doShift "8 \xfa66"
 	, shouldSink <$> title --> doShift "8 \xfa66"
 	, (className =? "google-chrome") --> doShift "2 \xf268"
+	, (className =? "firefox") --> doShift "2 \xf268"
 	, (className =? "slack") --> doShift "6 \xf9b0"
 	, (className =? "obsidian") --> doShift "6 \xf9b0"
 	, (className =? "org.remmina.Remmina") --> doShift "7 \xe70f"
