@@ -1,0 +1,45 @@
+Config {
+	overrideRedirect = False,
+	font = "xft:Ubuntu Nerd Font:size=13:antialias=true",
+	bgColor = "#353839",
+	fgColor = "#faebd7",
+	position = Static { xpos = 576, ypos = 0, width=768, height = 30 },
+
+	sepChar = "%",
+	alignSep = "}{",
+	template = "  %packages% <fc=#377c8b>|</fc> %memory% <fc=#377c8b>|</fc> %disku% }{ %battery% <fc=#377c8b>|</fc> %date%  ",
+	lowerOnStart = False,
+	hideOnStart = False,
+	allDesktops = True,
+	persistent = True,
+
+	commands = [
+		Run Battery
+			[ "--template", "<acstatus>"
+			, "--suffix", "Off", "--ddigits", "0", "--minwidth", "0"
+			, "--Low", "15", "--High", "90", "--ppad", "3"
+			, "--low", "#f85e89", "--high", "#53a776"
+			, "--bwidth", "0"
+			, "--bfore", "\xf244\xf243\xf243\xf243\xf242\xf242\xf242\xf241\xf241\xf240"
+			, "--"
+			, "-P"
+			, "-A", "5"
+			, "-i", "\xf1e6"
+			, "-O", "<leftbar> \xf1e6 <left>"
+			, "-o", "<leftbar> <left>"
+			] 100,
+		Run DiskU [("/", "\xf7c9 <used>/<size>")]
+			[
+				"-L", "20", "-H", "50", "-m", "1", "-p", "3"
+			] 3000,
+		Run Memory
+			[ "--template" ,"\xf85a <usedratio>%"
+			, "--Low", "20"        -- units: %
+			, "--High", "90"        -- units: %
+			, "--high", "#f85e89"
+		] 100,
+		Run Com "sh" [ "-c", " echo -n ' ' && checkupdates|grep -v ^$|wc -l"
+		] "packages" 36000,
+		Run Date "\xf5ef %a %b %d, %H:%M %Z  " "date" 300
+	]
+}

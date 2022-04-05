@@ -31,7 +31,7 @@ import XMonad.Hooks.StatusBar.PP
 three = renamed [Replace "\xfc26"]
 	$ noBorders
 	$ smartSpacingWithEdge 5
-	$ magnifiercz' 1.3
+	$ magnifiercz' 1.2
 	$ ThreeColMid nmain delta ratio
 	where
 		nmain = 1
@@ -41,7 +41,7 @@ three = renamed [Replace "\xfc26"]
 tiled = renamed [Replace "\xfd33"]
 	$ noBorders
 	$ smartSpacingWithEdge 5
-	$ magnifiercz' 1.3
+	$ magnifiercz' 1.2
 	$ Tall nmain delta ratio
 	where
 		nmain = 1
@@ -51,7 +51,7 @@ tiled = renamed [Replace "\xfd33"]
 mtiled = renamed [Replace "\xfd35"]
 	$ noBorders
 	$ smartSpacingWithEdge 5
-	$ magnifiercz' 1.3
+	$ magnifiercz' 1.2
 	$ Mirror
 	$ Tall nmain delta ratio
 	where
@@ -62,7 +62,7 @@ mtiled = renamed [Replace "\xfd35"]
 grid = renamed [Replace "\xf5c6"]
 	$ noBorders
 	$ smartSpacingWithEdge 5
-	$ magnifiercz 1.3
+	$ magnifiercz 1.2
 	$ Grid
 
 full = renamed [Replace "\xf792"]
@@ -89,11 +89,13 @@ _tabtheme = def
 _layout = three ||| tiled ||| mtiled ||| grid ||| full ||| tabs
 
 _workspaces :: [String]
-_workspaces = [ "1 \xe795", "2 \xf738", "3 \xe795", "4 \xe795", "5 \xf6ed", "6 \xf9b0", "7 \xe70f", "8 \xfa66", "9 \xfc76", "0 \xfc76" ]
+_workspaces = [ "1 \xe795", "2 \xf268", "3 \xe795", "4 \xe795", "5 \xf6ed", "6 \xf9b0", "7 \xe70f", "8 \xfa66", "9 \xfc76", "0 \xfc76" ]
 
 _scratchpads :: [NamedScratchpad]
 _scratchpads =
 	[ NS "scratch" "kitty -T scratch" (title =? "scratch")
+		(customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
+	, NS "clock" "gnome-clocks" (className =? "org.gnome.clocks")
 		(customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
 	]
 
@@ -102,6 +104,12 @@ _manage_zoom_hook =
 	[ (className =? zoomClassName) <&&> shouldFloat <$> title --> doFloat
 	, (className =? zoomClassName) <&&> shouldSink <$> title --> doSink
 	, (className =? zoomClassName) --> doShift "8 \xfa66"
+	, shouldSink <$> title --> doShift "8 \xfa66"
+	, (className =? "google-chrome") --> doShift "2 \xf268"
+	, (className =? "slack") --> doShift "6 \xf9b0"
+	, (className =? "obsidian") --> doShift "6 \xf9b0"
+	, (className =? "org.remmina.Remmina") --> doShift "7 \xe70f"
+	, (className =? "outlook.office365.com__owa") --> doShift "5 \xf6ed"
 	]
 	where
 		zoomClassName = "zoom "
@@ -152,6 +160,7 @@ _keys =
 	, ("M-f", sendMessage $ JumpToLayout "\xf792")
 	, ("M-r", spawn "rofi -modi window,drun,ssh,combi -show combi")
 	, ("M-p", namedScratchpadAction _scratchpads "scratch")
+	, ("M-w", namedScratchpadAction _scratchpads "clock")
 	, ("M-v", spawn "~/bin/pass-notify")
 	, ("M-c", spawn "flameshot launcher")
 	]
@@ -163,21 +172,22 @@ _keys =
 	]
 
 _startup = do
-	spawnOnce "~/.local/bin/xmobar ~/.config/xmonad/xmobarrc"
+	spawnOnce "~/.local/bin/xmobar ~/.config/xmonad/xmobarrc.workspaces"
+	spawnOnce "~/.local/bin/xmobar ~/.config/xmonad/xmobarrc.center"
 	spawnOnce "xbindkeys"
 	spawnOnce "dunst"
 	spawnOnce "feh --bg-fill ~/.config/background.png"
 	spawnOnce "picom --experimental-backends -b"
-	spawnOnce "polybar -c ~/.config/polybar/polybar.ini main"
-	spawnOnce "polybar -c ~/.config/polybar/polybar.ini systray"
+	spawnOnce "stalonetray --sticky --skip-taskbar --geometry 8x1-0+0 -bg \"#353839\" -i 22 -s 30"
 	spawnOnce "pasystray"
 	spawnOnce "nm-applet"
+	spawnOnce "/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh --daemonize"
 
 _xmobar_pp :: PP
 _xmobar_pp = def
 	{ ppSep = cyan " | "
 	, ppTitleSanitize = xmobarStrip
-	, ppCurrent = xmobarBorder "Top" "#5396a6" 2 . wrap " " " "
+	, ppCurrent = xmobarBorder "Top" "#5396a6" 2 . pad
 	, ppHidden = fg . pad
 	, ppHiddenNoWindows = fgOff . pad
 	, ppUrgent = red . wrap (yellow "!") (yellow "!")

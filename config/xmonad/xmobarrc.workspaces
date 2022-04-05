@@ -3,7 +3,7 @@ Config {
 	font = "xft:Ubuntu Nerd Font:size=13:antialias=true",
 	bgColor = "#353839",
 	fgColor = "#faebd7",
-	position = Static { xpos = 10, ypos = 0, width=485, height = 30 },
+	position = Static { xpos = 0, ypos = 0, width=485, height = 30 },
 
 	sepChar = "%",
 	alignSep = "}{",
