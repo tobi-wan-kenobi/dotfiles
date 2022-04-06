@@ -29,6 +29,8 @@ import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
 import XMonad.Hooks.ManageHelpers
 
+import Data.List
+
 three = renamed [Replace "\xfc26"]
 	$ noBorders
 	$ smartSpacingWithEdge 5
@@ -100,20 +102,23 @@ _scratchpads =
 		(customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
 	]
 
-_manage_app_hook =
-	composeAll $
-	[ (className =? zoomClassName) <&&> shouldFloat <$> title --> doFloat
-	, (className =? zoomClassName) <&&> shouldSink <$> title --> doSink
-	, className =? zoomClassName --> doShift "8 \xfa66"
-	, shouldSink <$> title --> doShift "8 \xfa66"
-	, className =? "google-chrome" --> doShift "2 \xf268"
-	, className =? "firefox" --> doShift "2 \xf268"
-	, className =? "slack" --> doShift "6 \xf9b0"
-	, className =? "obsidian" --> doShift "6 \xf9b0"
-	, className =? "org.remmina.Remmina" --> doShift "7 \xe70f"
-	, className =? "outlook.office365.com__owa" --> doShift "5 \xf6ed"
+_manage_app_hook = composeAll . concat $
+	[ [ className =? "firefox" --> doShift "2\xf268" ]
+	, [ className =? "google-chrome" --> doShift "2 \xf268" ]
+	, [ className =? "slack" --> doShift "6 \xf9b0" ]
+	, [ className =? "obsidian" --> doShift "6 \xf9b0" ]
+	, [ className =? "org.remmina.Remmina" --> doShift "7 \xe70f" ]
+	, [ className =? "outlook.office365.com__owa" --> doShift "5 \xf6ed" ]
+	, [ (className =? zoomClassName) <&&> shouldFloat <$> title --> doFloat ]
+	, [ (className =? zoomClassName) <&&> zoomMain <$> title --> doSink ]
+	, [ className =? zoomClassName --> doShift "8 \xfa66" ]
+	, [ zoomMain <$> title --> doShift "8 \xfa66" ]
+	, [ fmap ( c `isInfixOf`) className --> doCenterFloat | c <- floatClasses ]
+	, [ fmap ( c `isInfixOf`) title --> doCenterFloat | c <- floatTitles ]
 	]
 	where
+		floatClasses = ["Pavucontrol"]
+		floatTitles = []
 		zoomClassName = "zoom "
 		tileTitles =
 			[ "Zoom - Free Account"
@@ -123,7 +128,7 @@ _manage_app_hook =
 			, "Zoom Meeting"
 			]
 		shouldFloat title = title `notElem` tileTitles
-		shouldSink title = title `elem` tileTitles
+		zoomMain title = title `elem` tileTitles
 		doSink = (ask >>= doF . sink) <+> doF swapDown
 
 _manage_hook =
@@ -132,10 +137,8 @@ _manage_hook =
 	<+> manageHook def
 
 _event_hook =
-	mconcat
-		[ dynamicTitle _manage_app_hook
-		, handleEventHook def
-		]
+	dynamicTitle _manage_app_hook
+	<+> handleEventHook def
 
 _log_hook =
 	updatePointer (0.5, 0.15) (0, 0)
