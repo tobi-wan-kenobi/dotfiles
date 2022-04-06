@@ -100,7 +100,7 @@ _scratchpads =
 		(customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
 	]
 
-_manage_zoom_hook =
+_manage_app_hook =
 	composeAll $
 	[ (className =? zoomClassName) <&&> shouldFloat <$> title --> doFloat
 	, (className =? zoomClassName) <&&> shouldSink <$> title --> doSink
@@ -127,13 +127,13 @@ _manage_zoom_hook =
 		doSink = (ask >>= doF . sink) <+> doF swapDown
 
 _manage_hook =
-	_manage_zoom_hook
+	_manage_app_hook
 	<+> namedScratchpadManageHook _scratchpads
 	<+> manageHook def
 
 _event_hook =
 	mconcat
-		[ dynamicTitle _manage_zoom_hook
+		[ dynamicTitle _manage_app_hook
 		, handleEventHook def
 		]
 
