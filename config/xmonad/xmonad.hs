@@ -129,7 +129,6 @@ _manage_zoom_hook =
 _manage_hook =
 	_manage_zoom_hook
 	<+> namedScratchpadManageHook _scratchpads
-	<+> doCenterFloat
 	<+> manageHook def
 
 _event_hook =
