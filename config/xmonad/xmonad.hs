@@ -105,19 +105,23 @@ _scratchpads =
 _manage_app_hook = composeAll . concat $
 	[ [ className =? "firefox" --> doShift "2\xf268" ]
 	, [ className =? "google-chrome" --> doShift "2 \xf268" ]
+	, [ appName =? "google-chrome" --> doShift "2 \xf268" ]
 	, [ className =? "slack" --> doShift "6 \xf9b0" ]
+	, [ appName =? "slack" --> doShift "6 \xf9b0" ]
 	, [ className =? "obsidian" --> doShift "6 \xf9b0" ]
 	, [ className =? "org.remmina.Remmina" --> doShift "7 \xe70f" ]
 	, [ className =? "outlook.office365.com__owa" --> doShift "5 \xf6ed" ]
+	, [ appName =? "outlook.office365.com__owa" --> doShift "5 \xf6ed" ]
+	, [ isDialog --> doCenterFloat ]
 	, [ (className =? zoomClassName) <&&> shouldFloat <$> title --> doFloat ]
-	, [ (className =? zoomClassName) <&&> zoomMain <$> title --> doSink ]
 	, [ className =? zoomClassName --> doShift "8 \xfa66" ]
+	, [ appName =? zoomClassName --> doShift "8 \xfa66" ]
 	, [ zoomMain <$> title --> doShift "8 \xfa66" ]
-	, [ fmap ( c `isInfixOf`) className --> doCenterFloat | c <- floatClasses ]
+	, [ fmap ( c `isInfixOf`) className <&&> shouldFloat <$> title --> doCenterFloat | c <- floatClasses ]
 	, [ fmap ( c `isInfixOf`) title --> doCenterFloat | c <- floatTitles ]
 	]
 	where
-		floatClasses = ["Pavucontrol"]
+		floatClasses = ["Pavucontrol", "join?"]
 		floatTitles = []
 		zoomClassName = "zoom "
 		tileTitles =
@@ -129,7 +133,6 @@ _manage_app_hook = composeAll . concat $
 			]
 		shouldFloat title = title `notElem` tileTitles
 		zoomMain title = title `elem` tileTitles
-		doSink = (ask >>= doF . sink) <+> doF swapDown
 
 _manage_hook =
 	_manage_app_hook
@@ -186,7 +189,6 @@ _startup = do
 	spawnOnce "stalonetray --sticky --skip-taskbar --geometry 8x1-0+0 -bg \"#353839\" -i 22 -s 30"
 	spawnOnce "pasystray"
 	spawnOnce "nm-applet"
-	spawnOnce "/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh --daemonize"
 
 _xmobar_pp :: PP
 _xmobar_pp = def
