@@ -16,6 +16,7 @@ Plug 'jbyuki/instant.nvim'
 Plug 'tobi-wan-kenobi/vim-hints'
 Plug 'tpope/vim-fugitive'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'tobi-wan-kenobi/zengarden'
 call plug#end()
 
@@ -167,3 +168,4 @@ let g:ale_cpp_clangtidy_executable = 'clang-tidy-wrapper'
 let g:ale_cpp_clangtidy_fix_errors = 0
 let g:ale_cpp_clangtidy_checks = ['modernize-*', '-modernize-use-trailing-return-type']
 
+lua require'colorizer'.setup()
