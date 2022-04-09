@@ -169,6 +169,7 @@ _keys =
 	, ("M-r", spawn "rofi -modi window,drun,ssh,combi -show combi")
 	, ("M-p", namedScratchpadAction _scratchpads "scratch")
 	, ("M-w", namedScratchpadAction _scratchpads "clock")
+	, ("M-S-w", spawn "feh --bg-fill --randomize ~/.config/backgrounds/")
 	, ("M-v", spawn "~/bin/pass-notify")
 	, ("M-c", spawn "flameshot launcher")
 	]
@@ -184,7 +185,7 @@ _startup = do
 	spawnOnce "~/.local/bin/xmobar ~/.config/xmonad/xmobarrc.center"
 	spawnOnce "xbindkeys"
 	spawnOnce "dunst"
-	spawnOnce "feh --bg-fill ~/.config/background.png"
+	spawnOnce "feh --bg-fill --randomize ~/.config/backgrounds/"
 	spawnOnce "picom --experimental-backends -b"
 	spawnOnce "stalonetray --sticky --skip-taskbar --geometry 8x1-0+0 -bg \"#353839\" -i 22 -s 30"
 	spawnOnce "pasystray"
