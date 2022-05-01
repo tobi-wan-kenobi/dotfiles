@@ -18,6 +18,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'tobi-wan-kenobi/zengarden'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 call plug#end()
 
 let g:instant_username = "tobi-wan-kenobi"
@@ -136,6 +138,11 @@ nmap <silent> gn <Plug>(coc-diagnostic-next)
 nmap <silent> gp <Plug>(coc-diagnostic-prev)
 nmap <silent> gf <Plug>(coc-fix-current)
 nmap <silent> gc <Plug>(coc-codeaction)
+
+nnoremap <silent> ff <cmd>Telescope find_files<cr>
+nnoremap <silent> fg <cmd>Telescope live_grep<cr>
+nnoremap <silent> fb <cmd>Telescope buffers<cr>
+nnoremap <silent> fh <cmd>Telescope help_tags<cr>
 
 nnoremap <silent> , :call <SID>show_documentation()<CR>
 function! s:show_documentation()
