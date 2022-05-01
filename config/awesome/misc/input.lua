@@ -110,7 +110,7 @@ function input.global_keys(modkey)
 		),
 
 		awful.key({ modkey }, "r",
-			function () awful.spawn(gears.filesystem.get_xdg_config_home () .. "/rofi/launchers/misc/launcher.sh") end,
+			function() awful.spawn("rofi -modi window,drun,ssh,combi -show combi") end,
 			{ description = "run applications", group = "launcher" }
 		),
 		awful.key({ modkey }, "y",

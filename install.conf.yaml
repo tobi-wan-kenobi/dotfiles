@@ -54,6 +54,8 @@
         path: config/kitty/kitty.conf
     ~/.config/polybar/polybar.ini:
         path: config/polybar.ini
+    ~/.config/awesome:
+        path: config/awesome/
 
 - shell:
     - 
