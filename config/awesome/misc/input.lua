@@ -1,6 +1,7 @@
 local gears = require("gears")
 local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup")
+local scratch = require("awesome-scratch.scratch")
 require("awful.hotkeys_popup.keys")
 
 local input = {}
@@ -52,7 +53,7 @@ function input.global_keys(modkey)
 			{ description = "jump to urgent client", group = "client" }
 		),
 		awful.key({ modkey }, "Tab",
-			function ()
+			function()
 				awful.client.focus.history.previous()
 				if client.focus then
 					client.focus:raise()
@@ -64,6 +65,12 @@ function input.global_keys(modkey)
 		awful.key({ modkey }, "Return",
 			function () awful.spawn(terminal) end,
 			{ description = "open a terminal", group = "launcher" }
+		),
+		awful.key({ modkey }, "p",
+			function()
+				scratch.toggle("kitty --class scratch", { instance="scratch" })
+			end,
+			{ description = "scratchpad", group="awesome" }
 		),
 		awful.key({ modkey, "Control" }, "r",
 			awesome.restart,
@@ -167,7 +174,7 @@ end
 
 function input.client_keys()
 	return gears.table.join(
-		awful.key({ modkey }, "f",
+		awful.key({ modkey, "Control" }, "f",
 			function (c)
 				c.fullscreen = not c.fullscreen
 				c:raise()

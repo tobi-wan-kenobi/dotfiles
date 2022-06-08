@@ -167,7 +167,7 @@ local function create_widget(_, args)
 			local color = tonumber(volume) > 100 and theme.colors.dark.red or mixer.color
 			awful.spawn.easy_async(mixer.get_mute, function(stdout, stderr, reason, code)
 				if stdout:match "^%s*(.-)%s*$" == "true" then
-					color = theme.colors.dark.orange
+					color = theme.colors.dark.yellow
 					args.widget.text = volume_string(volume, mixer.muted)
 					volume = 0
 				end

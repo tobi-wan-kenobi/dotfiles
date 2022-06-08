@@ -5,7 +5,6 @@
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local gears = require("gears")
-local naughty = require("naughty")
 local dpi = xresources.apply_dpi
 
 local gfs = require("gears.filesystem")
@@ -73,7 +72,7 @@ theme.border_marked = colors.yellow
 -- Example:
 --theme.taglist_bg_focus = "#ff0000"
 
-theme.taglist_font = "FontAwesome 12"
+--theme.taglist_font = "Ubuntu Nerd Font 12"
 
 -- Variables set for theming notifications:
 -- notification_font
@@ -124,9 +123,6 @@ theme.notification_margin = dpi(2)
 theme.notification_width = dpi(240)
 theme.notification_height = dpi(100)
 theme.notification_spacing = dpi(2) 
-
-naughty.config.presets.critical.bg = colors.red
-naughty.config.presets.critical.fg = colors.bg
 
 return theme
 

@@ -51,8 +51,8 @@ local function create_widget(_, args)
 				bar.background_color = theme.colors.dark.green
 				self.visible = false or args.show_always 
 			elseif value < 85 then
-				bar.color = theme.colors.orange
-				bar.background_color = theme.colors.dark.orange
+				bar.color = theme.colors.yellow
+				bar.background_color = theme.colors.dark.yellow
 				self.visible = true
 			else
 				bar.color = theme.colors.red

@@ -13,6 +13,7 @@ function autostart.init()
 	run_once("xbindkeys")
 	run_once("picom --experimental-backends")
 	run_once("nm-applet")
+	run_once("dunst")
 	awful.spawn("setxkbmap -layout us -variant altgr-intl")
 end
 

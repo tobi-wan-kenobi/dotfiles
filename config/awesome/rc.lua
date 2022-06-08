@@ -4,7 +4,6 @@ local awful = require("awful")
 require("awful.autofocus")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
-local naughty = require("naughty")
 
 -- custom requires
 local errors = require("misc.errors")
@@ -55,8 +54,47 @@ awful.rules.rules = {
 		rule = { class = "zoom " },
 		properties = {
 			tag = awful.screen.focused().tags[8],
-			switchtotag = true,
+			switchtotag = false,
+			floating = true,
 		}
+	},
+	{
+		rule = { class = "google-chrome" },
+		properties = {
+			tag = awful.screen.focused().tags[2],
+			switchtotag = false,
+		}
+	},
+	{
+		rule = { class = "outlook.office365.com__owa" },
+		properties = {
+			tag = awful.screen.focused().tags[5],
+			switchtotag = false,
+		}
+	},
+	{
+		rule = { class = "slack" },
+		properties = {
+			tag = awful.screen.focused().tags[6],
+			switchtotag = false,
+		}
+	},
+	{
+		rule = { class = "obsidian" },
+		properties = {
+			tag = awful.screen.focused().tags[6],
+			switchtotag = false,
+		}
+	},
+	{
+		rule = { instance = "scratch" },
+		properties = {
+			floating = true,
+			width = 1000,
+			height = 600,
+			x = 460,
+			y = 240,
+		},
 	},
 }
 

@@ -22,53 +22,53 @@ end
 function workspace.setup(screen)
 	workspace.set_wallpaper(screen)
 
-	awful.tag.add("1  ", {
+	awful.tag.add(" \u{e795} ", {
 		layout             = awful.layout.suit.tile,
 		gap_single_client  = false,
 		screen             = screen,
 		selected = true,
 	})
-	awful.tag.add("2  ", {
+	awful.tag.add(" \u{f268} ", {
 		layout             = awful.layout.suit.tile,
 		gap_single_client  = false,
 		screen             = screen,
 	})
-	awful.tag.add("3  ", {
+	awful.tag.add(" \u{e795} ", {
 		layout             = awful.layout.suit.tile,
 		gap_single_client  = false,
 		screen             = screen,
 	})
-	awful.tag.add("4  ", {
+	awful.tag.add(" \u{e795} ", {
 		layout             = awful.layout.suit.tile,
 		gap_single_client  = false,
 		screen             = screen,
 	})
-	awful.tag.add("5  ", {
+	awful.tag.add(" \u{f6ed} ", {
 		layout             = awful.layout.suit.tile,
 		gap_single_client  = false,
 		screen             = screen,
 	})
-	awful.tag.add("6  ", {
+	awful.tag.add(" \u{f9b0} ", {
 		layout             = awful.layout.suit.tile,
 		gap_single_client  = false,
 		screen             = screen,
 	})
-	awful.tag.add("7  ", {
+	awful.tag.add(" \u{e70f} ", {
 		layout             = awful.layout.suit.tile,
 		gap_single_client  = false,
 		screen             = screen,
 	})
-	awful.tag.add("8  ", {
+	awful.tag.add(" \u{fa66} ", {
 		layout             = awful.layout.suit.floating,
 		gap_single_client  = false,
 		screen             = screen,
 	})
-	awful.tag.add("9  ", {
+	awful.tag.add(" \u{fa66} ", {
 		layout             = awful.layout.suit.tile,
 		gap_single_client  = false,
 		screen             = screen,
 	})
-	awful.tag.add("0  ", {
+	awful.tag.add(" \u{fc76} ", {
 		layout             = awful.layout.suit.tile,
 		gap_single_client  = false,
 		screen             = screen,
@@ -83,7 +83,7 @@ function workspace.setup(screen)
 	))
 	screen.taglist = taglist.taglist(screen)
 
-	screen.wibox = awful.wibar({ position = "top", screen = screen })
+	screen.wibox = awful.wibar({ position = "top", screen = screen, height=28 })
 
 	screen.wibox:setup {
 		layout = wibox.layout.align.horizontal,
@@ -118,18 +118,25 @@ function workspace.setup(screen)
 			bottom = 2,
 			{
 				layout = wibox.layout.fixed.horizontal,
-				top = 2,
-				bottom = 2,
-				bountiful.cpu({ margin = 10 }),
-				bountiful.memory({ margin = 10 }),
-				bountiful.arch({ margin = 10 }),
-				bountiful.pamixer({ margin = 10 }),
-				bountiful.pamixer({ source = true, margin = 10 }),
-				bountiful.clock({
-					format = "%a %b %d, %H:%M %Z",
-					additional_timezones = { "Europe/London", "America/Los_Angeles" },
-					margin = 10,
-				}),
+				{
+					layout = wibox.container.margin,
+					top = 2,
+					bottom = 2,
+					{
+						layout = wibox.layout.fixed.horizontal,
+						spacing = 5,
+						bountiful.cpu({ margin = 10 }),
+						bountiful.memory({ margin = 10 }),
+						bountiful.arch({ margin = 10 }),
+						bountiful.pamixer({ margin = 10 }),
+						bountiful.pamixer({ source = true, margin = 10 }),
+						bountiful.clock({
+							format = "%a %b %d, %H:%M %Z",
+							additional_timezones = { "Europe/London", "America/Los_Angeles" },
+							margin = 10,
+						}),
+					},
+				},
 				wibox.widget.systray(),
 				screen.layoutbox,
 				spacing = 5

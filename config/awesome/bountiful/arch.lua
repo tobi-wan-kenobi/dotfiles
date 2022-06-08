@@ -27,6 +27,7 @@ local function create_widget(_, args)
 
 	awesome.connect_signal("bountiful:focus:update", function(focus_mode)
 		args.show_always = not focus_mode
+		-- TODO: update widget state now
 	end)
 
 	gears.timer {
@@ -43,15 +44,15 @@ local function create_widget(_, args)
 					end
 				end
 				args.widget.text = "  " .. tostring(packages)
-				if packages > 0 then
-					widget.bg = theme.colors.orange
-					widget.visible = true
-				elseif packages > 20 then
+				if packages > 20 then
 					widget.bg = theme.colors.red
+					widget.visible = true
+				elseif packages > 0 then
+					widget.bg = theme.colors.yellow
 					widget.visible = true
 				else
 					widget.bg = theme.colors.green
-					widget.visible = false or args.show_always 
+					widget.visible = args.show_always 
 				end
 			end)
 		end

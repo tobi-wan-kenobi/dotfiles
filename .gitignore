@@ -12,3 +12,5 @@ config/xmonad/.stack*
 config/xmonad/xmonad/
 config/xmonad/xmonad-contrib/
 config/xmonad/xmobar/
+
+config/awesome/awesome-scratch
