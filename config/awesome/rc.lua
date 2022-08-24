@@ -12,7 +12,7 @@ local input = require("misc.input")
 local autostart = require("misc.autostart")
 
 -- defines and stuff
-terminal = "kitty"
+terminal = "alacritty"
 editor = "nvim"
 editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
@@ -117,5 +117,12 @@ end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 autostart.init()
+function file_exists(name)
+   local f=io.open(name,"r")
+   if f~=nil then io.close(f) return true else return false end
+end
 
-dofile(gears.filesystem.get_configuration_dir() .. "private.lua")
+local private_additions = gears.filesystem.get_configuration_dir() .. "private.lua"
+if gears.filesystem.file_readable(private_additions) then
+	dofile(gears.filesystem.get_configuration_dir() .. "private.lua")
+end
