@@ -73,3 +73,5 @@ zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
 
 if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi
 
+alias ls="lsd"
+alias ll="ls -lhtra"
