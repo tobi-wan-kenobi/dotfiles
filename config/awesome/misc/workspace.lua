@@ -85,6 +85,7 @@ function workspace.setup(screen)
 
 	screen.wibox = awful.wibar({ position = "top", screen = screen, height=28 })
 
+  beautiful.systray_icon_spacing = 3
 	screen.wibox:setup {
 		layout = wibox.layout.align.horizontal,
 		{
@@ -139,7 +140,7 @@ function workspace.setup(screen)
 				},
 				wibox.widget.systray(),
 				screen.layoutbox,
-				spacing = 0
+				spacing = 5,
 			}
 		}
 	}
