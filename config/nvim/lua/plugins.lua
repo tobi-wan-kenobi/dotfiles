@@ -4,8 +4,7 @@ require('packer').startup(function(use)
 
   -- themes
   use 'rktjmp/lush.nvim'
-  use '~/src/zengarden-lush/'
-  use 'tobi-wan-kenobi/zengarden'
+  use 'tobi-wan-kenobi/zengarden-lush'
   use 'ryanoasis/vim-devicons'
 
   -- status line
@@ -60,7 +59,6 @@ require('packer').startup(function(use)
 end)
 
 vim.opt.termguicolors = true
-vim.g.zengarden_italic = true
 vim.cmd [[silent! colorscheme zengarden-lush]]
 
 require('nvim-treesitter.configs').setup({
