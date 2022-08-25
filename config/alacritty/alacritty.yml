@@ -2,8 +2,8 @@ window:
   dynamic_title: true
   opacity: 1.0
   padding:
-    x: 4
-    y: 4
+    x: 2
+    y: 2
   dynamic_padding: false
   decorations: none
 
