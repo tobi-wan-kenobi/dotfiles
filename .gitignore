@@ -13,4 +13,6 @@ config/xmonad/xmonad/
 config/xmonad/xmonad-contrib/
 config/xmonad/xmobar/
 
-config/awesome/awesome-scratch
+config/awesome/awesome-scratch/
+
+config/nvim/plugin/

@@ -7,7 +7,6 @@
     - '~/bin/'
     - '~/.config/alacritty/'
     - '~/.config/zsh/'
-    - '~/.config/nvim/'
     - '~/.config/dunst/'
     - '~/.config/i3/'
     - '~/.config/redshift/'
@@ -22,10 +21,8 @@
         path: config/zshrc
     ~/.config/alacritty/alacritty.yml:
         path: config/alacritty/alacritty.yml
-    ~/.config/nvim/init.vim:
-        path: config/nvim/init.vim
-    ~/.config/nvim/coc-settings.json:
-        path: config/nvim/coc-settings.json
+    ~/.config/nvim:
+        path: config/nvim
     ~/.tmux.conf:
         path: config/tmux.conf
     ~/.picom.conf:
@@ -100,5 +97,8 @@
     - 
       command: sudo cp config/lightdm-gtk-greeter.conf /etc/lightdm/
       description: copy lightdm gtk greeter configuration
-    -
+    - 
       command: git -C ~/.config/awesome/awesome-scratch pull || git clone https://github.com/notnew/awesome-scratch.git ~/.config/awesome/awesome-scratch
+    - 
+      command: git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+      description: install neovim packer
