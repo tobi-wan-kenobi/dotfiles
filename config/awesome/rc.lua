@@ -59,6 +59,14 @@ awful.rules.rules = {
 		}
 	},
 	{
+		rule = { class = "join?" },
+		properties = {
+			tag = awful.screen.focused().tags[8],
+			switchtotag = false,
+			floating = true,
+		}
+	},
+	{
 		rule = { class = "google-chrome" },
 		properties = {
 			tag = awful.screen.focused().tags[2],
