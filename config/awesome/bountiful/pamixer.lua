@@ -1,12 +1,8 @@
-local wibox = require("wibox")
-local awful = require("awful")
-local gears = require("gears")
-local beautiful = require("beautiful")
-local base = require("bountiful.base")
-
-local function volume_string(volume, icon)
-	return icon .. "  " .. volume .. "%"
-end
+local wibox = require('wibox')
+local awful = require('awful')
+local gears = require('gears')
+local beautiful = require('beautiful')
+local base = require('bountiful.base')
 
 local sink_mixer = {
 	header = "Sinks",
@@ -35,11 +31,15 @@ local source_mixer = {
 	muted = "",
 }
 
+local function volume_string(volume, icon)
+	return icon .. "  " .. volume .. "%"
+end
+
 local function parse_device_list(data)
 	local devices = {}
 	for line in data:gmatch("([^\n]*)\n?") do
 		local fields = {}
-		local id, name = line:match("\"([^\"]+)\"%s+\"([^\"]+)\"")
+		local id, state, name = line:match("\"([^\"]+)\"%s+\"([^\"]+)\"%s+\"([^\"]+)\"")
 
 		if id then
 			devices[id] = {
@@ -68,10 +68,10 @@ local function create_device_widgets(popup, mixer, devices, size, margin, colors
 				markup = "<big><b>" .. mixer.header .. "</b></big>",
 				widget = wibox.widget.textbox
 			},
-			left = margin.left,
-			right = margin.right,
-			top = margin.top,
-			bottom = margin.bottom,
+			left = margin,
+			right = margin,
+			top = margin,
+			bottom = margin,
 			widget = wibox.container.margin
 		}
 	}
@@ -97,10 +97,10 @@ local function create_device_widgets(popup, mixer, devices, size, margin, colors
 				widget = wibox.layout.fixed.horizontal,
 				checkbox, label
 			},
-			left = margin.left,
-			right = margin.right,
-			top = margin.top,
-			bottom = margin.bottom,
+			left = margin,
+			right = margin,
+			top = margin,
+			bottom = margin,
 			widget = wibox.container.margin
 		}
 		widget:connect_signal("mouse::enter", function()
@@ -128,53 +128,34 @@ local function create_device_widgets(popup, mixer, devices, size, margin, colors
 end
 
 local function create_widget(_, args)
-	local args = args or {}
+	local theme = beautiful.get()
 	local source = args.source or false
-	local theme = beautiful.get() or {}
-	local margin = base.margin(args)
 
 	local mixer = source and source_mixer or sink_mixer
-	mixer.color = source and theme.colors.dark.aqua or theme.colors.dark.green
-	mixer.color_light = source and theme.colors.aqua or theme.colors.green
+	mixer.color = theme.colors.green
+	args.width, args.height = wibox.widget.textbox(volume_string("muted", mixer.not_muted)):get_preferred_size(awful.screen.primary)
+  local height = args.height
 
-	args.widget = wibox.widget.textbox("n/a")
-
-	local width, height = wibox.widget.textbox(volume_string("muted", mixer.not_muted)):get_preferred_size(awful.screen.primary)
-	args.widget.forced_width = width
-	args.widget.align = "center"
+  args.update = function(widget, text, bar, volume)
+    text.text = volume_string(volume, mixer.not_muted)
+    local color = tonumber(volume) > 100 and theme.colors.red or mixer.color
+    awful.spawn.easy_async(mixer.get_mute, function(stdout, stderr, reason, code)
+      if stdout:match "^%s*(.-)%s*$" == "true" then
+        color = theme.colors.yellow
+        text.text = volume_string(volume, mixer.muted)
+        volume = 0
+      end
+      bar.bg = color
+    end)
+  end
 
 	local widget = base.widget(args)
-
-	local bar = wibox.widget {
-		max_value = 100,
-		forced_height = height,
-		forced_width = args.widget.forced_width,
-		shape = gears.shape.rounded_bar,
-		border_width = 0,
-		widget = wibox.widget.progressbar,
-	}
-
-	local full_widget = wibox.widget {
-		layout = wibox.layout.stack,
-		bar, widget
-	}
 
 	awesome.connect_signal("bountiful:pulseaudio:update", function()
 		local volume = "n/a"
 		awful.spawn.easy_async(mixer.get, function(stdout, stderr, reason, code)
 			volume = stdout:gsub("^%s*(.-)%s*$", "%1")
-			args.widget.text = volume_string(volume, mixer.not_muted)
-			local color = tonumber(volume) > 100 and theme.colors.dark.red or mixer.color
-			awful.spawn.easy_async(mixer.get_mute, function(stdout, stderr, reason, code)
-				if stdout:match "^%s*(.-)%s*$" == "true" then
-					color = theme.colors.dark.yellow
-					args.widget.text = volume_string(volume, mixer.muted)
-					volume = 0
-				end
-				bar.color = tonumber(volume) > 100 and theme.colors.red or mixer.color_light
-				bar.background_color = color
-				bar:set_value(tonumber(volume))
-			end)
+      widget:update(volume)
 		end)
 	end)
 
@@ -215,7 +196,7 @@ local function create_widget(_, args)
 						popup.widget = wibox.widget {
 							widget = wibox.container.background,
 							bg = theme.colors.bglight,
-							create_device_widgets(popup, mixer, devices, height, margin, theme.colors)
+							create_device_widgets(popup, mixer, devices, height, 10, theme.colors)
 						}
 						popup.visible = true
 						popup:move_next_to(mouse.current_widget_geometry)
@@ -231,8 +212,7 @@ local function create_widget(_, args)
 		end)
 	))
 
-	return full_widget
+  return widget
 end
 
 return setmetatable({}, { __call = create_widget })
-

@@ -5,33 +5,28 @@ local beautiful = require("beautiful")
 local base = require("bountiful.base")
 
 local function create_widget(_, args)
-	local args = args or {}
-	local refresh = args.refresh or 3600
-
 	local theme = beautiful.get()
 
-	local width, height = wibox.widget.textbox("  100"):get_preferred_size(awful.screen.primary)
+	args.width, args.height = wibox.widget.textbox("  100"):get_preferred_size(awful.screen.primary)
 
-	args.bg = theme.colors.dark.blue
-	args.widget = wibox.widget {
-		align  = "center",
-		valign = "center",
-		text = "n/a",
-		forced_width = width,
-		forced_height = height,
-		widget = wibox.widget.textbox,
-	}
+  args.update = function(widget, text, bar, packages)
+      text.text = "  " .. tostring(packages)
+      if packages > 20 then
+        bar.bg = theme.colors.red
+        widget.visible = true
+      elseif packages > 0 then
+        bar.bg = theme.colors.yellow
+        widget.visible = true
+      else
+        bar.bg = theme.colors.green
+        widget.visible = args.show_always
+      end
+  end
 
 	local widget = base.widget(args)
-	widget.visible = false
-
-	awesome.connect_signal("bountiful:focus:update", function(focus_mode)
-		args.show_always = not focus_mode
-		-- TODO: update widget state now
-	end)
 
 	gears.timer {
-		timeout = refresh,
+		timeout = args.refresh or 1800,
 		call_now = true,
 		autostart = true,
 		callback = function()
@@ -43,22 +38,12 @@ local function create_widget(_, args)
 						packages = packages + 1
 					end
 				end
-				args.widget.text = "  " .. tostring(packages)
-				if packages > 20 then
-					widget.bg = theme.colors.red
-					widget.visible = true
-				elseif packages > 0 then
-					widget.bg = theme.colors.yellow
-					widget.visible = true
-				else
-					widget.bg = theme.colors.green
-					widget.visible = args.show_always 
-				end
+        widget:update(packages)
 			end)
 		end
-	}
+  }
 
-	return widget
+  return widget
 end
 
 return setmetatable({}, { __call = create_widget })

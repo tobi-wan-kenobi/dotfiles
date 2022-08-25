@@ -5,65 +5,30 @@ local beautiful = require("beautiful")
 local base = require("bountiful.base")
 
 local function create_widget(_, args)
-	local args = args or {}
-	local refresh = args.refresh or 1
-
 	local theme = beautiful.get()
-	local margin = base.margin(args)
 
-	local width, height = wibox.widget.textbox("  99.0/99.0GiB"):get_preferred_size(awful.screen.primary)
+	args.width, args.height = wibox.widget.textbox("  99.0/99.0GiB"):get_preferred_size(awful.screen.primary)
 
-	args.widget = wibox.widget {
-			align  = "center",
-			valign = "center",
-			text = "n/a",
-			forced_width = width,
-			widget = wibox.widget.textbox,
-			id = "memusage",
-	}
+  args.update = function(widget, text, bar, data)
+			text.text = string.format("  %.1f/%.1f %s", data.used, data.total, data.unit)
+			local value = data.used/data.total*100
+
+			if value < 75 then
+				bar.bg = theme.colors.green
+				widget.visible = false or args.show_always
+			elseif value < 85 then
+				bar.bg = theme.colors.yellow
+				widget.visible = true
+			else
+				bar.bg = theme.colors.red
+				widget.visible = true
+			end
+  end
 
 	local widget = base.widget(args)
 
-	local bar = wibox.widget {
-		max_value = 100,
-		value = 50,
-		forced_height = height,
-		forced_width = width,
-		shape = gears.shape.rounded_bar,
-		border_width = 0,
-		widget = wibox.widget.progressbar,
-		id = "progressbar",
-	}
-	awesome.connect_signal("bountiful:focus:update", function(focus_mode)
-		args.show_always = not focus_mode
-	end)
-
-	local full_widget = wibox.widget {
-		layout = wibox.layout.stack,
-		bar, widget,
-		set_values = function(self, used, total, unit)
-			args.widget.text = string.format("  %.1f/%.1f %s", used, total, unit)
-			local value = used/total*100
-			bar:set_value(value)
-
-			if value < 75 then
-				bar.color = theme.colors.green
-				bar.background_color = theme.colors.dark.green
-				self.visible = false or args.show_always 
-			elseif value < 85 then
-				bar.color = theme.colors.yellow
-				bar.background_color = theme.colors.dark.yellow
-				self.visible = true
-			else
-				bar.color = theme.colors.red
-				bar.background_color = theme.colors.dark.red
-				self.visible = true
-			end
-		end
-	}
-
 	gears.timer {
-		timeout = refresh,
+		timeout = args.refresh or 5,
 		call_now = true,
 		autostart = true,
 		callback = function()
@@ -73,14 +38,16 @@ local function create_widget(_, args)
 						local total, used = line:match("Mem:%s+(%d+)%s+(%d+)")
 						total = tonumber(total)/1000
 						used = tonumber(used)/1000
-						full_widget:set_values(used, total, "GiB")
+            widget:update({
+              used = used, total = total, unit = "GiB"
+            })
 					end
 				end
 			end)
 		end
 	}
 
-	return full_widget
+  return widget
 end
 
 return setmetatable({}, { __call = create_widget })
