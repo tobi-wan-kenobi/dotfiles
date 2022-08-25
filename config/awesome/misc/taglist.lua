@@ -92,7 +92,6 @@ function taglist.taglist(screen)
 				local tag = awful.screen.focused().tags[index]
 				tag:connect_signal('property::urgent', function()
 					tag.is_urgent = true
-					self:get_children_by_id('underline')[1].bg = theme.colors.red
 				end)
 				self:update_callback(c3, index, objects)
 			end,
@@ -100,21 +99,22 @@ function taglist.taglist(screen)
 				self:get_children_by_id('index_role')[1].markup = index
 				local tag = awful.screen.focused().tags[index]
 				local clients = tag:clients()
+        local underline = self:get_children_by_id('underline')[1]
 				if #clients == 0 then
 					self.fg = theme.colors.lightgray
 				else
 					self.fg = theme.colors.fg
 				end
+        underline.bg = nil
 
 				if tag.is_urgent then
-				else
-					self:get_children_by_id('underline')[1].bg = nil
+					underline.bg = theme.colors.red
 				end
 				for _, x in pairs(awful.screen.focused().selected_tags) do
 					if x.index == index then
 						tag.is_urgent = false
 						self.fg = theme.colors.fg
-						self:get_children_by_id("underline")[1].bg = theme.colors.aqua
+            underline.bg = theme.colors.aqua
             break
           end
         end
