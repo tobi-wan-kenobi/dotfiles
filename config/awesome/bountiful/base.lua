@@ -37,7 +37,6 @@ function base.widget(args)
       widget = wibox.container.background,
       shape = gears.shape.rounded_rect,
       forced_height = 3,
-      bg = theme.colors.aqua,
       {
         left = 1,
         right = 1,
