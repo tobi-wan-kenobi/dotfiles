@@ -34,7 +34,6 @@ import Data.List
 three = renamed [Replace "\xfc26"]
 	$ noBorders
 	$ smartSpacingWithEdge 5
-	$ magnifiercz' 1.2
 	$ ThreeColMid nmain delta ratio
 	where
 		nmain = 1
@@ -44,7 +43,6 @@ three = renamed [Replace "\xfc26"]
 tiled = renamed [Replace "\xfd33"]
 	$ noBorders
 	$ smartSpacingWithEdge 5
-	$ magnifiercz' 1.2
 	$ Tall nmain delta ratio
 	where
 		nmain = 1
@@ -54,7 +52,6 @@ tiled = renamed [Replace "\xfd33"]
 mtiled = renamed [Replace "\xfd35"]
 	$ noBorders
 	$ smartSpacingWithEdge 5
-	$ magnifiercz' 1.2
 	$ Mirror
 	$ Tall nmain delta ratio
 	where
@@ -65,7 +62,6 @@ mtiled = renamed [Replace "\xfd35"]
 grid = renamed [Replace "\xf5c6"]
 	$ noBorders
 	$ smartSpacingWithEdge 5
-	$ magnifiercz 1.2
 	$ Grid
 
 full = renamed [Replace "\xf792"]
@@ -92,7 +88,7 @@ _tabtheme = def
 _layout = three ||| tiled ||| mtiled ||| grid ||| full ||| tabs
 
 _workspaces :: [String]
-_workspaces = [ "1 \xe795", "2 \xf268", "3 \xe795", "4 \xe795", "5 \xf6ed", "6 \xf9b0", "7 \xe70f", "8 \xfa66", "9 \xfc76", "0 \xfc76" ]
+_workspaces = [ "1 \xe795", "2 \xf268", "3 \xe795", "4 \xe795", "5 \xf6ed", "6 \xf9b0", "7 \xe70f", "8 \xfa66", "9 \xfa66", "0 \xfc76" ]
 
 _scratchpads :: [NamedScratchpad]
 _scratchpads =
@@ -116,8 +112,10 @@ _manage_app_hook = composeAll . concat $
 	, [ (className =? zoomClassName) <&&> shouldFloat <$> title --> doFloat ]
 	, [ className =? zoomClassName --> doShift (_workspaces !! 7) ]
 	, [ appName =? zoomClassName --> doShift (_workspaces !! 7) ]
+	, [ (className =? zoomClassName) <&&> shouldFloat <$> title --> doShift(_workspaces !! 8) ]
 	, [ zoomMain <$> title --> doShift (_workspaces !! 7) ]
 	, [ fmap ( c `isInfixOf`) className <&&> shouldFloat <$> title --> doCenterFloat | c <- floatClasses ]
+	, [ fmap("join?" `isInfixOf`) title --> doFloat ]
 	, [ fmap ( c `isInfixOf`) title --> doCenterFloat | c <- floatTitles ]
 	]
 	where
@@ -143,9 +141,6 @@ _event_hook =
 	dynamicTitle _manage_app_hook
 	<+> handleEventHook def
 
-_log_hook =
-	updatePointer (0.5, 0.15) (0, 0)
-
 _config = desktopConfig
 	{ modMask = mod4Mask
 	, terminal = "kitty"
@@ -155,7 +150,6 @@ _config = desktopConfig
 	, layoutHook = _layout
 	, manageHook = _manage_hook
 	, handleEventHook = _event_hook
-	, logHook = _log_hook
 	}
 	`additionalKeysP`
 	_keys
