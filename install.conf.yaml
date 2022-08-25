@@ -100,5 +100,5 @@
     - 
       command: git -C ~/.config/awesome/awesome-scratch pull || git clone https://github.com/notnew/awesome-scratch.git ~/.config/awesome/awesome-scratch
     - 
-      command: git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+      command: git -C ~/.local/share/nvim/site/pack/packer/start/packer.nvim pull || git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
       description: install neovim packer
