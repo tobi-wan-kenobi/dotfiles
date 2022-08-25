@@ -90,7 +90,6 @@ function workspace.setup(screen)
 		{
 			layout = wibox.layout.fixed.horizontal,
 			screen.taglist,
-			bountiful.focus({ margin = 10 }),
 			buttons = gears.table.join(
 				awful.button({ }, 5, function()
 					awful.tag.viewnext(screen)
@@ -124,22 +123,23 @@ function workspace.setup(screen)
 					bottom = 2,
 					{
 						layout = wibox.layout.fixed.horizontal,
-						spacing = 5,
-						bountiful.cpu({ margin = 10 }),
-						bountiful.memory({ margin = 10 }),
-						bountiful.arch({ margin = 10 }),
-						bountiful.pamixer({ margin = 10 }),
-						bountiful.pamixer({ source = true, margin = 10 }),
+						spacing = 0,
+						--bountiful.battery({ show_always = true }),
+						bountiful.arch({ }),
+						bountiful.cpu({ }),
+						bountiful.memory({ }),
+						bountiful.pamixer({ show_always = true }),
+						bountiful.pamixer({ source = true, show_always = true }),
 						bountiful.clock({
 							format = "%a %b %d, %H:%M %Z",
-							additional_timezones = { "Europe/London", "America/Los_Angeles" },
-							margin = 10,
+							timezones = { "Europe/Vienna", "Europe/London", "America/Los_Angeles" },
+              show_always = true,
 						}),
 					},
 				},
 				wibox.widget.systray(),
 				screen.layoutbox,
-				spacing = 5
+				spacing = 0
 			}
 		}
 	}
