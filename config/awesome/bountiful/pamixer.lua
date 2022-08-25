@@ -132,8 +132,8 @@ local function create_widget(_, args)
 	local source = args.source or false
 
 	local mixer = source and source_mixer or sink_mixer
-	mixer.color = theme.colors.green
-	args.width, args.height = wibox.widget.textbox(volume_string("muted", mixer.not_muted)):get_preferred_size(awful.screen.primary)
+	mixer.color = nil
+	args.width, args.height = wibox.widget.textbox(volume_string("100", mixer.not_muted)):get_preferred_size(awful.screen.primary)
   local height = args.height
 
   args.update = function(widget, text, bar, volume)
