@@ -14,6 +14,7 @@ function autostart.init()
 	run_once("picom --experimental-backends")
 	run_once("nm-applet")
 	run_once("dunst")
+	run_once("blueman-applet")
 	awful.spawn("setxkbmap -layout us -variant altgr-intl")
 end
 
