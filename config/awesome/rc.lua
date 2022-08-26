@@ -51,7 +51,7 @@ awful.rules.rules = {
 		}
 	},
 	{
-		rule = { class = "zoom " },
+		rule = { class = "zoom" },
 		properties = {
 			tag = awful.screen.focused().tags[8],
 			switchtotag = false,
