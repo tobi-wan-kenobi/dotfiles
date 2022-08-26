@@ -12,16 +12,19 @@ local function create_widget(_, args)
   timezones = args.timezones
 
 	args.widget = wibox.widget.textclock(format, refresh, timezones[1])
-  args.widget:connect_signal('button::press', function(widget, lx, ly, button)
-    if button == 1 then
+
+  args.widget:buttons(gears.table.join(
+    awful.button({}, 4, function()
       table.insert(timezones, #timezones+1, timezones[1])
       table.remove(timezones, 1)
-    elseif button == 3 then
+      args.widget.timezone = timezones[1]
+    end),
+    awful.button({}, 5, function()
       table.insert(timezones, 1, timezones[#timezones])
       table.remove(timezones, #timezones)
-    end
       args.widget.timezone = timezones[1]
-  end)
+    end)
+  ))
 
 	local widget = base.widget(args)
 
