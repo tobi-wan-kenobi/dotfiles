@@ -3,8 +3,12 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- themes
-  use 'rktjmp/lush.nvim'
-  use 'tobi-wan-kenobi/zengarden-lush'
+  use { 'tobi-wan-kenobi/zengarden-lush',
+    requires = 'rktjmp/lush.nvim',
+    config = function()
+      vim.cmd [[ colorscheme zengarden-lush ]]
+    end
+  }
   use 'ryanoasis/vim-devicons'
 
   -- status line
@@ -56,6 +60,7 @@ require('packer').startup(function(use)
   }
 
   -- experimental
+  use 'ellisonleao/glow.nvim'
   use 'numToStr/FTerm.nvim'
   use { 'numToStr/Comment.nvim',
     config = function()
@@ -66,8 +71,6 @@ require('packer').startup(function(use)
 
 end)
 
-vim.opt.termguicolors = true
-vim.cmd [[silent! colorscheme zengarden-lush]]
 
 require('nvim-treesitter.configs').setup({
 	auto_install = true,
@@ -81,6 +84,11 @@ require('coq')
 
 require('gitsigns').setup()
 vim.g.gitblame_enabled = false
+
+require('glow').setup({
+  width = 120,
+  border = 'single'
+})
 
 local lualine_zengarden = require('lualine_zengarden')
 require('lualine').setup({
