@@ -7,6 +7,8 @@ require('keybindings')
 vim.opt.number = true
 vim.opt.mouse = 'nv'
 vim.opt.cmdheight = 2
+vim.opt.colorcolumn = '80'
+vim.opt.cursorline = true
 
 -- indentation
 vim.opt.tabstop = 4
