@@ -11,9 +11,10 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gp', vim.diagnostic.goto_prev, bufopts)
   vim.keymap.set('n', 'gc', ':CodeActions<CR>', bufopts)
   vim.keymap.set('n', 'gf', ':CodeActions<CR>', bufopts)
-  vim.keymap.set('n',  'K', require('hover').hover       , { desc='hover.nvim'         })
-
+  vim.keymap.set('n',  'K', require('hover').hover, { desc='hover.nvim' })
 end
+
+require("lsp-inlayhints").setup()
 
 require('lspconfig').clangd.setup(coq.lsp_ensure_capabilities({
   single_file_mode = false,

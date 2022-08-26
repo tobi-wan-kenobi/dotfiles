@@ -17,6 +17,7 @@ require('packer').startup(function(use)
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'j-hui/fidget.nvim'
   use 'neovim/nvim-lspconfig'
+  use 'lvimuser/lsp-inlayhints.nvim'
   use { 'ms-jpq/coq_nvim', branch = 'coq' }
   use {
     'kosayoda/nvim-lightbulb',
@@ -39,14 +40,12 @@ require('packer').startup(function(use)
   end}
 
   -- finding and stuff
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
-    requires = { 'nvim-lua/plenary.nvim' }
-  }
   use { 'gfanto/fzf-lsp.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'ibhagwan/fzf-lua', requires = { 'kyazdani42/nvim-web-devicons' } }
 
   use 'lewis6991/gitsigns.nvim'
+  use 'rhysd/git-messenger.vim'
+  use 'f-person/git-blame.nvim'
 
   use {
     'kyazdani42/nvim-tree.lua',
@@ -55,6 +54,15 @@ require('packer').startup(function(use)
     },
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
+
+  -- experimental
+  use 'numToStr/FTerm.nvim'
+  use { 'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+  }
+
 
 end)
 
@@ -72,6 +80,7 @@ vim.g.coq_settings = { auto_start = 'shut-up' }
 require('coq')
 
 require('gitsigns').setup()
+vim.g.gitblame_enabled = false
 
 local lualine_zengarden = require('lualine_zengarden')
 require('lualine').setup({
@@ -93,7 +102,8 @@ require('lualine').setup({
 })
 
 require('nvim-lightbulb').setup({autocmd = {enabled = true}})
-require("nvim-tree").setup()
+require('nvim-tree').setup()
+vim.g.git_messenger_floating_win_opts = { border = 'single' }
 
 vim.cmd([[
   augroup packer_user_config
