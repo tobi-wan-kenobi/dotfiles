@@ -23,25 +23,23 @@ require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'
   use 'lvimuser/lsp-inlayhints.nvim'
   use { 'ms-jpq/coq_nvim', branch = 'coq' }
+  use 'tpope/vim-surround'
   use {
     'kosayoda/nvim-lightbulb',
     requires = 'antoinemadec/FixCursorHold.nvim',
   }
-  use { 'lewis6991/hover.nvim', config = function()
-    require('hover').setup({
-      init = function()
-        -- Require providers
-        require('hover.providers.lsp')
-        -- require('hover.providers.gh')
-        --require('hover.providers.man')
-        -- require('hover.providers.dictionary')
-      end,
-      preview_opts = {
-        border = nil
-      },
-      title = true
-    })
-  end}
+  use 'ray-x/lsp_signature.nvim'
+  use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = function()
+        local saga = require("lspsaga")
+
+        saga.init_lsp_saga({
+            -- your configuration
+        })
+    end,
+  })
 
   -- finding and stuff
   use { 'gfanto/fzf-lsp.nvim', requires = { 'nvim-lua/plenary.nvim' } }
@@ -70,7 +68,6 @@ require('packer').startup(function(use)
 
 
 end)
-
 
 require('nvim-treesitter.configs').setup({
 	auto_install = true,

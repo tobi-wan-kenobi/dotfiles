@@ -1,4 +1,7 @@
 local coq = require('coq')
+local saga = require('lspsaga')
+
+saga.init_lsp_saga()
 
 local on_attach = function(client, bufnr)
   -- Mappings.
@@ -7,14 +10,23 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gd', ':Definitions<CR>', bufopts)
   vim.keymap.set('n', 'gr', ':References<CR>', bufopts)
   vim.keymap.set('n', 'gi', ':Implementations<CR>', bufopts)
-  vim.keymap.set('n', 'gn', vim.diagnostic.goto_next, bufopts)
-  vim.keymap.set('n', 'gp', vim.diagnostic.goto_prev, bufopts)
-  vim.keymap.set('n', 'gc', ':CodeActions<CR>', bufopts)
-  vim.keymap.set('n', 'gf', ':CodeActions<CR>', bufopts)
-  vim.keymap.set('n',  'K', require('hover').hover, { desc='hover.nvim' })
+  vim.keymap.set('n', 'gn', ':Lspsaga diagnostic_jump_next<CR>', bufopts)
+  vim.keymap.set('n', 'gp', ':Lspsaga diagnostic_jump_prev<CR>', bufopts)
+  vim.keymap.set('n', 'gf', ':Lspsaga code_action<CR>', bufopts)
+  vim.keymap.set('v', 'gf', ':<C-U>Lspsaga range_code_action<CR>', { silent = true })
+  vim.keymap.set('n', 'pd', '<cmd>Lspsaga preview_definition<CR>', { silent = true })
+  vim.keymap.set('n', ',', ':Lspsaga hover_doc<CR>', { silent = true })
 end
 
 require("lsp-inlayhints").setup()
+
+require('lsp_signature').setup({
+  handler_opts = { border = 'single' },
+  floating_window = false,
+  hint_prefix = ' ',
+  select_signature_key = '<C-n>',
+})
+
 
 require('lspconfig').clangd.setup(coq.lsp_ensure_capabilities({
   single_file_mode = false,
