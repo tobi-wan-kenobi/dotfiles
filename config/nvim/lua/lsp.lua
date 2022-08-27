@@ -35,6 +35,7 @@ cmp.setup({
       ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
+      { name = 'nvim_lsp_signature_help' },
       { name = 'nvim_lsp' },
       { name = 'vsnip' },
     }, {
@@ -68,11 +69,17 @@ require('lsp_signature').setup({
   select_signature_key = '<C-n>',
 })
 
+local clangd = 'clangd'
+
+if vim.fn.executable('clangd-wrapper') == 1 then
+  clangd = 'clangd-wrapper'
+end
+
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 require('lspconfig').clangd.setup({
   single_file_mode = false,
   capabilities = capabilities,
-  cmd = { 'clangd-wrapper', '--background-index', '-j', '6', '--clang-tidy', '--clang-tidy-checks=modernize-*,-modernize-use-trailing-return-type', '--limit-results=0' },
+  cmd = { clangd, '--background-index', '-j', '6', '--clang-tidy', '--clang-tidy-checks=modernize-*,-modernize-use-trailing-return-type', '--limit-results=0' },
   on_attach = on_attach,
 })
 
