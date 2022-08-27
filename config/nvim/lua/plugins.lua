@@ -22,8 +22,13 @@ require('packer').startup(function(use)
   use 'j-hui/fidget.nvim'
   use 'neovim/nvim-lspconfig'
   use 'lvimuser/lsp-inlayhints.nvim'
-  use { 'ms-jpq/coq_nvim', branch = 'coq' }
   use 'tpope/vim-surround'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp'
+
   use {
     'kosayoda/nvim-lightbulb',
     requires = 'antoinemadec/FixCursorHold.nvim',
@@ -75,9 +80,6 @@ require('nvim-treesitter.configs').setup({
 		enable = true,
 	}
 })
-
-vim.g.coq_settings = { auto_start = 'shut-up' }
-require('coq')
 
 require('gitsigns').setup()
 vim.g.gitblame_enabled = false
