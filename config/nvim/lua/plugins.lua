@@ -22,14 +22,8 @@ require('packer').startup(function(use)
   use 'j-hui/fidget.nvim'
   use 'neovim/nvim-lspconfig'
   use 'lvimuser/lsp-inlayhints.nvim'
+  use { 'ms-jpq/coq_nvim', branch = 'coq' }
   use 'tpope/vim-surround'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-nvim-lsp-signature-help'
-
   use {
     'kosayoda/nvim-lightbulb',
     requires = 'antoinemadec/FixCursorHold.nvim',
