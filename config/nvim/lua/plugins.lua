@@ -35,10 +35,10 @@ require('packer').startup(function(use)
   }
   use 'ray-x/lsp_signature.nvim'
   use({
-    "glepnir/lspsaga.nvim",
-    branch = "main",
+    'glepnir/lspsaga.nvim',
+    branch = 'main',
     config = function()
-        local saga = require("lspsaga")
+        local saga = require('lspsaga')
 
         saga.init_lsp_saga({
             -- your configuration
@@ -103,7 +103,11 @@ require('lualine').setup({
   },
 
 	tabline = {
-		lualine_a = {'buffers'},
+		lualine_a = {
+      { 'buffers', show_modified_status = true,
+        symbols = { alternate_file = '', modified = ' ' }
+      }
+    },
 		lualine_z = {'tabs'}
 	}
 })
@@ -113,10 +117,6 @@ require('nvim-tree').setup()
 vim.g.git_messenger_floating_win_opts = { border = 'single' }
 
 vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 		\| exe "normal! g'\"" | endif
 ]])

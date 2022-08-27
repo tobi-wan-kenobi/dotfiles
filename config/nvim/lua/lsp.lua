@@ -58,7 +58,7 @@ cmp.setup.cmdline(':', {
   })
 })
 
-require("lsp-inlayhints").setup()
+require('lsp-inlayhints').setup()
 
 require('lsp_signature').setup({
   handler_opts = { border = 'single' },
