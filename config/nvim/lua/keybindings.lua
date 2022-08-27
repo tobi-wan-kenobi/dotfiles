@@ -19,5 +19,7 @@ vim.keymap.set('t', '<leader>t', fterm.toggle)
 vim.keymap.set('n', '<leader>b', function() ngbuild:toggle() end)
 vim.keymap.set('t', '<leader>b', function() ngbuild:toggle() end)
 
-vim.keymap.set('n', '<leader>g', ':GitBlameToggle<CR>')
+vim.keymap.set('n', '<leader>b', ':GitBlameToggle<CR>')
 vim.keymap.set('n', '<leader>c', ':GitMessenger<CR>')
+
+vim.keymap.set('n', '<leader>s', ':Glow<CR>')
