@@ -102,7 +102,7 @@ require('lualine').setup({
 	tabline = {
 		lualine_a = {
       { 'buffers', show_modified_status = true,
-        symbols = { alternate_file = '', modified = ' ' }
+        symbols = { alternate_file = '', modified = '*' }
       }
     },
 		lualine_z = {'tabs'}

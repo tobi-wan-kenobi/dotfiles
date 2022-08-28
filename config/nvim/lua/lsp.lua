@@ -21,7 +21,6 @@ require('lsp-inlayhints').setup()
 
 require('lsp_signature').setup({
   handler_opts = { border = 'single' },
-  floating_window = false,
   hint_prefix = ' ',
   hint_scheme = 'Comment',
   select_signature_key = '<C-n>',
