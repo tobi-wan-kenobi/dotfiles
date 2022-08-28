@@ -40,7 +40,7 @@ local coq = require('coq')
 
 require('lspconfig').clangd.setup(coq.lsp_ensure_capabilities({
   single_file_mode = false,
-  cmd = { clangd, '--background-index', '-j', '6', '--clang-tidy', '--clang-tidy-checks=modernize-*,-modernize-use-trailing-return-type', '--limit-results=0' },
+  cmd = { clangd, '--completion-style=detailed', '--enable-config', '--background-index', '-j', '6', '--clang-tidy', '--clang-tidy-checks=modernize-*,-modernize-use-trailing-return-type', '--limit-results=0' },
   on_attach = on_attach,
 }))
 
