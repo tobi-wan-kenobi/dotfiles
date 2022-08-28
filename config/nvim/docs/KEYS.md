@@ -15,3 +15,6 @@ gcc --> comment line
 gcb --> comment block
 gb --> (visual) comment block
 gc --> (visual) comment line style
+d --> inside git commit message (;c;c) -> toggle diff for this file
+D --> inside git commit message (;c;c) -> toggle diff for whole commit
+o/O --> move in git history
