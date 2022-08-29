@@ -38,3 +38,5 @@ vim.fn.sign_define(
   { text = '', texthl = 'LspDiagnosticsDefaultHint' }
 )
 
+require('mini.surround').setup()
+require('mini.trailspace').setup()

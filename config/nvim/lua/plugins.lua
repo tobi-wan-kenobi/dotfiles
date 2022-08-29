@@ -23,7 +23,6 @@ require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'
   use 'lvimuser/lsp-inlayhints.nvim'
   use { 'ms-jpq/coq_nvim', branch = 'coq' }
-  use 'tpope/vim-surround'
   use {
     'kosayoda/nvim-lightbulb',
     requires = 'antoinemadec/FixCursorHold.nvim',
@@ -65,7 +64,7 @@ require('packer').startup(function(use)
         require('Comment').setup()
     end
   }
-
+  use 'echasnovski/mini.nvim'
 
 end)
 
@@ -112,6 +111,7 @@ require('lualine').setup({
 require('nvim-lightbulb').setup({autocmd = {enabled = true}})
 require('nvim-tree').setup()
 vim.g.git_messenger_floating_win_opts = { border = 'single' }
+
 
 vim.cmd([[
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
