@@ -10,6 +10,7 @@ require('packer').startup(function(use)
     end
   }
   use 'ryanoasis/vim-devicons'
+  use 'sunjon/Shade.nvim'
 
   -- status line
 	use {
@@ -110,8 +111,13 @@ require('lualine').setup({
 
 require('nvim-lightbulb').setup({autocmd = {enabled = true}})
 require('nvim-tree').setup()
+require('shade').setup({
+  overlay_opacity = 65,
+  keys = {
+    toggle = '<Leader>a'
+  }
+})
 vim.g.git_messenger_floating_win_opts = { border = 'single' }
-
 
 vim.cmd([[
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
