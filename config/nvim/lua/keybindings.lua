@@ -26,3 +26,4 @@ vim.keymap.set('n', '<leader>s', ':Glow<CR>')
 
 vim.keymap.set("n", "gR", "<cmd>Lspsaga rename<CR>", { silent = true })
 
+vim.keymap.set('n', '<leader>dt', ':TroubleToggle<CR>')

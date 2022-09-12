@@ -13,6 +13,9 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 
+vim.cmd [[set formatoptions-=r]]
+
+
 require('plugins')
 require('lsp')
 require('filetypes')

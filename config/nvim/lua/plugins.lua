@@ -40,6 +40,17 @@ require('packer').startup(function(use)
         })
     end,
   })
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
 
   -- finding and stuff
   use { 'gfanto/fzf-lsp.nvim', requires = { 'nvim-lua/plenary.nvim' } }
@@ -111,12 +122,6 @@ require('lualine').setup({
 
 require('nvim-lightbulb').setup({autocmd = {enabled = true}})
 require('nvim-tree').setup()
-require('shade').setup({
-  overlay_opacity = 65,
-  keys = {
-    toggle = '<Leader>a'
-  }
-})
 vim.g.git_messenger_floating_win_opts = { border = 'single' }
 
 vim.cmd([[
