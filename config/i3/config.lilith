@@ -1,0 +1,20 @@
+bar {
+       output eDP1
+       font pango:Hack 12
+       position top
+       tray_output eDP1
+       strip_workspace_numbers yes
+       status_command ~/bin/bumblebee-status/bumblebee-status -m keys nic load cpu battery cmus timetz:vienna date pulseout pulsein -p nic.exclude=lo,virbr,docker,vboxnet,veth,br,.*:avahi,enp0* vienna.format="%H:%M %Z" date.format="%d/%m/%Y (CW %W)" -t zengarden -a load cpu battery nic
+
+       colors {
+        active_workspace               $gray $gray $bg
+        focused_workspace              $bg $bg $aqua
+        inactive_workspace             $bg $bg $gray
+               urgent_workspace                $bg $bg $yellow
+
+               statusline                              $gray
+               background                              $bg
+               separator                               $yellow
+       }
+}
+

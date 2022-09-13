@@ -7,24 +7,28 @@
 set $mod Mod4
 floating_modifier $mod
 
+#font pango:DejaVu Sans Book 13
 font pango:Ubuntu Medium 13
 
 # window layout
-hide_edge_borders smart 
+hide_edge_borders smart
 workspace_auto_back_and_forth yes
 
 smart_gaps on
 smart_borders on
-gaps inner 25
+gaps inner 10
 
 for_window [class=".*"] title_format "<span size='smaller'> %title </span>"
 for_window [class="^.*"] border none
-for_window [class=".*"] title_window_icon yes
-for_window [class=".*"] title_window_icon padding 2
 for_window [class="zoom"] floating enable
 for_window [class="zoom"] border none
 for_window [class="zoom" title="Zoom - Licensed Account"] floating disable
 for_window [class="zoom" title="Zoom Meeting"] floating disable
+
+for_window [instance="scratchterm"] floating enable, resize set 1000 600, move absolute position center, move to scratchpad
+bindsym $mod+p [instance="scratchterm"] scratchpad show
+
+exec alacritty --class scratchterm
 
 set $fg #e0d1be
 set $bg #353839
@@ -53,17 +57,28 @@ client.unfocused                $inactiveborder $inactiveborder         $gray   
 client.focused_inactive $gray                   $gray                           $bglight        $aqua   $inactiveborder
 client.urgent                   $bg                             $yellow                         $bg                     $aqua   $bg
 
-# assign workspaces
-workspace 9 output $right
-workspace 1 output $middle
-workspace 2 output $middle
-workspace 3 output $middle
-workspace 4 output $middle
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:"
+set $ws6 "6:聆"
+set $ws7 "7:"
+set $ws8 "8:辶"
+set $ws9 "9:ﱶ"
+set $ws10 "10:ﱶ"
 
-workspace 5 output $right
-workspace 6 output $right
-workspace 7 output $right
-workspace 8 output $right
+# assign workspaces
+workspace $ws9 output $right
+workspace $ws1 output $middle
+workspace $ws2 output $middle
+workspace $ws3 output $middle
+workspace $ws4 output $middle
+
+workspace $ws5 output $right
+workspace $ws6 output $right
+workspace $ws7 output $right
+workspace $ws8 output $right
 
 # focus movement
 # vim-style
@@ -79,28 +94,28 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 bindsym $mod+Control+Right move workspace to output right
 bindsym $mod+Control+Left move workspace to output left
@@ -111,16 +126,15 @@ bindsym $mod+Control+l move workspace to output left
 bindsym $mod+t layout tabbed
 bindsym $mod+f fullscreen
 bindsym $mod+Shift+f floating toggle
-bindsym $mod+b border toggle
 bindsym $mod+w layout toggle split
+bindsym $mod+b border toggle
 bindsym $mod+o move window to output right
+bindsym $mod+s mark swapee; focus right; swap container with mark swapee; unmark swapee
 
 # applications
 bindsym $mod+Return exec alacritty
-bindsym $mod+y exec ~/.config/rofi/powermenu/powermenu.sh
-bindsym XF86Sleep exec ~/.config/rofi/powermenu/powermenu.sh
-bindsym $mod+r exec ~/.config/rofi/launchers/misc/launcher.sh
-bindsym $mod+c exec flameshot launcher
+bindsym $mod+r exec "rofi -modi window,drun,ssh,combi -show combi"
+bindsym $mod+c exec "flameshot launcher"
 
 # wm commands
 bindsym $mod+Shift+c kill
@@ -138,4 +152,10 @@ exec --no-startup-id dunst
 exec --no-startup-id xautolock -time 5 -locker "~/bin/lock.sh"
 exec --no-startup-id setxkbmap -layout us -variant altgr-intl
 exec --no-startup-id xbindkeys
+exec --no-startup-id blueman-applet
 exec --no-startup-id picom --experimental-backends
+
+bindsym XF86AudioMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%
+
