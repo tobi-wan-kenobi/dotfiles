@@ -1,7 +1,7 @@
 configuration {
   show-icons: true;
   icon-theme: "Papirus";
-  font: "Hack 12";
+  font: "Hack Nerd Font 12";
   sidebar-mode: true;
 }
 

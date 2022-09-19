@@ -1,36 +1,50 @@
-# Requires:
-# - feh (background)
-# - acpi
-# - scrot + convert (imagemagick)
-# - i3lock
-
+# "normal" shortcuts
 set $mod Mod4
+# "dangerous" shortcuts, other modes
+set $mod2 Mod1
 floating_modifier $mod
 
-#font pango:DejaVu Sans Book 13
 font pango:Ubuntu Medium 13
 
 # window layout
 hide_edge_borders smart
 workspace_auto_back_and_forth yes
-
 smart_gaps on
 smart_borders on
 gaps inner 10
 
-for_window [class=".*"] title_format "<span size='smaller'> %title </span>"
-for_window [class="^.*"] border none
-for_window [class="zoom"] floating enable
-for_window [class="zoom"] border none
-for_window [class="zoom" title="Zoom - Licensed Account"] floating disable
-for_window [class="zoom" title="Zoom Meeting"] floating disable
+# workspaces
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:"
+set $ws6 "6:聆"
+set $ws7 "7:"
+set $ws8 "8:辶"
+set $ws9 "9:ﱶ"
+set $ws10 "10:ﱶ"
 
+# window handling
+for_window [class=".*"] title_format "<span size='smaller'> %title </span>"
+for_window [class="^.*"] border pixel 2
+for_window [class=".*zoom.*"] floating enable, border none
+for_window [class=".*zoom.*" title="Zoom Meeting"] floating disable
+assign [class=".*zoom.*"] $ws8
+assign [class="slack"] $ws6
+assign [class="obsidian"] $ws6
+assign [class="outlook.office365.com__owa"] $ws5
+
+# scratchpads
 for_window [instance="scratchterm"] floating enable, resize set 1000 600, move absolute position center, move to scratchpad
 bindsym $mod+p [instance="scratchterm"] scratchpad show
+exec --no-startup-id alacritty --class scratchterm
 
-exec alacritty --class scratchterm
+for_window [title=".*Zoom - Licensed Account.*"] floating enable, resize set 600 750, move absolute position center, move to scratchpad
+bindsym $mod+z [title=".*Zoom - Licensed Account.*"] scratchpad show
 
-set $fg #e0d1be
+# colors
+set $fg #faebd7
 set $bg #353839
 set $fg3 #d2c4b0
 set $fglight #f4ece2
@@ -45,28 +59,15 @@ set $gray #c4b6a3
 set $lightgray #686b6c
 set $orange #ff7639
 
-#set $activeborder #faebd7
-#set $inactiveborder #c4b6a3
-set $activeborder #c4b6a3
 set $inactiveborder #393c3d
+set $activeborder #393c3d
+set $indicator #3398a9
 
-# class                 border  backgr. text    indicator       child-border
-# indicator: indicates *where* window is opened + color of split container bar
-client.focused                  $activeborder   $activeborder           $bg        $aqua   $activeborder
-client.unfocused                $inactiveborder $inactiveborder         $gray                     $aqua   $inactiveborder
-client.focused_inactive $gray                   $gray                           $bglight        $aqua   $inactiveborder
-client.urgent                   $bg                             $yellow                         $bg                     $aqua   $bg
-
-set $ws1 "1:"
-set $ws2 "2:"
-set $ws3 "3:"
-set $ws4 "4:"
-set $ws5 "5:"
-set $ws6 "6:聆"
-set $ws7 "7:"
-set $ws8 "8:辶"
-set $ws9 "9:ﱶ"
-set $ws10 "10:ﱶ"
+# class                     border          backgr.                 text       indicator child-border
+client.focused              $activeborder   $fg                     $bg        $indicator   $activeborder
+client.unfocused            $inactiveborder $inactiveborder         $gray      $indicator   $inactiveborder
+client.focused_inactive		$gray           $gray                   $bglight   $indicator   $inactiveborder
+client.urgent               $bg             $yellow                 $bg        $indicator   $bg
 
 # assign workspaces
 workspace $ws9 output $right
@@ -80,12 +81,12 @@ workspace $ws6 output $right
 workspace $ws7 output $right
 workspace $ws8 output $right
 
-# focus movement
-# vim-style
+# move focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+bindsym $mod+u [urgent=latest] focus
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -117,17 +118,19 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-bindsym $mod+Control+Right move workspace to output right
-bindsym $mod+Control+Left move workspace to output left
 bindsym $mod+Control+h move workspace to output right
 bindsym $mod+Control+l move workspace to output left
+
+bindsym $mod+d workspace back_and_forth
 
 # layout stuff
 bindsym $mod+t layout tabbed
 bindsym $mod+f fullscreen
 bindsym $mod+Shift+f floating toggle
-bindsym $mod+w layout toggle split
-bindsym $mod+b border toggle
+bindsym $mod2+Shift+v split v
+bindsym $mod2+Shift+h split h
+bindsym $mod2+w layout toggle split
+
 bindsym $mod+o move window to output right
 bindsym $mod+s mark swapee; focus right; swap container with mark swapee; unmark swapee
 
@@ -137,14 +140,27 @@ bindsym $mod+r exec "rofi -modi window,drun,ssh,combi -show combi"
 bindsym $mod+c exec "flameshot launcher"
 
 # wm commands
-bindsym $mod+Shift+c kill
-bindsym $mod+Control+c reload
-bindsym $mod+Control+r restart
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod2+c kill
+bindsym $mod2+r reload
+bindsym $mod2+Control+r restart
+bindsym $mod2+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
 bindsym XF86AudioNext exec "cmus-remote -n"
 bindsym XF86AudioPrev exec "cmus-remote -r"
 bindsym XF86AudioPlay exec "cmus-remote -u"
+
+# modes
+set $mode_resize Resize
+bindsym $mod2+Shift+r mode "$mode_resize"
+mode "$mode_resize" {
+	bindsym k resize grow width 50 px; resize grow height 50 px
+	bindsym j resize shrink width 50 px; resize shrink height 50 px
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+	bindsym $mod2+r mode "default"
+	bindsym $mod2+Shift+r mode "default"
+}
 
 # autostart
 exec --no-startup-id feh --bg-fill ~/.config/i3/images/background.png
@@ -158,4 +174,6 @@ exec --no-startup-id picom --experimental-backends
 bindsym XF86AudioMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%
+
+exec --no-startup-id nm-applet
 
